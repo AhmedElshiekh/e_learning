@@ -1,0 +1,1042 @@
+/*for mobile*/
+@media (max-width:400px){
+ 
+	nav .navbar-toggler{display: block;}
+	 .navbar{   
+   box-shadow: 0px 0px 4px black;
+    height: auto;
+		 margin: 0px;
+	}
+.nav{	
+   width: 100%;	    
+	margin: auto;
+	 
+}
+	.nav>li{    
+		border-bottom: 1px solid #aaa;
+        box-shadow: 0px 0px 4px #aaa;
+	}
+		.nav>li:hover{background: #70798b;}
+	
+	
+
+  #carouselExampleControls,.course_detiles header{
+    height: 370px;
+    margin-top: 18%;
+    	}
+	.nav.ul_sign {
+    margin: 0px;
+    padding: 0px;
+}
+	.nav.ul_sign .theme-bg, .nav.ul_sign .light{
+	   border-radius: 0px;
+       padding: 0px;
+       margin: 0px;
+	}
+	.navbar > .container, .navbar > .container-fluid{
+		    justify-content: center;
+
+	}
+
+    .headernav_mobile{display: block;}
+    .headernav{display: none;}
+    .navbar-collapse li .dropdown{
+    	width: 100%;
+        display: block;
+        margin: 5px 0px;
+    }
+    .nav.ul_sign .light,.nav.ul_sign .theme-bg a{
+    	height: 50px;
+    }
+
+	.headernav{display: none;}
+	.headernav_mobile{display: block;}
+	.headernav_mobile .ul_sign button,
+	.headernav_mobile .nav.ul_sign .theme-bg,
+	 .headernav_mobile .nav.ul_sign .light{
+		width: 100%;
+		text-align: left;
+		margin: 0px;   
+		border-radius: 0px;
+
+	}
+	.headernav_mobile .nav.ul_sign{
+		padding-top: 0px;
+	}
+/*************start header****************/
+	header .carousel-inner .classes_bottom{
+		width: 100%;
+		left: 0%;
+	}
+	header .carousel-inner .classes_bottom p {
+    font-size: 20px;
+    padding-left: 15px;
+    vertical-align: middle;
+}
+	header .carousel-inner .classes_bottom p {
+    font-size: 17px;
+    padding-left: 0px;
+    vertical-align: middle;
+    padding-top: 10px;
+}
+	.services .classes_bottom{
+		    margin-top: -10px;
+	}
+	header .carousel-inner .carousel-item .word{
+   width: 90%;
+    left: 10%;
+    top: 10%;
+	}
+	header .carousel-inner .carousel-item .word button{
+		font-size: 17px;
+		margin-top: 0px;
+	}
+	header .carousel-inner .carousel-item .word p{
+		font-size: 16px;
+    width: 80%;
+    margin: 0 0 10px;
+    line-height: 1.5;
+	}
+	header .carousel-inner .carousel-item .word h2{
+      font-size: 35px;
+      font-weight: bold;
+    	}
+	header .carousel-inner .classess, header .carousel-inner .col-md-12{
+		padding: 0px;
+		display: block;
+	}
+	.carousel-control-prev, .carousel-control-next{
+    width: 35px;
+    height: 35px;
+	}
+	/*************start section courses****************/
+	.courses .Sections{width: 100%;}
+	.courses .top_hr, .classes .top_hr,.courses_page .top_hr{width: 50%;}
+	.slick-prev {left: 5%;}
+	/***************************start counter*****************/
+	.counter .div_counter .row div{
+		    margin-bottom: 50px;
+	}
+	.counter .div_counter .row div hr{
+    width: 40px;
+    margin: auto
+    	}
+    /*************start section classes****************/
+	.classes .sallary{
+    bottom: 0px;
+    right: 0px;
+    padding: 0px;
+    padding-right: 15px;
+
+	}
+	.classes  .part{
+       text-align: left;
+           display: block;
+           width: 100%;
+
+	}
+	.classes .margin_used{
+		padding: 0px;
+	}
+	.classes .part_img{
+		width: 100%;
+        height: auto;
+	}
+	.classes .part_img img{height: auto;}
+
+	.classes .parts_sections .col-lg-12{
+		padding: 0px;
+	}
+	.classes img, .classes .pragraph{
+		display: block;
+     	width: 100%;
+        margin: 0px;
+        padding: 0px;
+        border-radius: 0px;
+		text-align: center;
+		height: auto;
+	}
+	.classes .p1, .classes .p2, .classes .p3,
+	.classes h4,.classes p{text-align: left;}
+	/***********************testing***************/
+	.testing .test_english, .testing h2{
+		    font-size: 35px;
+	}
+	.testing .test_english button{
+		padding: 10px;
+	}
+	.counter .div_counter .row, .testing .div_counter .row{
+		width: 100%;
+	}
+	/***********************courses_page***************/
+	.courses_page{
+		    padding-top: 25%;
+	}
+	/**********************course_detiles******************/
+	.course_detiles .div_title{
+    padding-top: 15%;
+	}
+	.course_detiles header p{width: 90%;}
+	.course_detiles header h1{font-size: 20px;}
+	.course_detiles header h1,.course_detiles header ul,
+	.course_detiles header p{padding-left: 0px;}	
+	.course_detiles .sec_detiles_course .sec_detiles_course_left h2{
+		    margin-bottom: 30px;}
+	.course_detiles .sec_detiles_course .sec_detiles_course_left .info_ul{
+		    padding-bottom: 20px;
+	}
+	.course_detiles .sec_detiles_course .sec_detiles_course_left .property_video .thumb{
+		    overflow: visible;
+	}
+	.course_detiles .sec_detiles_course .sec_detiles_course_left .img_div{padding: 0px;}
+	.course_detiles .sec_detiles_course .sec_detiles_course_left .buy_ul li{
+		    margin-bottom: 23px;
+	}
+	.single_instructor .single_instructor_caption{
+		width: 100%;
+	}
+	.single_instructor .single_instructor_thumb{
+		    width: 100%;
+	}
+	.body_profile .viewer_detail_wraps{
+		display: block;
+	}
+	.body_profile .dashboard_container_body{
+		margin-top: 30px;
+	}
+	.service .container{
+	  padding: 0px;
+	  width: 100%;
+	}  
+	.services .classes_bottom .classes_bottom_center, 
+	.services .classes_bottom .classess{
+		    border-top: 1px solid #00000014;     
+		    background: #f8951d;
+
+	}
+	.services .classes_bottom .classes_bottom_center{
+   background: #f18401;
+}
+
+.instructors .draggable{
+	width: 100%;
+}
+	.body_profile .dashboard_container_body{
+		margin-top: 30px;
+	}
+}
+
+/*media query*/
+@media (min-width:401px) and (max-width:500px){
+ 
+	
+	 nav .navbar-toggler{display: block;}
+	 	 .navbar{   
+   box-shadow: 0px 0px 4px black;
+    height: auto;
+    margin: 0px;
+}
+	.nav{	width: 100%;margin: auto;}
+	.nav>li{    
+		border-bottom: 1px solid #aaa;
+        box-shadow: 0px 0px 4px #aaa;
+	}
+		.nav>li:hover{background: #70798b;}
+	
+  #carouselExampleControls,.course_detiles header{
+    height: 370px;
+    margin-top: 18%;
+    	}
+    		.course_detiles .div_title{
+    padding-top: 15%;
+	}
+		.nav.ul_sign {
+    margin: 0px;
+    padding: 0px;
+}
+	.nav.ul_sign .theme-bg, .nav.ul_sign .light{
+	   border-radius: 0px;
+       padding: 0px;
+       margin: 0px;
+	}
+
+	.navbar > .container, .navbar > .container-fluid{
+		    justify-content: center;
+
+	}    .navbar-collapse li .dropdown{
+    	width: 100%;
+        display: block;
+        margin: 5px 0px;
+    }
+    .nav.ul_sign .light,.nav.ul_sign .theme-bg a{
+    	height: 50px;
+    }
+
+	.headernav{display: none;}
+	.headernav_mobile{display: block;}
+	.headernav_mobile .ul_sign button,
+	.headernav_mobile .nav.ul_sign .theme-bg,
+	 .headernav_mobile .nav.ul_sign .light{
+		width: 100%;
+		text-align: left;
+		margin: 0px;    
+		border-radius: 0px;
+
+	}
+	.headernav_mobile .nav.ul_sign{
+		padding-top: 0px;
+	}
+/*************start header****************/
+	header .carousel-inner .classes_bottom{
+		width: 100%;
+		left: 0%;
+	}
+	header .carousel-inner .classes_bottom p {
+    font-size: 20px;
+    padding-left: 15px;
+    vertical-align: middle;
+}
+	header .carousel-inner .classes_bottom p {
+    font-size: 17px;
+    padding-left: 0px;
+    vertical-align: middle;
+    padding-top: 10px;
+}
+	
+	.services .classes_bottom{
+		    margin-top: -30px;
+	}
+	header .carousel-inner .carousel-item .word{
+   width: 90%;
+    left: 10%;
+    top: 10%;
+	}
+	header .carousel-inner .carousel-item .word button{
+		font-size: 17px;
+	}
+	header .carousel-inner .carousel-item .word p{
+		font-size: 16px;
+    width: 80%;
+    margin: 0 0 10px;
+    line-height: 1.5;
+	}
+	header .carousel-inner .carousel-item .word h2{
+     font-size: 35px;
+    font-weight: bold;	}
+	header .carousel-inner .classess, header .carousel-inner .col-md-12{
+		padding: 0px;
+	}
+
+	.carousel-control-prev, .carousel-control-next{
+    width: 35px;
+    height: 35px;
+	}
+	/*************start section courses****************/
+	.courses .Sections{width: 100%;}
+	.courses .top_hr, .classes .top_hr{width: 50%;}
+		.slick-prev {left: 7%;}	
+	/***************************start counter*****************/
+	.counter .div_counter .row div{
+		    margin-bottom: 50px;
+	}
+	.counter .div_counter .row div hr{
+    width: 40px;
+    margin: auto
+    	}
+		/*************start section classes****************/
+	.classes .sallary{
+    bottom: 0px;
+    right: 0px;
+    padding: 0px;
+    padding-right: 15px;
+
+	}
+	.classes  .part{
+       text-align: left;
+           display: block;
+           width: 100%;
+
+	}
+
+	.classes .margin_used{
+		padding: 0px;
+	}
+	.classes .part_img{
+		width: 100%;
+        height: auto;
+	}
+	.classes .part_img img{height: auto;}
+
+	.classes .parts_sections .col-lg-12{
+		padding: 0px;
+	}
+	.classes img, .classes .pragraph{
+		display: block;
+     	width: 100%;
+        margin: 0px;
+        padding: 0px;
+        border-radius: 0px;
+		text-align: center;
+		height: auto;
+	}
+	.classes .p1, .classes .p2, .classes .p3,
+	.classes h4,.classes p{text-align: left;}
+	
+	/**********************footer****************/
+	footer .items{
+		padding: 0px;
+	}
+
+	/***********************courses_page***************/
+	.courses_page{
+		    padding-top: 35%;
+	}
+	
+	/**********************course_detiles******************/
+	.course_detiles header p{width: 90%;}
+	.course_detiles header h1{font-size: 20px;}
+	.course_detiles header h1,.course_detiles header ul,
+	.course_detiles header p{padding-left: 0px;}
+		.course_detiles .div_title{
+    padding-top: 15%;
+	}
+	.course_detiles .sec_detiles_course .sec_detiles_course_left h2{
+		    margin-bottom: 30px;}
+	.course_detiles .sec_detiles_course .sec_detiles_course_left .info_ul{
+		    padding-bottom: 20px;
+	}
+	.single_instructor .single_instructor_caption{
+		width: 100%;
+	}
+	.single_instructor .single_instructor_thumb{
+		    width: 100%;
+	}
+	.body_profile .viewer_detail_wraps{
+		display: block;
+	}
+	.body_profile .dashboard_container_body{
+		margin-top: 30px;
+	}
+	.navbar .container{
+		    width: 100%;
+		padding: 0px;
+	}
+	.service .container{
+	  padding: 0px;
+	  width: 100%;
+	}  
+	.services .classes_bottom .classes_bottom_center, 
+	.services .classes_bottom .classess{
+		    border-top: 1px solid #00000014;     
+		    background: #f8951d;
+
+	}
+	.services .classes_bottom .classes_bottom_center{
+   background: #f18401;
+}
+
+.instructors .draggable{
+	width: 100%;
+}
+}
+/*smart phones and tablets*/
+@media (min-width:501px) and (max-width:600px){
+	.nav-brand{width: 50%;}
+	 nav .navbar-toggler{display: block;}
+		 .navbar{   
+   box-shadow: 0px 0px 4px black;
+    height: auto;
+    margin: 0px;
+}
+	
+	.nav{	width: 100%;margin: auto;}
+	.nav>li{    
+		border-bottom: 1px solid #aaa;
+        box-shadow: 0px 0px 4px #aaa;
+	}
+		.nav>li:hover{background: #70798b;}
+	
+	#carouselExampleControls,.course_detiles header{
+		height: 370px;    
+		margin-top: 13%;
+
+	}
+		.nav.ul_sign {
+    margin: 0px;
+    padding: 0px;
+}
+	.nav.ul_sign .theme-bg, .nav.ul_sign .light{
+	   border-radius: 0px;
+       padding: 0px;
+       margin: 0px;
+	}
+	
+	.navbar > .container, .navbar > .container-fluid{
+		    justify-content: center;
+
+	}
+
+    .headernav_mobile{display: block;}
+    .headernav{display: none;}
+
+    .navbar-collapse li .dropdown{
+    	width: 100%;
+        display: block;
+        margin: 5px 0px;
+    }
+    .nav.ul_sign .light,.nav.ul_sign .theme-bg a{
+    	height: 50px;
+    }
+
+	.headernav{display: none;}
+	.headernav_mobile{display: block;}
+	.headernav_mobile .ul_sign button,
+	.headernav_mobile .nav.ul_sign .theme-bg,
+	 .headernav_mobile .nav.ul_sign .light{
+		width: 100%;
+		text-align: left;
+		margin: 0px;    
+		border-radius: 0px;
+
+	}
+
+	.headernav_mobile .nav.ul_sign{
+		padding-top: 0px;
+	}
+/*************start header****************/	
+	header .carousel-inner .classes_bottom{
+		width: 100%;
+		left: 0%;
+	}
+	header .carousel-inner .classes_bottom p {
+    font-size: 20px;
+    padding-left: 15px;
+    vertical-align: middle;
+}header .carousel-inner .classes_bottom p {
+    font-size: 17px;
+    padding-left: 0px;
+    vertical-align: middle;
+    padding-top: 10px;
+}
+	
+	.services .classes_bottom{
+		    margin-top: -30px;
+	}
+	header .carousel-inner .carousel-item .word{
+   width: 90%;
+    left: 10%;
+    top: 10%;
+	}
+	header .carousel-inner .carousel-item .word button{
+		font-size: 17px;
+	}
+	header .carousel-inner .carousel-item .word p{
+		font-size: 16px;
+    width: 80%;
+    margin: 0 0 10px;
+    line-height: 1.5;
+	}
+	header .carousel-inner .carousel-item .word h2{
+     font-size: 45px;
+    font-weight: bold;	
+}
+	.carousel-control-prev, .carousel-control-next{
+    width: 35px;
+    height: 35px;
+	}
+	/*************start section courses****************/
+	.courses .Sections{width: 100%;}
+	/***************************start counter*****************/
+	.counter .div_counter .row div{
+		    margin-bottom: 50px;
+	}
+	.counter .div_counter .row div hr{
+    width: 40px;
+    margin: auto
+    	}
+		/*************start section classes****************/
+	.classes .sallary{
+    bottom: 0px;
+    right: 0px;
+    padding: 0px;
+    padding-right: 15px;
+
+	}
+	.classes  .part{
+       text-align: left;
+           display: block;
+           width: 100%;
+
+	}
+
+	.classes .margin_used{
+		padding: 0px;
+	}
+	.classes .part_img{
+		width: 100%;
+        height: auto;
+	}
+	.classes .part_img img{height: auto;}
+
+	.classes .parts_sections .col-lg-12{
+		padding: 0px;
+	}
+	.classes img, .classes .pragraph{
+		display: block;
+     	width: 100%;
+        margin: 0px;
+        padding: 0px;
+        border-radius: 0px;
+		text-align: center;
+		height: auto;
+	}
+	.classes .p1, .classes .p2, .classes .p3,
+	.classes h4,.classes p{text-align: left;}
+	
+	
+	/**********************footer****************/
+	footer .items{
+		padding: 0px;
+	}
+	
+	/***********************courses_page***************/
+	.courses_page{
+		    padding-top: 25%;
+	}
+	
+	/**********************course_detiles******************/
+		.course_detiles header p{width: 90%;}
+	.course_detiles header h1{font-size: 20px;}
+	.course_detiles header h1,.course_detiles header ul,
+	.course_detiles header p{padding-left: 0px;}
+	.course_detiles .sec_detiles_course .sec_detiles_course_left h2{
+		    margin-bottom: 30px;}
+	.course_detiles .sec_detiles_course .sec_detiles_course_left .info_ul{
+		    padding-bottom: 20px;
+	}
+	.single_instructor .single_instructor_caption{
+		width:100%;
+	}
+	.single_instructor .single_instructor_thumb{
+		    width: 100%;
+	}
+    
+
+	.service .container{
+	  padding: 0px;
+	  width: 100%;
+	}  
+	.services .classes_bottom .classes_bottom_center, 
+	.services .classes_bottom .classess{
+		    border-top: 1px solid #00000014;     
+		    background: #f8951d;
+
+	}
+	.services .classes_bottom .classes_bottom_center{
+   background: #f18401;
+}
+
+.instructors .draggable{
+	width: 100%;
+}
+
+	.body_profile .dashboard_container_body{
+		margin-top: 30px;
+	}
+}
+@media (min-width:601px) and (max-width:767px){
+	
+	 nav .navbar-toggler{display: block;}
+		 .navbar{   
+   box-shadow: 0px 0px 4px black;
+    height: auto;
+    margin: 0px;    
+    border-radius: 0px;
+
+}
+	
+	.nav{	width: 100%;margin: auto;}
+	.nav>li{    
+		border-bottom: 1px solid #aaa;
+        box-shadow: 0px 0px 4px #aaa;
+	}
+		.nav>li:hover{background: #70798b;}
+		.nav.ul_sign {
+    margin: 0px;
+    padding: 0px;
+}
+	.nav.ul_sign .theme-bg, .nav.ul_sign .light{
+	   border-radius: 0px;
+       padding: 0px;
+       margin: 0px;
+	}
+	
+	.navbar > .container, .navbar > .container-fluid{
+		    justify-content: center;
+
+	}
+    .headernav_mobile{display: block;}
+    .headernav{display: none;}
+    .navbar-collapse li .dropdown{
+    	width: 100%;
+        display: block;
+        margin: 5px 0px;
+    }
+    .nav.ul_sign .light,.nav.ul_sign .theme-bg a{
+    	height: 50px;
+    }
+
+	.headernav{display: none;}
+	.headernav_mobile{display: block;}
+	.headernav_mobile .ul_sign button,
+	.headernav_mobile .nav.ul_sign .theme-bg,
+	 .headernav_mobile .nav.ul_sign .light{
+		width: 100%;
+		text-align: left;
+		margin: 0px;
+		border-radius: 0px;
+	}
+
+	.headernav_mobile .nav.ul_sign{
+		padding-top: 0px;
+	}
+/*************start header****************/
+	
+  #carouselExampleControls,.course_detiles header{
+    height: 370px;
+    margin-top: 12%;
+    	}
+	header .carousel-inner .classes_bottom{
+		width: 90%;
+		left: 5%;
+	}
+	header .carousel-inner .classes_bottom p {
+    font-size: 20px;
+    padding-left: 15px;
+    vertical-align: middle;
+}
+	
+	header .carousel-inner .carousel-item .word{
+   width: 90%;
+    left: 10%;
+    top: 5%;
+	}
+	header .carousel-inner .carousel-item .word button{
+		font-size: 17px;
+	}
+	header .carousel-inner .carousel-item .word p{
+		font-size: 16px;
+    width: 80%;
+    margin: 0 0 10px;
+    line-height: 1.5;
+	}
+	header .carousel-inner .carousel-item .word h2{
+     font-size: 35px;
+    font-weight: bold;	}
+	.carousel-control-prev, .carousel-control-next{
+    width: 35px;
+    height: 35px;
+	}
+	/*************start section courses****************/
+	.courses .Sections{width: 100%;}
+	/***************************start counter*****************/
+	.counter .div_counter .row div{
+		    margin-bottom: 50px;
+	}
+	.counter .div_counter .row div hr{
+    width: 40px;
+    margin: auto
+    	}
+		/*************start section classes****************/
+	.classes .sallary{
+    bottom: 0px;
+    right: 0px;
+    padding: 0px;
+    padding-right: 15px;
+
+	}
+
+	.classes  .part{
+       text-align: left;
+           display: block;
+           width: 100%;
+
+	}
+
+	.classes .margin_used{
+		padding: 0px;
+	}
+	.classes .part_img{
+		width: 100%;
+        height: auto;
+	}
+	.classes .part_img img{height: auto;}
+
+	.classes .parts_sections .col-lg-12{
+		padding: 0px;
+	}
+	.classes img, .classes .pragraph{
+		display: block;
+     	width: 100%;
+        margin: 0px;
+        padding: 0px;
+        border-radius: 0px;
+		text-align: center;
+		height: auto;
+	}
+	.classes .p1, .classes .p2, .classes .p3,
+	.classes h4,.classes p{text-align: left;}
+	
+
+	/***********************testing***************/
+	.testing .test_english, .testing h2{
+		    font-size: 35px;
+	}
+	.testing .test_english button
+	{
+		padding: 10px;
+	}
+	/**********************footer****************/
+	footer .items{
+		padding: 0px;
+	}
+	
+	/***********************courses_page***************/
+	.courses_page{
+		    padding-top: 20%;
+	}
+	
+	/**********************course_detiles******************/
+	.course_detiles header{ margin-top: 12%;}
+	.course_detiles header p{width: 90%;}
+	.course_detiles .sec_detiles_course .sec_detiles_course_left h2{
+		    margin-bottom: 30px;}
+	.course_detiles .sec_detiles_course .sec_detiles_course_left .info_ul{
+		    padding-bottom: 20px;
+	}
+	.single_instructor .single_instructor_thumb{
+		    width: 100%;
+	}
+	.single_instructor .single_instructor_caption{
+		width: 100%;
+	}
+	.navbar .container{
+		    width: 100%;
+		padding: 0px;
+	}
+   .services .classes_bottom .classes_bottom_center, 
+	.services .classes_bottom .classess{
+		    border-top: 1px solid #00000014;     
+		    background: #f8951d;
+
+	}
+	.services .classes_bottom .classes_bottom_center{
+   background: #f18401;
+}
+	.service .container{
+	  padding: 0px;
+	  width: 100%;
+	}
+
+.instructors .draggable{
+	width: 100%;
+}
+	.body_profile .dashboard_container_body{
+		margin-top: 30px;
+	}
+}
+/*for mobile*/
+@media (min-width:768px) and (max-width:991px){
+	.headernav{display: none;}
+	.headernav_mobile{display: block;}
+	.headernav_mobile .ul_sign button,
+	.headernav_mobile .nav.ul_sign .theme-bg,
+	 .headernav_mobile .nav.ul_sign .light{
+		width: 100%;
+		text-align: left;
+		margin: 0px;    
+		border-radius: 0px;
+
+	}
+
+	.headernav_mobile .nav.ul_sign{
+		padding-top: 0px;
+	}
+/*************start header****************/
+	header .carousel-inner .classes_bottom{
+		width: 90%;
+		left: 5%;
+	}
+	header .carousel-inner .classes_bottom p {
+    font-size: 20px;
+    padding-left: 15px;
+    vertical-align: middle;
+}
+	
+	header .carousel-inner .carousel-item .word{
+   width: 90%;
+    left: 10%;
+    top: 25%;
+	}
+	header .carousel-inner .carousel-item .word button{
+		font-size: 17px;
+	}
+	header .carousel-inner .carousel-item .word p{
+		font-size: 16px;
+    width: 80%;
+    margin: 0 0 10px;
+    line-height: 1.5;
+	}
+	header .carousel-inner .carousel-item .word h2{
+     font-size: 45px;
+    font-weight: bold;	}
+	header .carousel-inner .classess, header .carousel-inner .col-md-12{
+		padding: 0px;
+	}
+
+	.carousel-control-prev, .carousel-control-next{
+    width: 35px;
+    height: 35px;
+	}
+	/*************start section courses****************/
+	.courses .Sections{width: 100%;}
+	/*************start section classes****************/
+	.classes .sallary{
+    bottom: 0px;
+    right: 0px;
+    padding: 0px;
+    padding-right: 15px;
+
+	}
+	
+	.classes  .part{
+       text-align: left;
+           display: block;
+           width: 100%;
+
+	}
+
+	.classes .margin_used{
+		padding: 0px;
+	}
+	.classes .part_img{
+		width: 100%;
+        height: auto;
+	}
+	.classes .part_img img{height: auto;}
+
+	.classes .parts_sections .col-lg-12{
+		padding: 0px;
+	}
+	.classes img, .classes .pragraph{
+		display: block;
+     	width: 100%;
+        margin: 0px;
+        padding: 0px;
+        border-radius: 0px;
+		text-align: center;
+		height: auto;
+	}
+	.classes .p1, .classes .p2, .classes .p3,
+	.classes h4,.classes p{text-align: left;}
+	
+	/**********************footer****************/
+	footer .items{
+		padding: 0px;
+	}
+	/**********************course_detiles******************/
+
+	.course_detiles .sec_detiles_course .sec_detiles_course_left h2{
+		    margin-bottom: 30px;
+
+	}
+
+	.service .container{
+	  padding: 0px;
+	  max-width: 100%;
+	}  
+	.services .classes_bottom .classes_bottom_center, 
+	.services .classes_bottom .classess{
+		    border-top: 1px solid #00000014;     
+		    background: #f8951d;
+
+	}
+	.services .classes_bottom .classes_bottom_center{
+   background: #f18401;
+}
+.instructors .draggable{
+	width: 100%;
+}
+
+	.body_profile .dashboard_container_body{
+		margin-top: 30px;
+	}
+}
+/*for mobile*/
+@media (min-width:992px) and (max-width:1199px){
+	.headernav_mobile .ul_sign button{
+		width: 100%;
+		text-align: left;
+		margin: 0px;   
+		border-radius: 0px;
+
+	}
+	.headernav{display: none;}
+	.headernav_mobile{display: block;}
+	header .carousel-inner .classes_bottom{
+		width: 90%;
+		left: 5%;
+	}
+	header .carousel-inner .carousel-item .word{
+    width: 90%;
+    left: 10%;
+	}
+
+	header .carousel-inner .carousel-item .word h2{
+     font-size: 50px;
+    font-weight: bold;	}
+
+	.carousel-control-prev, .carousel-control-next{
+    width: 45px;
+    height: 45px;
+	}
+	/*************start section classes****************/
+	.classes .sallary{
+    bottom: 0px;
+    right: 0px;
+    padding: 0px;
+    padding-right: 15px;
+
+	}
+	/**********************footer****************/
+	footer .items{
+		padding: 0px;
+	}
+	.service .container{
+	  padding: 0px;
+	  width: 100%;
+	}  
+	.services .classes_bottom .classes_bottom_center, 
+	.services .classes_bottom .classess{
+		    border-top: 1px solid #00000014;     
+		    background: #f8951d;
+
+	}
+	.services .classes_bottom .classes_bottom_center{
+   background: #f18401;
+}
+
+	.body_profile .dashboard_container_body{
+		margin-top: 30px;
+	}
+}
+@media (min-width: 768px){
+.navbar .container{
+	  max-width: 100%;    
+		padding: 0px;
+	}
+	.service .container{
+	  padding: 0px;
+	  width: 100%;
+	}  
+}
