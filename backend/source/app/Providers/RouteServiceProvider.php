@@ -57,6 +57,7 @@ class RouteServiceProvider extends ServiceProvider
         Route::group([
             'middleware' => ['web', 'admin', 'auth:admin'],
             'prefix' => 'admin',
+            'domin' => config('dominsRoute.admin_url'),
             'as' => 'admin.',
             'namespace' => $this->namespace,
         ], function ($router) {
@@ -74,8 +75,9 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapWebRoutes()
     {
         Route::middleware('web')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/web.php'));
+            ->domain(config('dominsRoute.admin_url'))
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web.php'));
     }
 
     /**
@@ -88,8 +90,9 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapApiRoutes()
     {
         Route::prefix('api')
-             ->middleware('api')
-             ->namespace($this->apiNamespace)
-             ->group(base_path('routes/api.php'));
+            ->domain(config('dominsRoute.api_url'))
+            ->middleware('api')
+            ->namespace($this->apiNamespace)
+            ->group(base_path('routes/api.php'));
     }
 }
