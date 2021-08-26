@@ -695,6 +695,9 @@ import axios from "axios";
 import Slick from "slick-vuejs";
 
 import VueCountdown from "@chenfengyuan/vue-countdown";
+// import Chat from 'twilio-chat';
+// const client = await Chat.Client.create(IS1001181a6ef140568398fe33d99d196c);
+
 export default {
   name: "home",
   components: { Slick, VueCountdown },

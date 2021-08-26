@@ -21,6 +21,7 @@
     "normalize.css": "^8.0.1",
     "popper.js": "^1.16.1",
     "slick-vuejs": "^1.0.9",
+    "twilio-chat": "^5.0.2",
     "vue": "^2.6.11",
     "vue-axios": "^3.2.4",
     "vue-carousel": "^0.18.0",

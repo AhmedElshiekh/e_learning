@@ -52,6 +52,7 @@ const i18n = new VueI18n({
   messages,
 });
 
+
 Vue.config.productionTip = false;
 new Vue({
   i18n,

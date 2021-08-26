@@ -4,6 +4,7 @@ node_modules
 /mails
 /user
 /theme1
+/src
 
 # local env files
 .env.local
