@@ -698,6 +698,12 @@ import VueCountdown from "@chenfengyuan/vue-countdown";
 // import Chat from 'twilio-chat';
 // const client = await Chat.Client.create(IS1001181a6ef140568398fe33d99d196c);
 
+// import Tawk from 'vue-echo'
+  
+// Vue.use(Tawk, {
+//     tawkSrc: 'https://embed.tawk.to/5f06fe9c67771f3813c0b858/default'
+// })
+
 export default {
   name: "home",
   components: { Slick, VueCountdown },
