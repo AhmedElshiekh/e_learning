@@ -95,7 +95,7 @@ trait TwilioTrait
 
         $userVerify = $user ? $user->verify_msg : null;
 
-        // if ($msg->status == 'accepted') :
+        if ($msg->status == 'accepted') :
             $userVerify ? $userVerify->update(['code' => $code])
                 : UserVerified::create([
                     'user_id'   => $uid,
@@ -103,8 +103,8 @@ trait TwilioTrait
                     'code'      => $code,
                 ]);
 
-            // return true;
-        // endif;
+            return true;
+        endif;
 
         return false;
     }
