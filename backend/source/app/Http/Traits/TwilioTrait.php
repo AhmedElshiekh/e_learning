@@ -51,13 +51,13 @@ trait TwilioTrait
             )
         );
 
-        // if ($msg->status == 'accepted') :
+        if ($msg->status == 'accepted') :
             $saveData = UserVerified::create([
                 'user_id'       => $uid,
                 'phone'         => $number,
                 'code'          => $code,
             ]);
-        // endif;
+        endif;
         return $saveData;
     }
 
