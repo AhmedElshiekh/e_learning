@@ -42,7 +42,7 @@ class AuthController extends Controller
             'name'      => 'required',
             'type'      => 'required',
             'email'     => 'nullable|email|unique:users',
-            'phone'     => 'required|numeric|unique:users',
+            'phone'     => 'required|unique:users',
             'password'  => 'required|min:4|confirmed',
         ]);
         if ($validate->fails()) :
@@ -89,7 +89,7 @@ class AuthController extends Controller
         // $credentials = request(['email', 'password']);
         $validate = Validator::make($request->all(), [
             'email'         => 'required_without:phone|email|max:255',
-            'phone'         => 'required_without:email|numeric|min:9',
+            'phone'         => 'required_without:email|min:9',
             'password'      => 'required|max:25|min:6',
         ]);
         if ($validate->fails()) :
