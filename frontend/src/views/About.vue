@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    <footer>
+    <!-- <footer>
       <div class="background_footer">
         <div class="row items">
             <div class="col-md-6 animation_left">
@@ -78,7 +78,7 @@
             </div>
           </div>
       </div>
-    </footer>
+    </footer> -->
   </div>
 </template>
 <script>
@@ -89,40 +89,40 @@ export default {
     return {
       about: null,
 
-      footer: {
-        address: null,
-        email: null,
-        facebook: null,
-        instagram: null,
-        linkedin: null,
-        location: null,
-        phone: null,
-        twitter: null,
-        whatsapp: null,
-        youTube: null,
-      },
-      global_info: null,
+    //   footer: {
+    //     address: null,
+    //     email: null,
+    //     facebook: null,
+    //     instagram: null,
+    //     linkedin: null,
+    //     location: null,
+    //     phone: null,
+    //     twitter: null,
+    //     whatsapp: null,
+    //     youTube: null,
+    //   },
+    //   global_info: null,
     };
   },
-  mounted: function () {   
-    axios
-      .get(this.$api_url + "api/global?lang=" + localStorage.getItem("lang"))
-      .then((response) => {
-        this.global_info = response.data.data;
-      });
+  mounted: function () {
+    // axios
+    //   .get(this.$api_url + "api/global?lang=" + localStorage.getItem("lang"))
+    //   .then((response) => {
+    //     this.global_info = response.data.data;
+    //   });
     axios
       .get(this.$api_url + "api/about?lang=" + localStorage.getItem("lang"))
       .then((response) => {
         this.about = response.data.data;
         console.log(this.about);
       });
-    axios
-      .get(this.$api_url + "api/footer?lang=" + localStorage.getItem("lang"))
-      .then((response) => {
-        this.footer = response.data.data;
-        console.log(this.footer);
-      });  
-   
+    // axios
+    //   .get(this.$api_url + "api/footer?lang=" + localStorage.getItem("lang"))
+    //   .then((response) => {
+    //     this.footer = response.data.data;
+    //     console.log(this.footer);
+    //   });
+
   },
 };
 </script>

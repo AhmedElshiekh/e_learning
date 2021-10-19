@@ -135,8 +135,8 @@
     </section>
     <div style="clear: both"></div>
 
-  
-    <footer>
+
+    <!-- <footer>
       <div class="background_footer">
         <div class="row items">
             <div class="col-md-6 animation_left">
@@ -198,7 +198,7 @@
             </div>
           </div>
       </div>
-    </footer>
+    </footer> -->
     <div
       class="modal fade show"
       id="popup-paypal"
@@ -254,19 +254,19 @@ export default {
       isModalVisible: false,
       srclink: null,
       deleteClicked: false,
-      global_info: null,
-      footer: {
-        address: null,
-        email: null,
-        facebook: null,
-        instagram: null,
-        linkedin: null,
-        location: null,
-        phone: null,
-        twitter: null,
-        whatsapp: null,
-        youTube: null,
-      },
+    //   global_info: null,
+    //   footer: {
+    //     address: null,
+    //     email: null,
+    //     facebook: null,
+    //     instagram: null,
+    //     linkedin: null,
+    //     location: null,
+    //     phone: null,
+    //     twitter: null,
+    //     whatsapp: null,
+    //     youTube: null,
+    //   },
     };
   },
   created() {
@@ -274,12 +274,12 @@ export default {
     this.image_classe = this.$route.params.image_classe;
   },
   mounted: function () {
-    console.log(this.key_classes);
-    console.log(this.image_classe);  axios
-      .get(this.$api_url + "api/global?lang=" + localStorage.getItem("lang"))
-      .then((response) => {
-        this.global_info = response.data.data;
-      });
+    // console.log(this.key_classes);
+    // console.log(this.image_classe);  axios
+    //   .get(this.$api_url + "api/global?lang=" + localStorage.getItem("lang"))
+    //   .then((response) => {
+    //     this.global_info = response.data.data;
+    //   });
 
     if (this.key_classes == null) {
       this.$router.back();
@@ -316,10 +316,10 @@ export default {
         });
     }
 
-    axios.get(this.$api_url + "api/footer").then((response) => {
-      this.footer = response.data.data;
-      console.log(this.footer);
-    });
+    // axios.get(this.$api_url + "api/footer").then((response) => {
+    //   this.footer = response.data.data;
+    //   console.log(this.footer);
+    // });
   },
   methods: {
     checkBuy: function (keyclasse) {

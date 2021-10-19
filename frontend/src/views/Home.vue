@@ -19,7 +19,7 @@
               :src="$api_url + slider.image"
               alt="First slide"
             />
-            <div class="lig_out"></div>
+            <div class=""></div>
             <div class="word">
               <h2 :style="{'text-align':slider.direction}" >{{ slider.name }}</h2>
               <p :style="{'text-align':slider.direction, 'text':slider.direction}" >{{ slider.paragraph }}</p>
@@ -230,7 +230,7 @@
     <!--------------------------------start section classes---------->
     <section class="classes" v-if="this.classes != null">
       <div class="container">
-        <h2>{{ $t("Upcoming Live Classes") }}</h2>
+        <h2>{{ $t("Upcoming Group Classes") }}</h2>
         <hr class="top_hr" />
         <div
           class="col-lg-12 margin_used"
@@ -343,10 +343,10 @@
     </section>
     <div class="clearfix"></div>
     <!--------------------------------end section testing---------->
-    <!--------------------------------start section instructors---------->
+    <!--------------------------------start section Teachers---------->
     <section class="instructors">
       <div class="container">
-        <h2>{{ $t("Our Instructors") }}</h2>
+        <h2>{{ $t("Our Teachers") }}</h2>
         <hr class="top_hr" />
         <div class="row">
           <div class="col-md-12">
@@ -403,7 +403,7 @@
       </div>
     </section>
 
-    <footer>
+    <!-- <footer>
       <div class="background_footer">
         <div class="row items">
             <div class="col-md-6 animation_left">
@@ -465,7 +465,7 @@
             </div>
           </div>
       </div>
-    </footer>
+    </footer> -->
 
     <div class="clearfix"></div>
 

@@ -29,8 +29,8 @@ import "jquery/dist/jquery.min.js";
 import "..//src/assets/js/style";
 import store from "./store";
 
-Vue.prototype.$api_url = "http://api.troom.aisent/";
-// Vue.prototype.$api_url = "https://api.troom.ae/";
+// Vue.prototype.$api_url = "http://api.troom.aisent/";
+Vue.prototype.$api_url = "https://api.troom.ae/";
 
 require("bootstrap");
 const lang = localStorage.getItem("lang") || "ar";

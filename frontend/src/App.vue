@@ -295,7 +295,7 @@
         <div class="container">
           <a class="nav-brand">
             <router-link to="/" tag="li" exact>
-              <img :src="$api_url + global_info.logo" class="logo"/>
+              <img :src="$api_url + global_info.logo" class="logo" />
             </router-link>
           </a>
           <button
@@ -318,12 +318,12 @@
                 </li>
                 <li>
                   <router-link to="/Classes" tag="a">{{
-                    $t("live class")
+                    $t("Group Classes")
                   }}</router-link>
                 </li>
                 <li>
                   <router-link to="/Instructors" tag="a"
-                    >{{ $t("Our instructors") }}
+                    >{{ $t("Our Teachers") }}
                   </router-link>
                 </li>
                 <li>
@@ -382,7 +382,7 @@
                   </div>
                 </li> -->
                 <li class="login_click theme-bg theme-bg-privet">
-                  <a href="#" @click="check_login">{{ $t("Privet Class") }}</a>
+                  <a href="#" @click="check_login">{{ $t("Private Class") }}</a>
                 </li>
               </ul>
             </div>
@@ -409,15 +409,15 @@
               <i class="fa fa-bars"></i>
             </div>
           </button>
-
         </div>
-        <div class="col-lg-12" style="text-align: center;">
-         <button class="login_click theme-bg theme-bg-privet" id="theme-bg-privet">
-                <a href="#" @click="showprived = true">{{
-                  $t("Privet Class")
-                }}</a>
-              </button>
-            </div>
+        <div class="col-lg-12" style="text-align: center">
+          <button
+            class="login_click theme-bg theme-bg-privet"
+            id="theme-bg-privet"
+          >
+            <a href="#" @click="showprived = true">{{ $t("Private Class") }}</a>
+          </button>
+        </div>
         <div class="collapse" id="collapsibleNavbar2">
           <div class="right_div">
             <ul class="nav navbar-nav ul_list">
@@ -433,12 +433,12 @@
               </li>
               <li>
                 <router-link to="/Classes" tag="a"
-                  >{{ $t("live class") }}
+                  >{{ $t("Group Classes") }}
                 </router-link>
               </li>
               <li>
                 <router-link to="/Instructors" tag="a"
-                  >{{ $t("Our instructors") }}
+                  >{{ $t("Our Teachers") }}
                 </router-link>
               </li>
               <li>
@@ -515,6 +515,74 @@
     </div>
     <div class="clearfix"></div>
     <router-view />
+
+     <v-footer>
+      <!-- <Footer/> -->
+      <footer>
+        <div class="background_footer">
+          <div class="row items">
+              <div class="col-md-6 animation_left">
+                <div class="animation_left">
+                  <img :src="$api_url + global_info.logo" class="logo" />
+                </div>
+                <ul style="text-align: left">
+                  <li>
+                    <p style="font-size: 18px">
+                      {{
+                        $t(
+                          "@Copyright2021 Troom: All Rights Reserved Developed by asient.net"
+                        )
+                      }}
+                    </p>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <ul style="text-align: center; padding-top: 10px">
+                  <li>
+                    <a href="#"
+                      ><img src="./assets/images/imagesicon1.png"
+                    /></a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><img src="./assets/images/imagesicon2.png"
+                    /></a>
+                  </li>
+                </ul>
+                <ul class="icon">
+                  <li v-if="footer.facebook != null">
+                    <a :href="footer.facebook">
+                      <i class="fa fa-facebook"></i>
+                    </a>
+                  </li>
+                  <li v-if="footer.youtube != null">
+                    <a :href="footer.youtube">
+                      <i class="fa fa-youtube"></i>
+                    </a>
+                  </li>
+                  <li v-if="footer.twitter != null">
+                    <a :href="footer.twitter">
+                      <i class="fa fa-twitter"></i>
+                    </a>
+                  </li>
+                  <li v-if="footer.whatsapp != null">
+                    <a :href="'https://api.whatsapp.com/send?phone='+footer.whatsapp">
+                      <i class="fa fa-whatsapp"></i>
+                    </a>
+                  </li>
+                  <li v-if="footer.instagram != null">
+                    <a :href="footer.instagram">
+                      <i class="fa fa-instagram"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </div>
+      </footer>
+      
+    </v-footer>
 
     <section class="sign_in" id="SignIn" v-if="showModal">
       <div class="info">
@@ -884,6 +952,7 @@ import VueTelInput from "vue-tel-input";
 import "vue-tel-input/dist/vue-tel-input.css";
 import VueI18n from "vue-i18n";
 import Tawk from 'vue-echo';
+// import Footer from "./components/Footer";
 // import Tawk from 'vue-tawk';
 
 Vue.use(Tawk, {
@@ -901,9 +970,11 @@ export default {
 
   components: {
     vueSimpleSpinner,
+    // Footer
   },
   data: function () {
     return {
+      website_name:null,
       loginposts: {
         email: null,
         password: null,
@@ -970,6 +1041,11 @@ export default {
       categoriesFilter: [],
     };
   },
+//   metaInfo() {
+//         return {
+//             title: `${this.$route.meta.title}`
+//         }
+//     },
   mounted() {
     //    if (this.show) {
     //   this.show = false;
@@ -1010,17 +1086,18 @@ export default {
       .get(this.$api_url + "api/global?lang=" + localStorage.getItem("lang"))
       .then((response) => {
         this.global_info = response.data.data;
-        console.log("this.global");
-        console.log(this.global_info.logo);
-        this.$route.meta.title = this.global_info.website_name;
-        console.log(this.$route.meta.title);
+        // console.log("this.global");
+        // console.log(this.global_info.logo);
+        // this.$route.meta.title = this.global_info.website_name;
+        // this.website_name = this.global_info.website_name;
+        // console.log(this.$route.meta.title);
       });
 
     axios
       .get(this.$api_url + "api/footer?lang=" + localStorage.getItem("lang"))
       .then((response) => {
         this.footer = response.data.data;
-        console.log(this.footer);
+        // console.log(this.footer);
         this.show = true;
       })
       .catch(() => {
@@ -1031,8 +1108,8 @@ export default {
       .get(this.$api_url + "api/teachers?lang=" + localStorage.getItem("lang"))
       .then((response) => {
         this.teachers = response.data.data;
-        console.log("this.teachers");
-        console.log(this.teachers);
+        // console.log("this.teachers");
+        // console.log(this.teachers);
       });
     axios
       .get(
@@ -1042,7 +1119,7 @@ export default {
       )
       .then((response) => {
         this.categoriesFilter = response.data.data;
-        console.log(this.categoriesFilter);
+        // console.log(this.categoriesFilter);
       });
   },
   watch: {
@@ -1052,23 +1129,26 @@ export default {
     //         document.title = to.name_title;
     //     }
     // },
+
     $route(to) {
-      document.title = to.meta.title || "troom";
+      document.title = this.global_info.website_name +' - '+ to.meta.title || this.global_info.website_name;
     },
   },
   computed: {
     pageTitle: function () {
-      return this.$route.meta.title;
+      return this.global_info.website_name;
     },
   },
   created() {
-    document.title = this.$route.meta.title;
+    document.title = this.global_info.website_name;
   },
   head: {
     link: [
       {
         rel: "icon",
-        href: require("./assets/logo.png"),
+        // href: require("./assets/logo.png"),
+        // href: require("https://demo1.aisent.net/logo/logo-white4.png"),
+        href: 'https://demo1.aisent.net/logo/logo-white4.png',
       },
     ],
   },
@@ -1123,15 +1203,15 @@ export default {
       e.preventDefault();
     },
     postDataSignup: function (e) {
-      console.log("this.register.type");
-      console.log(this.register.type);
+      // console.log("this.register.type");
+      // console.log(this.register.type);
       this.register.phone;
       axios
         .post(this.$api_url + "api/register", this.register)
         .then((response) => {
           // localStorage.setItem("token", response.data.data.access_token);
           console.warn(response);
-          console.log(response);
+          // console.log(response);
           this.showModal2 = false;
           this.signinbutton = false;
           axios
@@ -1171,9 +1251,9 @@ export default {
         .post(
           this.$api_url + "api/logout?token=" + localStorage.getItem("token")
         )
-        .then((response) => {
+        .then(() => {
           localStorage.removeItem("token");
-          console.log(response);
+          // console.log(response);
           this.showModal2 = false;
           this.signinbutton = true;
           this.profile_show = false;
@@ -1187,8 +1267,8 @@ export default {
       e.preventDefault();
     },
     verificationfun: function (user_key, code) {
-      console.log("user_key" + user_key);
-      console.log("code_number" + code);
+      // console.log("user_key" + user_key);
+      // console.log("code_number" + code);
       if (user_key != 0) {
         axios
           .post(this.$api_url + "api/verification/" + user_key, {
@@ -1196,7 +1276,7 @@ export default {
           })
           .then((response) => {
             console.warn(response);
-            console.log(response);
+            // console.log(response);
             this.showModal4 = false;
             this.showModal = false;
             this.signinbutton = false;
@@ -1205,12 +1285,12 @@ export default {
       }
     },
     resendVerifyCode: function (user_key) {
-      console.log("user_key" + user_key);
+      // console.log("user_key" + user_key);
       axios
         .post(this.$api_url + "api/resendVerifyCode/" + user_key)
         .then((response) => {
           console.warn(response);
-          console.log(response);
+          // console.log(response);
           this.showModal4 = false;
           this.profile_show = true;
           this.$fire({
@@ -1244,17 +1324,17 @@ export default {
         .then((response) => {
           this.coursesTeaacher = response.data.data;
           console.warn(response);
-          console.log(response);
-          console.log("coursesTeaacher");
-          console.log(this.coursesTeaacher);
+          // console.log(response);
+          // console.log("coursesTeaacher");
+          // console.log(this.coursesTeaacher);
         })
         .catch((error) => {
           console.warn(error);
         });
     },
     classRequest: function () {
-      console.log("privetClass");
-      console.log(this.privetClass);
+      // console.log("privetClass");
+      // console.log(this.privetClass);
       axios
         .post(
           this.$api_url +
@@ -1264,7 +1344,7 @@ export default {
         )
         .then((response) => {
           console.warn(response);
-          console.log(response);
+          // console.log(response);
           this.showprived = false;
 
           this.$fire({
@@ -1321,8 +1401,8 @@ export default {
       //      this.arrayfillter[i++] = this.arr1[x];
       //    }
       // }
-      //  console.log("this.arrayfillter");
-      //  console.log(this.arrayfillter);
+      //  // console.log("this.arrayfillter");
+      //  // console.log(this.arrayfillter);
       this.$router.push({
         name: "search_fillter",
         params: {
@@ -1547,8 +1627,7 @@ html:lang(ar) * {
     text-align: right;
   }
   .Instructorspage_div .row{
-        direction: rtl;
-
+    direction: rtl;
   }
 }
 </style>

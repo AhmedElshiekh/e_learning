@@ -45,7 +45,7 @@ nav {
   display: inline-block;
 }
 .nav-brand .logo {
-  max-width: 65px;
+  max-width: 150px;
   position: relative;
   top: 4px;
   padding: 5px;

@@ -198,7 +198,7 @@
                       tag="a"
                       ><i class="fa fa-eye"></i
                     ></router-link>
-                    <!-- 
+                    <!--
                     <router-link
                        :to="{
                         name:'edit_course',
@@ -261,7 +261,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                         <tr 
+                         <tr
                             v-for= "myClasse in myClasses"
                             v-bind:key = "myClasse.key"
                           >
@@ -297,7 +297,7 @@
             </div>
             <!-- /Row -->
           </div>
-          
+
             <div class="dashboard_container_body p-4" v-if="showPrivetClasses">
               <h5 style="font-size: 20px">{{ $t("Privet Classes") }}</h5>
               <hr />
@@ -372,7 +372,7 @@
       </div>
     </div>
     <div class="clearfix"></div>
-   
+
  <div
       class="modal fade"
       id="Modaledite"
@@ -394,7 +394,7 @@
           <div class="modal-body">
             <div class="form-group">
               <div class="upload-btn-wrapper">
-                <input 
+                <input
                  type="file"
                  ref="file"
                  class="file_upload_profile "
@@ -416,7 +416,7 @@
         </div>
       </div>
     </div>
-  
+
     <footer>
       <div class="background_footer">
         <div class="row items">
@@ -508,11 +508,11 @@ export default {
         facebook: null,
         instagram: null,
         linkedin: null,
-       location: null,
-       phone: null,
-       twitter: null,
-      whatsapp: null,
-      youTube: null,
+        location: null,
+        phone: null,
+        twitter: null,
+        whatsapp: null,
+        youTube: null,
       },
       edit: {
         name: null,
@@ -529,7 +529,7 @@ export default {
       global_info: null,
     };
   },
-  mounted: function () { 
+  mounted: function () {
     axios
       .get(this.$api_url + "api/global?lang=" + localStorage.getItem("lang"))
       .then((response) => {
