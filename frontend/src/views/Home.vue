@@ -9,13 +9,13 @@
       >
         <div class="carousel-inner">
           <div
-            class="carousel-item"
+            class="carousel-item d-flex align-items-center"
             v-for="(slider, index) in sliders"
             v-bind:key="slider.key"
             :class="{ active: index === 0 }"
           >
             <img
-              class="d-block w-100"
+              class="d-block w-100 h-auto"
               :src="$api_url + slider.image"
               alt="First slide"
             />

@@ -187,7 +187,7 @@ nav .navbar-toggler {
   border-radius: 0px;
   z-index: 999;
   height: auto; */
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
   z-index: 999;
   background: white;
@@ -290,7 +290,7 @@ nav .navbar-toggler {
 }
 /****************header*****/
 header {
-  height: 500px;
+  height: auto !important;
   padding: 0;
   position: relative;
 }
@@ -306,7 +306,7 @@ header .carousel-inner .carousel-item .word {
 }
 
 header .carousel-inner .carousel-item {
-  height: 100%;
+  /* height: 100%; */
   padding: 0px;
 }
 
@@ -338,7 +338,7 @@ header .carousel-inner .carousel-item .word p {
 }
 
 header .carousel-inner img {
-  height: 100%;
+  /* height: 100%; */
 }
 header .carousel-inner .carousel-item .word a {
   background: #f8951d;
@@ -451,13 +451,13 @@ header .carousel-inner .col-md-12 {
   background: #f18401;
 }
 #carouselExampleControls {
-  height: 100%;
+  /* height: 100%; */
 }
 #carouselExampleControls .lig_out {
   position: absolute;
   width: 100%;
   top: 0px;
-  height: 100%;
+  /* height: 100%; */
   background: #3a446085;
 }
 /*************start section courses****************/
@@ -1484,7 +1484,7 @@ footer .items ul .icon li:hover a {
 }
 /***************************course_detiles*****************/
 .course_detiles header {
-  height: 200px;
+  /* height: 200px; */
   text-align: left;
 }
 .course_detiles header img {
@@ -2303,7 +2303,7 @@ footer .items ul .icon li:hover a {
   height: 125px;
 }
 .carousel-inner {
-  height: 100%;
+  /* height: 100%; */
 }
 #popup-video {
   background: #00000052;
