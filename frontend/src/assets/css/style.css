@@ -1100,8 +1100,8 @@ footer .background_footer {
 }
 /******************************start footer******************/
 footer {
-  background: url(../images/map.jpg) no-repeat center center fixed;
-  background-size: cover;
+  /* background: url(../images/map.jpg) no-repeat center center fixed;
+  background-size: cover; */
   width: 100%;
   padding: 0px;
   overflow-x: hidden;
