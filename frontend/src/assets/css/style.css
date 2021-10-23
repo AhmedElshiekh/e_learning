@@ -19,7 +19,7 @@ a:hover {
 .headernav .row {
   width: 100%;
   transition: 0.5s;
-  height: 120px;
+  /* height: 120px; */
 }
 .headernav_mobile .navbar-toggler {
   float: right;
@@ -1100,8 +1100,8 @@ footer .background_footer {
 }
 /******************************start footer******************/
 footer {
-  /* background: url(../images/map.jpg) no-repeat center center fixed;
-  background-size: cover; */
+  background: url(../images/map.jpg) no-repeat center center fixed;
+  background-size: cover;
   width: 100%;
   padding: 0px;
   overflow-x: hidden;
@@ -1509,6 +1509,11 @@ footer .items ul .icon li:hover a {
   color: white;
   padding-top: 2%;
   padding-left: 100px;
+}
+@media screen and (max-width: 600px) {
+  .img_slider {
+    height: 240px !important;
+  }
 }
 .course_detiles header ul {
   list-style: none;

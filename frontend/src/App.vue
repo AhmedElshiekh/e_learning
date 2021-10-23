@@ -581,7 +581,7 @@
                   <a class="text-primary" href="https://aisent.net/">Aisent</a>
                 </p>
               </div>
-              <div class="col-lg-6">
+              <div class="col-lg-6 text-center">
                 <p style="font-size: 18px">
                   <router-link class="text-white m-5" to="/privacy" tag="a">{{
                     $t("privacy")

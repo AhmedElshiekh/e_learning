@@ -4,7 +4,7 @@
     <header>
       <div
         id="carouselExampleControls"
-        class="carousel slide"
+        class="carousel slide m-0"
         data-ride="carousel"
       >
         <div class="carousel-inner">
@@ -15,7 +15,7 @@
             :class="{ active: index === 0 }"
           >
             <img
-              class="d-block w-100 h-auto"
+              class="d-block w-100 h-auto img_slider"
               :src="$api_url + slider.image"
               alt="First slide"
             />
