@@ -2,7 +2,7 @@
   <div class="course_detiles">
     <!-- ============================================================== -->
     <header>
-      <img src="..//assets/images/background1.jpg" class="img" />
+      <img src="..//assets/images/background1.jpg" class="img"/>
       <div class="div_title">
         <h1>{{ courseDetails.name }}</h1>
         <p>{{ courseDetails.short_description }}</p>
@@ -25,27 +25,27 @@
                   courseDetails.owner == false
                 "
             >
-              <li
-                v-if="
-                 courseDetails.price != null &&
-                  courseDetails.price != 0 &&
-                  courseDetails.discountPrice != 0 ||
-                  courseDetails.discountPrice == null
-                "
-              >
-                <span>${{ courseDetails.discountPrice }}</span>
-                <p>${{ courseDetails.price }}</p>
-              </li>
-              <li
-                v-if="
-                  courseDetails.price != null &&
-                  courseDetails.price != 0 &&
-                  courseDetails.discountPrice == 0 ||
-                  courseDetails.discountPrice == null
-                "
-              >
-                $ {{ courseDetails.price }}
-              </li>
+                <li
+                  v-if="
+                    courseDetails.price != null &&
+                    courseDetails.price != 0 &&
+                    (courseDetails.discountPrice != 0 &&
+                    courseDetails.discountPrice != null)
+                  "
+                >
+                  <span>${{ courseDetails.discountPrice }}</span>
+                  <p>${{ courseDetails.price }}</p>
+                </li>
+                <li
+                  v-if="
+                    courseDetails.price != null &&
+                    courseDetails.price != 0 &&
+                    (courseDetails.discountPrice == 0 ||
+                    courseDetails.discountPrice == null)
+                  "
+                >
+                  $ {{ courseDetails.price }}
+                </li>
               <li>
                 <a class="btn" @click="checkBuy(courseDetails.key)">{{
                   $t("Buy Now")
