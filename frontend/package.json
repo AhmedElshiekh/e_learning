@@ -39,6 +39,7 @@
     "vue-sweetalert2": "^4.3.1",
     "vue-tawk": "^1.0.1",
     "vue-tel-input": "^5.5.0",
+    "vue-video-player": "^5.0.2",
     "vuejs-loading-screen": "^1.0.9",
     "vuex": "^3.4.0",
     "zoomus-jssdk": "^1.7.1"

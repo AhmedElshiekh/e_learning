@@ -1,4 +1,4 @@
-<template>
+x<template>
   <div class="lesson_mycourse_show">
     <div class="courses_page" id="courses_page">
       <div class="cont_div">

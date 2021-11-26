@@ -61,7 +61,7 @@
               <div class="img_div">
                 <div class="property_video">
                   <div class="thumb">
-                    <iframe
+                    <!-- <iframe
                       id="video"
                       :src="$api_url + 'uploads/' + lessonShow.video"
                       v-if="
@@ -69,7 +69,37 @@
                         isModalexam != true
                       "
                       allowfullscreen
-                    ></iframe>
+                    ></iframe> -->
+                    <video-player  
+                      class="video-player-box" 
+                      ref="videoPlayer"
+                      :options='{
+                        language: "ar",
+                        playbackRates: [0.5, 0.7, 1.0, 1.5, 2.0],
+                        sources: [{
+                          type: "video/mp4",
+                          src: $api_url + "uploads/" + lessonShow.video
+                        }],
+                        controls: true,
+                        controlBar: {
+                          timeDivider: false,
+                          durationDisplay: false
+                        },
+                      }'
+                      @play="onPlayerPlay($event)"
+                      @pause="onPlayerPause($event)"
+                      @ended="onPlayerEnded($event)"
+                      @waiting="onPlayerWaiting($event)"
+                      @playing="onPlayerPlaying($event)"
+                      @loadeddata="onPlayerLoadeddata($event)"
+                      @timeupdate="onPlayerTimeupdate($event)"
+                      @canplay="onPlayerCanplay($event)"
+                      @canplaythrough="onPlayerCanplaythrough($event)"
+
+                      @statechanged="playerStateChanged($event)"
+                      @ready="playerReadied"
+                    ></video-player>
+                              <!-- displayCurrentQuality: true -->
                     <img
                       class="pro_img img-fluid w100"
                       :src="$api_url + image_course"
@@ -103,7 +133,8 @@
                   v-for="teacher in courseDetails.teachers"
                   v-bind:key="teacher.key"
                 >
-                  <img :src="$api_url + teacher.image" class="img-fluid" alt />
+                  <img v-if="teacher.image" :src="$api_url + teacher.image" class="img-fluid" alt />
+                  <img v-if="!teacher.image" src="..//assets/images/user-3.png" class="img-fluid" alt />
                   <h3
                     class="edu_title"
                     v-if="courseDetails.teachers.length == 1"

@@ -29,8 +29,20 @@ import "jquery/dist/jquery.min.js";
 import "..//src/assets/js/style";
 import store from "./store";
 
-// Vue.prototype.$api_url = "http://api.troom.aisent/";
-Vue.prototype.$api_url = "https://api.troom.ae/";
+
+import VueVideoPlayer from 'vue-video-player'
+
+// require videojs style
+import 'video.js/dist/video-js.css'
+// import 'vue-video-player/src/custom-theme.css'
+Vue.use(VueVideoPlayer, /* {
+  options: global default options,
+  events: global videojs events
+} */)
+
+
+Vue.prototype.$api_url = "http://api.troom.aisent/";
+// Vue.prototype.$api_url = "https://api.troom.ae/";
 
 require("bootstrap");
 const lang = localStorage.getItem("lang") || "ar";

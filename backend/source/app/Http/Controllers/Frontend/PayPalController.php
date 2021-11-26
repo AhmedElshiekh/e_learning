@@ -3,14 +3,9 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Admin;
-use App\Country;
-use App\Mail\SendOrderToSeller;
 use App\Mail\SendOrderToUser;
 use App\Models\Package;
-use App\Models\ProductVariation;
 use App\Models\Voucher;
-use App\Order;
-use App\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -23,7 +18,7 @@ class PayPalController extends Controller
 {
     public function payment(Request $request)
     {
-//        dd($request->all());
+        // dd($request->all());
         $request->validate([
             'months' => 'required|integer|min:1',
             'package_id'=>'required'
@@ -54,8 +49,7 @@ class PayPalController extends Controller
 
 
          $response = $provider->setExpressCheckout($data,true);
-//         dd($response);
- //
+        // dd($response);
         return redirect($response['paypal_link']);
     }
 
@@ -76,13 +70,13 @@ class PayPalController extends Controller
      */
     public function success(Request $request)
     {
-       $response = \PayPal::getProvider()->getExpressCheckoutDetails($request->token);
-//        dd($response);
+        $response = \PayPal::getProvider()->getExpressCheckoutDetails($request->token);
+        // dd($response);
         $package =Package::find($response['L_NAME0']);
         $months = $response['PAYMENTREQUEST_0_DESC'];
         $price = $response['L_AMT0'];
 
-//        dd($voucher);
+        // dd($voucher);
         $data = [];
         $data['items'][] = [
             'name' => $package->id,
@@ -94,13 +88,13 @@ class PayPalController extends Controller
             'amount'=>$price,
             'paid_for' => $months .' Months / '.$package->packageTime->time .'Min/'.$package->classes .'Class Per Month',
             'user_id' => $user->id,
-//            'package_id' => $package->id
+            // 'package_id' => $package->id
         ]);
 
         $data['invoice_id'] = $voucher->id+10000;
         $data['invoice_description'] =  $request->months;
 
-//        $data['invoice_description'] = "Request #{$data['invoice_id']} Invoice";
+        // $data['invoice_description'] = "Request #{$data['invoice_id']} Invoice";
         $data['total'] = $price;
         $provider = new ExpressCheckout;
         $PayerID = $request->PayerID;
@@ -118,12 +112,12 @@ class PayPalController extends Controller
             array_push($adminsMail, $admin->email);
         }
         Mail::to($email)->bcc($adminsMail)->send(new SendOrderToUser($voucher));
-//        $sellerProducts = $order->products->where('user_id', '!==', null);
-//        if ($sellerProducts->count() > 0){
-//            foreach ($sellerProducts as $product) {
-//                Mail::to($product->user->email)->send(new SendOrderToSeller($order, $product));
-//            }
-//        }
+        // $sellerProducts = $order->products->where('user_id', '!==', null);
+        // if ($sellerProducts->count() > 0){
+        //     foreach ($sellerProducts as $product) {
+        //         Mail::to($product->user->email)->send(new SendOrderToSeller($order, $product));
+        //     }
+        // }
         return redirect('/')->with('success','Payment Completed successfully');
 
     }

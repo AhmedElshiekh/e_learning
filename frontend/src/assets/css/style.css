@@ -3383,3 +3383,7 @@ footer .animation_left {
 .courses_page .pagination {
   margin: 10px;
 }
+.video-js{
+  height: 400px;
+  width: auto;
+}
