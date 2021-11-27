@@ -69,7 +69,7 @@
                       class="video-player-box"
                       ref="videoPlayer"
                       :options="{
-                        language: 'ar',
+                        language: 'en',
                         playbackRates: [0.5, 0.7, 1.0, 1.5, 2.0],
                         sources: [
                           {
@@ -79,8 +79,9 @@
                         ],
                         controls: true,
                         controlBar: {
-                          timeDivider: false,
-                          durationDisplay: false,
+                          timeDivider: true,
+                          durationDisplay: true,
+                          fullscreenToggle: true,
                         },
                       }"
                       @play="onPlayerPlay($event)"
@@ -156,7 +157,7 @@
                     />
                     <h3
                       :id="'teacherName_' + teacher.key"
-                      style="display: none;"
+                      style="display: none"
                       v-if="courseDetails.teachers.length != 0"
                     >
                       {{ teacher.name }}
@@ -967,7 +968,7 @@ export default {
 
     // console.log(" localStorage.getItem('lang')");
     // console.log(localStorage.getItem("lang"));
-
+  
     if (!this.key_course) {
       this.$router.back();
     }
@@ -1609,19 +1610,21 @@ export default {
           link.click();
           URL.revokeObjectURL(link.href);
         })
-        .catch(console.error);
+        .catch(
+          // console.error
+        );
     },
     hideTeacherName(teacherKey) {
       var id = "teacherName_" + teacherKey;
       var teacherName = document.getElementById(id);
-      teacherName.style.display = "none"
+      teacherName.style.display = "none";
     },
-
     showTeacherName(teacherKey) {
       var id = "teacherName_" + teacherKey;
       var teacherName = document.getElementById(id);
-      teacherName.style.display = "inline flow-root"
+      teacherName.style.display = "inline flow-root";
     },
+    
   },
 };
 </script>

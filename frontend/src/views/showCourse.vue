@@ -221,8 +221,8 @@ export default {
       )
       .then((response) => {
         this.allChapter = response.data.data;
-        console.log("my allChapter");
-        console.log(this.allChapter);
+        // console.log("my allChapter");
+        // console.log(this.allChapter);
       });
   },
 };

@@ -20,51 +20,51 @@
         </div>
     </div>
 
-<!-- Navbar Header -->
+    <!-- Navbar Header -->
     <nav class="navbar navbar-header navbar-expand-lg" style="background-color: #081f7b">
 
-    <div class="container-fluid">
+        <div class="container-fluid">
 
-        <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
-            @role('admin')
-            <li>
-                <a class="btn btn-sm btn-default mx-3"  style="background: #f7941d !important" href="{{route('admin.settings.edit')}}">
-                    {{__('Setting')}}
-                </a>`
-            </li>
-            @endrole
-            <li class="nav-item dropdown hidden-caret">
-                <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
-                    <div class="avatar-sm">
-                       <i class="fas fa-user-alt" style="color: #fff; font-size:30px"></i>
-                    </div>
-                </a>
-                <ul class="dropdown-menu dropdown-user animated ">
-                    <div class="dropdown-user-scroll scrollbar-outer">
-                        <li>
-{{--                            <div class="dropdown-divider"></div>--}}
-                            <a class="dropdown-item" href="{{url('admin/profile')}}">{{__('My Profile')}}</a>
-                            @role('admin')
-                               <a class="dropdown-item" href="{{route('admin.users.all')}}">{{__('Users')}}</a>
-                            @endrole
-{{--                            <a class="dropdown-item" href="{{route('admin.role.all')}}">{{__('Roles')}}</a>--}}
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
-                                <i class="fa fa-lock"></i> {{__('Logout')}}
-                            </a>
-                            <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                {{ csrf_field() }}
-                            </form>
-                        </li>
-                    </div>
-                </ul>
-            </li>
-            {{-- <li class="lang"><a href="{{ url( App::isLocale('ar') ? 'lang/en' :'lang/ar' )}}" ><i class="fa fa-language" style="font-size:27px;    color: #fff;"></i></a></li> --}}
-        </ul>
-    </div>
-</nav>
-<!-- End Navbar -->
+            <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+                @role('admin')
+                <li>
+                    <a class="btn btn-sm btn-default mx-3"  style="background: #f7941d !important" href="{{route('admin.settings.edit')}}">
+                        {{__('Setting')}}
+                    </a>`
+                </li>
+                @endrole
+                <li class="nav-item dropdown hidden-caret">
+                    <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <div class="avatar-sm">
+                        <i class="fas fa-user-alt" style="color: #fff; font-size:30px"></i>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user animated ">
+                        <div class="dropdown-user-scroll scrollbar-outer">
+                            <li>
+                                {{-- <div class="dropdown-divider"></div> --}}
+                                <a class="dropdown-item" href="{{url('admin/profile')}}">{{__('My Profile')}}</a>
+                                @role('admin')
+                                <a class="dropdown-item" href="{{route('admin.users.all')}}">{{__('Users')}}</a>
+                                @endrole
+                                {{-- <a class="dropdown-item" href="{{route('admin.role.all')}}">{{__('Roles')}}</a> --}}
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
+                                    <i class="fa fa-lock"></i> {{__('Logout')}}
+                                </a>
+                                <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
+                        </div>
+                    </ul>
+                </li>
+                {{-- <li class="lang"><a href="{{ url( App::isLocale('ar') ? 'lang/en' :'lang/ar' )}}" ><i class="fa fa-language" style="font-size:27px;    color: #fff;"></i></a></li> --}}
+            </ul>
+        </div>
+    </nav>
+    <!-- End Navbar -->
 
 </div><!-- main header -->
 

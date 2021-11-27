@@ -29,17 +29,17 @@ import "jquery/dist/jquery.min.js";
 import "..//src/assets/js/style";
 import store from "./store";
 
-
-import VueVideoPlayer from 'vue-video-player'
+import VueVideoPlayer from "vue-video-player";
 
 // require videojs style
-import 'video.js/dist/video-js.css'
+import "video.js/dist/video-js.css";
 // import 'vue-video-player/src/custom-theme.css'
-Vue.use(VueVideoPlayer, /* {
+Vue.use(
+  VueVideoPlayer /* {
   options: global default options,
   events: global videojs events
-} */)
-
+} */
+);
 
 // Vue.prototype.$api_url = "http://api.troom.aisent/";
 Vue.prototype.$api_url = "https://api.troom.ae/";
@@ -49,9 +49,8 @@ const lang = localStorage.getItem("lang") || "ar";
 axios.defaults.headers["Accept-Language"] = lang;
 document.documentElement.lang = lang;
 
-
-import JwPagination from 'jw-vue-pagination';
-Vue.component('jw-pagination', JwPagination);
+import JwPagination from "jw-vue-pagination";
+Vue.component("jw-pagination", JwPagination);
 
 const messages = {
   en,
@@ -64,11 +63,11 @@ const i18n = new VueI18n({
   messages,
 });
 
-import Tawk from 'vue-echo'
-  
+import Tawk from "vue-echo";
+
 Vue.use(Tawk, {
-    tawkSrc: '610fb065649e0a0a5cd01b1b'
-})
+  tawkSrc: "610fb065649e0a0a5cd01b1b",
+});
 
 Vue.config.productionTip = false;
 new Vue({
