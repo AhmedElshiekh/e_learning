@@ -21,13 +21,22 @@
             />
             <div class=""></div>
             <div class="word">
-              <h2 :style="{'text-align':slider.direction}" >{{ slider.name }}</h2>
-              <p :style="{'text-align':slider.direction, 'text':slider.direction}" >{{ slider.paragraph }}</p>
+              <h2 :style="{ 'text-align': slider.direction }">
+                {{ slider.name }}
+              </h2>
+              <p
+                :style="{
+                  'text-align': slider.direction,
+                  text: slider.direction,
+                }"
+              >
+                {{ slider.paragraph }}
+              </p>
               <a
                 :href="slider.btn_url"
                 class="btn button_carousel"
                 v-if="slider.btn_name != ''"
-                :style="{'text-align':slider.direction}"
+                :style="{ 'text-align': slider.direction }"
               >
                 <span>{{ slider.btn_name }} </span>
                 <i class="fa fa-chevron-down"></i>
@@ -98,7 +107,7 @@
                 v-for="categ in categories"
                 v-bind:key="categ.key"
               >
-                <img src="..//assets/images/troom2.png"  class="background" />
+                <img src="..//assets/images/troom2.png" class="background" />
                 <div class="div_in_sections">
                   <img :src="$api_url + categ.image" />
                   <p>{{ categ.name }}</p>
@@ -161,24 +170,14 @@
                       <li>{{ course.level }}</li>
                     </ul>
                   </div>
-                  <p
-                    class="education_ratting"
-                    v-if="
-                      course.discountPrice != 0
-                    "
-                  >
+                  <p class="education_ratting" v-if="course.discountPrice != 0">
                     ${{ course.discountPrice }}
                     <span class="education_ratting2">
                       ${{ course.price }}
                     </span>
                   </p>
 
-                  <p
-                    class="education_ratting"
-                    v-if="
-                      course.discountPrice == 0
-                    "
-                  >
+                  <p class="education_ratting" v-if="course.discountPrice == 0">
                     ${{ course.price }}
                   </p>
                 </router-link>
@@ -362,33 +361,33 @@
                 v-bind:key="teacher.key"
               >
                 <router-link
-                    :to="{
+                  :to="{
                     name: 'Instructorspage',
                     params: {
-                        key_instructor: teacher.key,
+                      key_instructor: teacher.key,
                     },
-                    }"
-                    tag="a"
+                  }"
+                  tag="a"
                 >
-                <div class="instructor_wrap">
-                  <div class="instructor_thumb">
-                    <a tabindex="0"
-                      ><img
-                        :src="$api_url + teacher.image"
-                        class="img-fluid"
-                        alt=""
-                    /></a>
-                  </div>
-                  <div class="instructor_caption">
-                    <h4>
-                      <!-- <a href="instructor-detail.html" tabindex="0">
+                  <div class="instructor_wrap">
+                    <div class="instructor_thumb">
+                      <a tabindex="0"
+                        ><img
+                          :src="$api_url + teacher.image"
+                          class="img-fluid"
+                          alt=""
+                      /></a>
+                    </div>
+                    <div class="instructor_caption">
+                      <h4>
+                        <!-- <a href="instructor-detail.html" tabindex="0">
                         {{ teacher.name }}</a
                       > -->
-                    </h4>
-                    <!--- career teacher not do---->
-                    <span>{{ teacher.career }}</span>
+                      </h4>
+                      <!--- career teacher not do---->
+                      <span>{{ teacher.career }}</span>
+                    </div>
                   </div>
-                </div>
                 </router-link>
               </div>
             </Slick>
@@ -574,7 +573,7 @@
                         class="btn btn-success"
                         @click="arryexamformindex(index)"
                       >
-                        {{$t("Next")}}
+                        {{ $t("Next") }}
                       </button>
                     </div>
                     <div
@@ -699,7 +698,7 @@ import VueCountdown from "@chenfengyuan/vue-countdown";
 // const client = await Chat.Client.create(IS1001181a6ef140568398fe33d99d196c);
 
 // import Tawk from 'vue-echo'
-  
+
 // Vue.use(Tawk, {
 //     tawkSrc: 'https://embed.tawk.to/5f06fe9c67771f3813c0b858/default'
 // })
@@ -723,20 +722,20 @@ export default {
       courses: [],
       analysis: [],
       categories: [],
-      footer:{
+      footer: {
         address: null,
         email: null,
         facebook: null,
         instagram: null,
         linkedin: null,
-       location: null,
-       phone: null,
-       twitter: null,
-      whatsapp: null,
-      youTube: null,
+        location: null,
+        phone: null,
+        twitter: null,
+        whatsapp: null,
+        youTube: null,
       },
-      classes:[],
-      teachers:[],
+      classes: [],
+      teachers: [],
       sliderOptions: {
         dots: false,
         infinite: true,

@@ -180,7 +180,7 @@
                       </div>
                     </router-link>
                   </div>
-                  <div class="pt-3" >
+                  <div class="pt-3">
                     <jw-pagination
                       :items="Instructor_info.liveCourses"
                       :pageSize="2"
@@ -210,7 +210,6 @@
     <!--------------------------------start nav left---------->
 
     <!--------------------------------end nav left---------->
-
   </div>
 </template>
 <script>
@@ -222,14 +221,12 @@ export default {
       Instructor_info: null,
       pageOfItems: [],
       pageOfItems2: [],
-
     };
   },
   created() {
     this.key_instructor = this.$route.params.key_instructor;
   },
   mounted: function () {
-
     axios
       .get(
         this.$api_url +
@@ -243,7 +240,6 @@ export default {
         console.log("this.Instructor_info");
         console.log(this.Instructor_info);
       });
-    
   },
   methods: {
     onChangePage(pageOfItems) {

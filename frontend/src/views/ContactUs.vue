@@ -81,8 +81,6 @@
         </div>
       </div>
     </section>
-
-
   </div>
 </template>
 
@@ -104,7 +102,6 @@ export default {
     };
   },
   mounted: function () {
-
     axios
       .get(this.$api_url + "api/contactUs?lang=" + localStorage.getItem("lang"))
       .then((response) => {
@@ -112,7 +109,6 @@ export default {
         console.log("this.contact_Us");
         console.log(this.contact_Us);
       });
-    
 
     if (localStorage.getItem("token") != null) {
       this.emailtoken = false;

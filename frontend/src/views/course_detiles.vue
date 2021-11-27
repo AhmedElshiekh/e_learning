@@ -2,7 +2,7 @@
   <div class="course_detiles">
     <!-- ============================================================== -->
     <header>
-      <img src="..//assets/images/background1.jpg" class="img"/>
+      <img src="..//assets/images/background1.jpg" class="img" />
       <div class="div_title">
         <h1>{{ courseDetails.name }}</h1>
         <p>{{ courseDetails.short_description }}</p>
@@ -19,33 +19,28 @@
           <div class="sec_detiles_course_left col-lg-12">
             <h2 v-if="lessonShow.name != null">{{ lessonShow.name }}</h2>
             <h2 v-if="lessonShow.name == null"><br /></h2>
-            <ul
-                class="buy_ul"
+            <ul class="buy_ul" v-if="courseDetails.owner == false">
+              <li
                 v-if="
-                  courseDetails.owner == false
+                  courseDetails.price != null &&
+                  courseDetails.price != 0 &&
+                  courseDetails.discountPrice != 0 &&
+                  courseDetails.discountPrice != null
                 "
-            >
-                <li
-                  v-if="
-                    courseDetails.price != null &&
-                    courseDetails.price != 0 &&
-                    (courseDetails.discountPrice != 0 &&
-                    courseDetails.discountPrice != null)
-                  "
-                >
-                  <span>${{ courseDetails.discountPrice }}</span>
-                  <p>${{ courseDetails.price }}</p>
-                </li>
-                <li
-                  v-if="
-                    courseDetails.price != null &&
-                    courseDetails.price != 0 &&
-                    (courseDetails.discountPrice == 0 ||
+              >
+                <span>${{ courseDetails.discountPrice }}</span>
+                <p>${{ courseDetails.price }}</p>
+              </li>
+              <li
+                v-if="
+                  courseDetails.price != null &&
+                  courseDetails.price != 0 &&
+                  (courseDetails.discountPrice == 0 ||
                     courseDetails.discountPrice == null)
-                  "
-                >
-                  $ {{ courseDetails.price }}
-                </li>
+                "
+              >
+                $ {{ courseDetails.price }}
+              </li>
               <li>
                 <a class="btn" @click="checkBuy(courseDetails.key)">{{
                   $t("Buy Now")
@@ -70,22 +65,24 @@
                       "
                       allowfullscreen
                     ></iframe> -->
-                    <video-player  
-                      class="video-player-box" 
+                    <video-player
+                      class="video-player-box"
                       ref="videoPlayer"
-                      :options='{
-                        language: "ar",
+                      :options="{
+                        language: 'ar',
                         playbackRates: [0.5, 0.7, 1.0, 1.5, 2.0],
-                        sources: [{
-                          type: "video/mp4",
-                          src: $api_url + "uploads/" + lessonShow.video
-                        }],
+                        sources: [
+                          {
+                            type: 'video/mp4',
+                            src: $api_url + 'uploads/' + lessonShow.video,
+                          },
+                        ],
                         controls: true,
                         controlBar: {
                           timeDivider: false,
-                          durationDisplay: false
+                          durationDisplay: false,
                         },
-                      }'
+                      }"
                       @play="onPlayerPlay($event)"
                       @pause="onPlayerPause($event)"
                       @ended="onPlayerEnded($event)"
@@ -95,11 +92,10 @@
                       @timeupdate="onPlayerTimeupdate($event)"
                       @canplay="onPlayerCanplay($event)"
                       @canplaythrough="onPlayerCanplaythrough($event)"
-
                       @statechanged="playerStateChanged($event)"
                       @ready="playerReadied"
                     ></video-player>
-                              <!-- displayCurrentQuality: true -->
+                    <!-- displayCurrentQuality: true -->
                     <img
                       class="pro_img img-fluid w100"
                       :src="$api_url + image_course"
@@ -134,19 +130,33 @@
                   v-bind:key="teacher.key"
                 >
                   <router-link
-                      :to="{
-                        name: 'Instructorspage',
-                        params: {
-                            key_instructor: teacher.key,
-                        },
-                      }"
-                      tag="a"
+                    :to="{
+                      name: 'Instructorspage',
+                      params: {
+                        key_instructor: teacher.key,
+                      },
+                    }"
+                    tag="a"
                   >
-                    <img @mouseover="showTeacherName(teacher.key)" @mouseleave="hideTeacherName(teacher.key)" v-if="teacher.image" :src="$api_url + teacher.image" class="img-fluid" alt />
-                    <img @mouseover="showTeacherName(teacher.key)" @mouseleave="hideTeacherName(teacher.key)" v-if="!teacher.image" src="..//assets/images/user-3.png" class="img-fluid" alt />
+                    <img
+                      @mouseover="showTeacherName(teacher.key)"
+                      @mouseleave="hideTeacherName(teacher.key)"
+                      v-if="teacher.image"
+                      :src="$api_url + teacher.image"
+                      class="img-fluid"
+                      alt
+                    />
+                    <img
+                      @mouseover="showTeacherName(teacher.key)"
+                      @mouseleave="hideTeacherName(teacher.key)"
+                      v-if="!teacher.image"
+                      src="..//assets/images/user-3.png"
+                      class="img-fluid"
+                      alt
+                    />
                     <h3
-                      :id="'teacherName_'+teacher.key"
-                      class="teacherName"
+                      :id="'teacherName_' + teacher.key"
+                      style="display: none;"
                       v-if="courseDetails.teachers.length != 0"
                     >
                       {{ teacher.name }}
@@ -403,7 +413,6 @@
     </section>
     <div style="clear: both"></div>
 
-
     <!-- Modal -->
     <div
       class="modal fade"
@@ -503,7 +512,11 @@
                   x="0px"
                   y="0px"
                   viewBox="0 0 56 56"
-                  style="enable-background: new 0 0 56 56 ;height: 46px;display: block;"
+                  style="
+                    enable-background: new 0 0 56 56;
+                    height: 46px;
+                    display: block;
+                  "
                   xml:space="preserve"
                 >
                   <g>
@@ -847,7 +860,9 @@
       id="popup-paypal"
       tabindex="-1"
       role="dialog"
-      aria-labelledby="myModalLabel" v-if="isModalVisible == true" >
+      aria-labelledby="myModalLabel"
+      v-if="isModalVisible == true"
+    >
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -1198,7 +1213,6 @@ export default {
           }
         });
     }
-    
   },
   methods: {
     getsecond_lesson: function (second_lesson, owner_course) {
@@ -1560,9 +1574,9 @@ export default {
             this.timerequest(this.goToExam.time);
           });
           // console.log(
-        //     "this.goToExam.sections_count",
-        //     this.goToExam.sections_count
-        //   );
+          //     "this.goToExam.sections_count",
+          //     this.goToExam.sections_count
+          //   );
 
           // console.log("sections", this.sections);
           for (var x = 0; x < this.goToExam.sections_count; x++) {
@@ -1581,26 +1595,32 @@ export default {
     },
 
     downloadWithVueResource() {
-
-      axios.get(this.$api_url + 'uploads/' + this.lessonShow.material, { responseType: 'blob' })
-      .then(response => {
-        const blob = new Blob([response.data], { type: 'application/png/jpg' })
-        const link = document.createElement('a')
-        link.href = URL.createObjectURL(blob)
-        link.download = this.$api_url + 'uploads/' + this.lessonShow.material
-        link.click()
-        URL.revokeObjectURL(link.href)
-      }).catch(console.error)
+      axios
+        .get(this.$api_url + "uploads/" + this.lessonShow.material, {
+          responseType: "blob",
+        })
+        .then((response) => {
+          const blob = new Blob([response.data], {
+            type: "application/png/jpg",
+          });
+          const link = document.createElement("a");
+          link.href = URL.createObjectURL(blob);
+          link.download = this.$api_url + "uploads/" + this.lessonShow.material;
+          link.click();
+          URL.revokeObjectURL(link.href);
+        })
+        .catch(console.error);
     },
-    hideTeacherName(event){
-      //
+    hideTeacherName(teacherKey) {
+      var id = "teacherName_" + teacherKey;
+      var teacherName = document.getElementById(id);
+      teacherName.style.display = "none"
     },
-    showTeacherName(teacherKey){
-      var id = 'teacherName_' + teacherKey
-      var teacherName = Document.getElementById(id)
 
-      console.log(id);
-      console.log(teacherName);
+    showTeacherName(teacherKey) {
+      var id = "teacherName_" + teacherKey;
+      var teacherName = document.getElementById(id);
+      teacherName.style.display = "inline flow-root"
     },
   },
 };

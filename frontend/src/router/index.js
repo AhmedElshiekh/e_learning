@@ -9,7 +9,7 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
-    meta:{title: 'home'},
+    meta: { title: "home" },
   },
   {
     path: "/aboutus",
@@ -17,7 +17,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    meta:{title: 'about us'},
+    meta: { title: "about us" },
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
@@ -27,7 +27,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    meta:{title: 'Courses'},
+    meta: { title: "Courses" },
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Courses.vue"),
   },
@@ -37,7 +37,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    meta:{title: 'Classes'},
+    meta: { title: "Classes" },
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Classes.vue"),
   },
@@ -47,7 +47,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    meta:{title: 'Instructors'},
+    meta: { title: "Instructors" },
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Instructors.vue"),
   },
@@ -57,7 +57,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    meta:{title: 'Contact Us'},
+    meta: { title: "Contact Us" },
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/ContactUs.vue"),
   },
@@ -67,7 +67,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    meta:{title: 'profile'},
+    meta: { title: "profile" },
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/profile.vue"),
   },
@@ -77,7 +77,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    meta:{title: 'privacy'},
+    meta: { title: "privacy" },
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/privacy.vue"),
   },
@@ -97,7 +97,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    meta:{title: 'profile_user'},
+    meta: { title: "profile_user" },
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/profile_user.vue"),
   },
@@ -126,7 +126,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    meta:{title: 'Course'},
+    meta: { title: "Course" },
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/showCourse.vue"),
   },
@@ -145,7 +145,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    meta:{title: 'Course lesson'},
+    meta: { title: "Course lesson" },
     component: () =>
       import(
         /* webpackChunkName: "about" */ "../views/lesson_mycourse_show.vue"
@@ -157,7 +157,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    meta:{title: 'lesson'},
+    meta: { title: "lesson" },
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/show_lesson.vue"),
   },
@@ -187,7 +187,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    meta:{title: 'class lesson'},
+    meta: { title: "class lesson" },
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/lesson_myclass.vue"),
   },
@@ -198,7 +198,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    meta:{title: 'meeting'},
+    meta: { title: "meeting" },
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Meeting.vue"),
   },
@@ -209,7 +209,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    meta:{title: 'lesson class'},
+    meta: { title: "lesson class" },
     component: () =>
       import(
         /* webpackChunkName: "about" */ "../views/lesson_myclass_student.vue"
@@ -222,7 +222,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    meta:{title: 'lesson privet class'},
+    meta: { title: "lesson privet class" },
     component: () =>
       import(
         /* webpackChunkName: "about" */ "../views/lesson_myprivetclass_student.vue"
@@ -235,7 +235,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    meta:{title: 'courses'},
+    meta: { title: "courses" },
     component: () =>
       import(
         /* webpackChunkName: "about" */ "../views/lesson_myprivetclass.vue"
@@ -251,7 +251,7 @@ const routes = [
   {
     path: "/Instructorspage/:key_instructor",
     name: "Instructorspage",
-    meta:{title: 'Instructorspage'},
+    meta: { title: "Instructorspage" },
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Instructorspage.vue"),
   },

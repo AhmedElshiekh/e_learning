@@ -135,7 +135,6 @@
     </section>
     <div style="clear: both"></div>
 
-
     <!-- <footer>
       <div class="background_footer">
         <div class="row items">
@@ -254,19 +253,19 @@ export default {
       isModalVisible: false,
       srclink: null,
       deleteClicked: false,
-    //   global_info: null,
-    //   footer: {
-    //     address: null,
-    //     email: null,
-    //     facebook: null,
-    //     instagram: null,
-    //     linkedin: null,
-    //     location: null,
-    //     phone: null,
-    //     twitter: null,
-    //     whatsapp: null,
-    //     youTube: null,
-    //   },
+      //   global_info: null,
+      //   footer: {
+      //     address: null,
+      //     email: null,
+      //     facebook: null,
+      //     instagram: null,
+      //     linkedin: null,
+      //     location: null,
+      //     phone: null,
+      //     twitter: null,
+      //     whatsapp: null,
+      //     youTube: null,
+      //   },
     };
   },
   created() {

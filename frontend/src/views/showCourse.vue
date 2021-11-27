@@ -186,7 +186,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -225,7 +224,6 @@ export default {
         console.log("my allChapter");
         console.log(this.allChapter);
       });
-
   },
 };
 </script>

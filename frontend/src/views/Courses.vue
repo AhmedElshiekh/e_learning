@@ -1,6 +1,6 @@
 <template>
   <div class="Courses">
-    <div >
+    <div>
       <div class="courses_page" id="courses_page">
         <div class="cont_div">
           <h1>{{ $t("All Courses") }}</h1>
@@ -13,7 +13,8 @@
             <ul class="ul_filtter">
               <li>
                 <a class="btn a_button" v-on:click="openNav()"
-                  >{{$t('Show Filter')}} <i class="fa fa-arrow-circle-right"></i
+                  >{{ $t("Show Filter") }}
+                  <i class="fa fa-arrow-circle-right"></i
                 ></a>
               </li>
               <li>
@@ -45,7 +46,7 @@
             <div
               class="col-lg-4 col-md-6"
               v-for="item in pageOfItems"
-                :key="item.id"
+              :key="item.id"
             >
               <div class="part">
                 <router-link
@@ -95,36 +96,24 @@
                       <li>{{ item.level }}</li>
                     </ul>
                   </div>
-                  <p
-                    class="education_ratting"
-                    v-if="
-                      item.discountPrice != 0
-                    "
-                  >
+                  <p class="education_ratting" v-if="item.discountPrice != 0">
                     ${{ item.discountPrice }}
-                    <span class="education_ratting2">
-                      ${{ item.price }}
-                    </span>
+                    <span class="education_ratting2"> ${{ item.price }} </span>
                   </p>
 
-                  <p
-                    class="education_ratting"
-                    v-if="
-                      item.discountPrice == 0
-                    "
-                  >
+                  <p class="education_ratting" v-if="item.discountPrice == 0">
                     ${{ item.price }}
                   </p>
                 </router-link>
               </div>
             </div>
 
-              <div class=" pb-0 pt-3">
-                <jw-pagination
-                  :items="courses"
-                  :pageSize="6"
-                  @changePage="onChangePage"
-                ></jw-pagination>
+            <div class="pb-0 pt-3">
+              <jw-pagination
+                :items="courses"
+                :pageSize="6"
+                @changePage="onChangePage"
+              ></jw-pagination>
             </div>
             <div style="clear: both"></div>
           </div>
@@ -178,36 +167,43 @@
             v-model="search_name"
           />
           <button class="search_button" @click="gotosearch">
-            <i class="fa fa-search"
-           ></i>
+            <i class="fa fa-search"></i>
           </button>
-          <h4>{{$t('Categories')}} </h4>
+          <h4>{{ $t("Categories") }}</h4>
           <ul>
             <li
-              v-for="(category,index1) in categoriesFilter"
-                :key="category.id"
+              v-for="(category, index1) in categoriesFilter"
+              :key="category.id"
             >
-             <label  data-toggle="collapse" :data-target="'#demo'+ index1" class="checkbox-custom-label">
-                <i class="fa fa-caret-down"></i> {{category.name}}
+              <label
+                data-toggle="collapse"
+                :data-target="'#demo' + index1"
+                class="checkbox-custom-label"
+              >
+                <i class="fa fa-caret-down"></i> {{ category.name }}
               </label>
-              <ul class="subcategory ">
+              <ul class="subcategory">
                 <li
-                 v-for="subCategoryone in category.subCategory"
-                :key="subCategoryone.id"
-                class="collapse" :id="'demo'+ index1" data-toggle="">
-                  <i class="fa fa-caret-down"></i> {{subCategoryone.name}}
-                <ul class="subsubcategory " id="subdemo1" >
-                <li
-                 v-for="endCategoryone in subCategoryone.endCategory"
-                :key="endCategoryone.id"
+                  v-for="subCategoryone in category.subCategory"
+                  :key="subCategoryone.id"
+                  class="collapse"
+                  :id="'demo' + index1"
+                  data-toggle=""
                 >
-              <input
-                id="a-5"
-                class="checkbox-custom"
-                type="checkbox"
-                 @click="gotofillter(endCategoryone.key)"
-              />{{endCategoryone.name}}</li>
-                </ul>
+                  <i class="fa fa-caret-down"></i> {{ subCategoryone.name }}
+                  <ul class="subsubcategory" id="subdemo1">
+                    <li
+                      v-for="endCategoryone in subCategoryone.endCategory"
+                      :key="endCategoryone.id"
+                    >
+                      <input
+                        id="a-5"
+                        class="checkbox-custom"
+                        type="checkbox"
+                        @click="gotofillter(endCategoryone.key)"
+                      />{{ endCategoryone.name }}
+                    </li>
+                  </ul>
                 </li>
               </ul>
             </li>
@@ -216,8 +212,6 @@
       </div>
     </div>
     <!--------------------------------end nav left---------->
-
-
   </div>
 </template>
 <script>
@@ -232,33 +226,34 @@ export default {
       pageOfItems: [],
       courses: [],
 
-      categoriesFilter:[],
+      categoriesFilter: [],
 
-      search_name:null,
-      arr1:[],
-      arr2:[],
-      arrayfillter:[],
+      search_name: null,
+      arr1: [],
+      arr2: [],
+      arrayfillter: [],
     };
   },
   mounted: function () {
-
     axios
       .get(this.$api_url + "api/courses?lang=" + localStorage.getItem("lang"))
       .then((response) => {
         this.courses = response.data.data;
       });
-      
+
     axios
-      .get(this.$api_url + "api/categoriesFilter?lang=" + localStorage.getItem("lang"))
+      .get(
+        this.$api_url +
+          "api/categoriesFilter?lang=" +
+          localStorage.getItem("lang")
+      )
       .then((response) => {
         this.categoriesFilter = response.data.data;
         console.log(this.categoriesFilter);
-
       });
-
   },
   methods: {
-     onChangePage(pageOfItems) {
+    onChangePage(pageOfItems) {
       // update page of items
       this.pageOfItems = pageOfItems;
     },
@@ -287,37 +282,37 @@ export default {
       document.getElementById("headernav").style.marginLeft = "0px";
       document.getElementById("submit").css("right", "0px");
     },
-  gotosearch: function(){
-          this.$router.push({
-            name: "search_fillter",
-            params: {
-              search_name: this.search_name,
-            },
-            props: {
-              default: true,
-            },
-          });
+    gotosearch: function () {
+      this.$router.push({
+        name: "search_fillter",
+        params: {
+          search_name: this.search_name,
+        },
+        props: {
+          default: true,
+        },
+      });
+    },
+    gotofillter: function (key) {
+      // let i=0;
+      // for (var x = 0; x < this.arr1.length; x++) {
+      //   if(this.arr2[x] == true)
+      //   {
+      //      this.arrayfillter[i++] = this.arr1[x];
+      //    }
+      // }
+      //  console.log("this.arrayfillter");
+      //  console.log(this.arrayfillter);
+      this.$router.push({
+        name: "search_fillter",
+        params: {
+          search_name: key,
+        },
+        props: {
+          default: true,
+        },
+      });
+    },
   },
-  gotofillter: function(key){
-        // let i=0;
-        // for (var x = 0; x < this.arr1.length; x++) {
-        //   if(this.arr2[x] == true)
-        //   {
-        //      this.arrayfillter[i++] = this.arr1[x];
-        //    }
-        // }
-        //  console.log("this.arrayfillter");
-        //  console.log(this.arrayfillter);
-             this.$router.push({
-            name: "search_fillter",
-            params: {
-              search_name: key
-            },
-            props: {
-              default: true,
-            },
-          });
-  },
-},
-}
+};
 </script>

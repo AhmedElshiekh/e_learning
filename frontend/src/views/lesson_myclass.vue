@@ -181,7 +181,6 @@
         </div>
       </div>
     </div> -->
-
   </div>
 </template>
 
@@ -201,7 +200,7 @@ export default {
     this.key_classe = this.$route.params.key_classe;
     this.name_classe = this.$route.params.name_classe;
     const today = new Date();
-     let date;
+    let date;
     if (today.getMonth() < 10) {
       if (today.getDate() < 10) {
         date =
@@ -220,10 +219,7 @@ export default {
         date = today.getFullYear() + (today.getMonth() + 1) + today.getDate();
       } else {
         date =
-          today.getFullYear() +
-          (today.getMonth() + 1) +
-          "-0" +
-          today.getDate();
+          today.getFullYear() + (today.getMonth() + 1) + "-0" + today.getDate();
       }
     }
     const dateTime = date;
@@ -251,7 +247,6 @@ export default {
         console.log("my allLesson");
         console.log(this.allLesson);
       });
-    
   },
   methods: {
     create_zoom: function (lesson_key) {

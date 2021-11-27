@@ -69,7 +69,7 @@
                                   {{ $t("Attand") }}
                                 </a>
                                 <p v-if="Lesson.meeting == false">
-                                 {{$t(' No Meeting....')}}
+                                  {{ $t(" No Meeting....") }}
                                 </p>
                               </td>
                             </tr>
@@ -131,7 +131,6 @@
         </div>
       </div>
     </div> -->
-
   </div>
 </template>
 
@@ -160,7 +159,6 @@ export default {
     console.log(this.timestamp);
   },
   mounted: function () {
-
     if (this.key_classe == null) {
       this.$router.back();
     }
@@ -179,7 +177,6 @@ export default {
         console.log("my allLesson");
         console.log(this.allLesson);
       });
-    
   },
   methods: {
     meeting_show: function (lesson_key) {

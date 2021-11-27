@@ -516,82 +516,78 @@
     <div class="clearfix"></div>
     <router-view />
 
-     <v-footer>
+    <v-footer>
       <!-- <Footer/> -->
       <footer>
         <div class="background_footer">
-          <div class="row items ">
-              <div class="col-md-6 animation_left">
-                <div class="animation_left">
-                  <img :src="$api_url + global_info.logo" class="logo" />
-                </div>
-                
+          <div class="row items">
+            <div class="col-md-6 animation_left">
+              <div class="animation_left">
+                <img :src="$api_url + global_info.logo" class="logo" />
               </div>
-              <div class="col-md-6">
-                <ul style="text-align: center; padding-top: 10px">
-                  <li>
-                    <a href="#"
-                      ><img src="./assets/images/imagesicon1.png"
-                    /></a>
-                  </li>
-                  <li>
-                    <a href="#"
-                      ><img src="./assets/images/imagesicon2.png"
-                    /></a>
-                  </li>
-                </ul>
+            </div>
+            <div class="col-md-6">
+              <ul style="text-align: center; padding-top: 10px">
+                <li>
+                  <a href="#"><img src="./assets/images/imagesicon1.png" /></a>
+                </li>
+                <li>
+                  <a href="#"><img src="./assets/images/imagesicon2.png" /></a>
+                </li>
+              </ul>
 
-                <ul class="icon">
-                  <li v-if="footer.facebook != null">
-                    <a :href="footer.facebook">
-                      <i class="fa fa-facebook"></i>
-                    </a>
-                  </li>
-                  <li v-if="footer.youtube != null">
-                    <a :href="footer.youtube">
-                      <i class="fa fa-youtube"></i>
-                    </a>
-                  </li>
-                  <li v-if="footer.twitter != null">
-                    <a :href="footer.twitter">
-                      <i class="fa fa-twitter"></i>
-                    </a>
-                  </li>
-                  <li v-if="footer.whatsapp != null">
-                    <a :href="'https://api.whatsapp.com/send?phone='+footer.whatsapp">
-                      <i class="fa fa-whatsapp"></i>
-                    </a>
-                  </li>
-                  <li v-if="footer.instagram != null">
-                    <a :href="footer.instagram">
-                      <i class="fa fa-instagram"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
+              <ul class="icon">
+                <li v-if="footer.facebook != null">
+                  <a :href="footer.facebook">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+                </li>
+                <li v-if="footer.youtube != null">
+                  <a :href="footer.youtube">
+                    <i class="fa fa-youtube"></i>
+                  </a>
+                </li>
+                <li v-if="footer.twitter != null">
+                  <a :href="footer.twitter">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                </li>
+                <li v-if="footer.whatsapp != null">
+                  <a
+                    :href="
+                      'https://api.whatsapp.com/send?phone=' + footer.whatsapp
+                    "
+                  >
+                    <i class="fa fa-whatsapp"></i>
+                  </a>
+                </li>
+                <li v-if="footer.instagram != null">
+                  <a :href="footer.instagram">
+                    <i class="fa fa-instagram"></i>
+                  </a>
+                </li>
+              </ul>
             </div>
-            <div class="row">
-              <div class="col-lg-6" style="text-align: center">
-                <p style="font-size: 18px">
-                  {{
-                    $t(
-                      "@Copyright 2021 Troom: All Rights Reserved Developed by"
-                    )
-                  }}
-                  <a class="text-primary" href="https://aisent.net/">Aisent</a>
-                </p>
-              </div>
-              <div class="col-lg-6 text-center">
-                <p style="font-size: 18px">
-                  <router-link class="text-white m-5" to="/privacy" tag="a">{{
-                    $t("privacy")
-                  }}</router-link>
-                </p>
-              </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6" style="text-align: center">
+              <p style="font-size: 18px">
+                {{
+                  $t("@Copyright 2021 Troom: All Rights Reserved Developed by")
+                }}
+                <a class="text-primary" href="https://aisent.net/">Aisent</a>
+              </p>
             </div>
+            <div class="col-lg-6 text-center">
+              <p style="font-size: 18px">
+                <router-link class="text-white m-5" to="/privacy" tag="a">{{
+                  $t("privacy")
+                }}</router-link>
+              </p>
+            </div>
+          </div>
         </div>
       </footer>
-      
     </v-footer>
 
     <section class="sign_in" id="SignIn" v-if="showModal">
@@ -961,13 +957,13 @@ import Vue from "vue";
 import VueTelInput from "vue-tel-input";
 import "vue-tel-input/dist/vue-tel-input.css";
 import VueI18n from "vue-i18n";
-import Tawk from 'vue-echo';
+import Tawk from "vue-echo";
 // import Footer from "./components/Footer";
 // import Tawk from 'vue-tawk';
 
 Vue.use(Tawk, {
-    tawkSrc: 'https://embed.tawk.to/610fb065649e0a0a5cd01b1b/1fciki4dc'
-})
+  tawkSrc: "https://embed.tawk.to/610fb065649e0a0a5cd01b1b/1fciki4dc",
+});
 
 Vue.use(VueI18n);
 
@@ -984,7 +980,7 @@ export default {
   },
   data: function () {
     return {
-      website_name:null,
+      website_name: null,
       loginposts: {
         email: null,
         password: null,
@@ -1051,11 +1047,11 @@ export default {
       categoriesFilter: [],
     };
   },
-//   metaInfo() {
-//         return {
-//             title: `${this.$route.meta.title}`
-//         }
-//     },
+  //   metaInfo() {
+  //         return {
+  //             title: `${this.$route.meta.title}`
+  //         }
+  //     },
   mounted() {
     //    if (this.show) {
     //   this.show = false;
@@ -1141,7 +1137,9 @@ export default {
     // },
 
     $route(to) {
-      document.title = this.global_info.website_name +' - '+ to.meta.title || this.global_info.website_name;
+      document.title =
+        this.global_info.website_name + " - " + to.meta.title ||
+        this.global_info.website_name;
     },
   },
   computed: {
@@ -1158,7 +1156,7 @@ export default {
         rel: "icon",
         // href: require("./assets/logo.png"),
         // href: require("https://demo1.aisent.net/logo/logo-white4.png"),
-        href: 'https://demo1.aisent.net/logo/logo-white4.png',
+        href: "https://demo1.aisent.net/logo/logo-white4.png",
       },
     ],
   },
@@ -1633,10 +1631,10 @@ html:lang(ar) * {
   #Modalescore .modal-body div {
     direction: ltr;
   }
-  .Instructorspage_div .h4{
+  .Instructorspage_div .h4 {
     text-align: right;
   }
-  .Instructorspage_div .row{
+  .Instructorspage_div .row {
     direction: rtl;
   }
 }

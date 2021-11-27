@@ -5,7 +5,7 @@
       <div class="courses_page classes_page" id="courses_page">
         <div class="cont_div">
           <h1>
-            {{$t('results')}}
+            {{ $t("results") }}
           </h1>
           <hr class="top_hr" />
         </div>
@@ -31,9 +31,12 @@
                 tag="a"
               >
                 <div class="part">
-
-              <span v-if="item.type == 'recorded'" id="classe_type">{{$t('live Classe')}}</span>
-              <span v-if="item.type == 'live'" id="course_type">{{$t('Course')}}</span>
+                  <span v-if="item.type == 'recorded'" id="classe_type">{{
+                    $t("live Classe")
+                  }}</span>
+                  <span v-if="item.type == 'live'" id="course_type">{{
+                    $t("Course")
+                  }}</span>
                   <div class="part_img">
                     <img :src="$api_url + item.image" />
                   </div>
@@ -113,7 +116,6 @@
       </section>
     </div>
     <div class="clearfix"></div>
-
 
     <!--------------------------------end classes---------->
     <!--------------------------------start nav left---------->
@@ -196,16 +198,14 @@ export default {
     console.log(this.search_name);
 
     axios
-      .post(
-        this.$api_url + "api/search?lang=" + localStorage.getItem("lang"),
-        {search : this.search_name}
-      )
+      .post(this.$api_url + "api/search?lang=" + localStorage.getItem("lang"), {
+        search: this.search_name,
+      })
       .then((response) => {
         this.classes = response.data.data;
         console.log("this.classes");
         console.log(this.classes);
       });
-
   },
   methods: {
     onChangePage(pageOfItems) {

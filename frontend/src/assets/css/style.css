@@ -3383,13 +3383,11 @@ footer .animation_left {
 .courses_page .pagination {
   margin: 10px;
 }
-.video-js{
+.video-js {
   height: 400px;
   width: auto;
 }
 
-.teacherName{
-  display: none !important;
+.teacherName {
+  display: none;
 }
-
-

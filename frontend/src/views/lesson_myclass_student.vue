@@ -131,9 +131,6 @@
         </div>
       </div>
     </div> -->
-
-
-
   </div>
 </template>
 
@@ -182,7 +179,6 @@ export default {
         console.log("my allLesson");
         console.log(this.allLesson);
       });
-    
   },
   methods: {
     meeting_show: function (lesson_key) {

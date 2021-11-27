@@ -89,19 +89,19 @@ export default {
     return {
       about: null,
 
-    //   footer: {
-    //     address: null,
-    //     email: null,
-    //     facebook: null,
-    //     instagram: null,
-    //     linkedin: null,
-    //     location: null,
-    //     phone: null,
-    //     twitter: null,
-    //     whatsapp: null,
-    //     youTube: null,
-    //   },
-    //   global_info: null,
+      //   footer: {
+      //     address: null,
+      //     email: null,
+      //     facebook: null,
+      //     instagram: null,
+      //     linkedin: null,
+      //     location: null,
+      //     phone: null,
+      //     twitter: null,
+      //     whatsapp: null,
+      //     youTube: null,
+      //   },
+      //   global_info: null,
     };
   },
   mounted: function () {
@@ -122,7 +122,6 @@ export default {
     //     this.footer = response.data.data;
     //     console.log(this.footer);
     //   });
-
   },
 };
 </script>

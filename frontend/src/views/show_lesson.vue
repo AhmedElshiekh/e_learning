@@ -29,8 +29,6 @@
         </div>
       </div>
     </div>
-
-
   </div>
 </template>
 
@@ -48,7 +46,6 @@ export default {
     this.name_lesson = this.$route.params.name_lesson;
   },
   mounted: function () {
-
     if (this.key_lesson == null) {
       this.$router.back();
     }

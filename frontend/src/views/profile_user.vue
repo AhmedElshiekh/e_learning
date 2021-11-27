@@ -23,8 +23,16 @@
                 </div>
               </div>
               <h4>{{ profile_user.name }}</h4>
-              <p style="color: #bf751b;">the last placementTest rate {{profile_user.placementTest.rate}}%</p>
-              <p style="color: #bf751b;">the last placementTest score {{profile_user.placementTest.score}}/{{profile_user.placementTest.total}}</p>
+              <p style="color: #bf751b">
+                the last placementTest rate
+                {{ profile_user.placementTest.rate }}%
+              </p>
+              <p style="color: #bf751b">
+                the last placementTest score
+                {{ profile_user.placementTest.score }}/{{
+                  profile_user.placementTest.total
+                }}
+              </p>
               <span>{{ profile_user.country }}</span>
             </div>
             <ul class="itemul_profile">
@@ -422,7 +430,7 @@
           <div class="modal-body">
             <div class="">
               <h4>Placement test</h4>
-              <p >your score :- {{ placement.score }} / {{ placement.total }}</p>
+              <p>your score :- {{ placement.score }} / {{ placement.total }}</p>
               <p>percentage:- {{ placement.rate }} %</p>
               <hr />
             </div>
@@ -498,8 +506,6 @@
         </div>
       </div>
     </div>
-
-
   </div>
 </template>
 <script>
@@ -535,15 +541,14 @@ export default {
           webkitRelativePath: null,
         },
       },
-        showPrivetClasses: false,
-        myPrivateClasses: [],
+      showPrivetClasses: false,
+      myPrivateClasses: [],
       placement: [],
       exam: [],
       Modalescore: false,
     };
   },
   mounted: function () {
-
     if (localStorage.getItem("token") != null) {
       axios
         .get(
@@ -613,7 +618,6 @@ export default {
     } else {
       this.$router.back();
     }
-
   },
   methods: {
     handleFileUpload: function (e) {

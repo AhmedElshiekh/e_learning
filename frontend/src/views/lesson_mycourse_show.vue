@@ -1,4 +1,5 @@
-x<template>
+x
+<template>
   <div class="lesson_mycourse_show">
     <div class="courses_page" id="courses_page">
       <div class="cont_div">
@@ -122,8 +123,6 @@ x<template>
         </div>
       </div>
     </div>
-
-
   </div>
 </template>
 
@@ -140,7 +139,6 @@ export default {
     this.key_chapter = this.$route.params.key_chapter;
   },
   mounted: function () {
-
     if (this.key_chapter == null) {
       this.$router.back();
     }
@@ -159,7 +157,6 @@ export default {
         console.log("my allLesson");
         console.log(this.allLesson);
       });
-    
   },
 };
 </script>
