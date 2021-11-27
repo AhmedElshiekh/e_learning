@@ -21,18 +21,19 @@
       >
         <router-link
             :to="{
-            name: 'Instructorspage',
-            params: {
-                key_instructor: item.key,
-            },
+              name: 'Instructorspage',
+              params: {
+                  key_instructor: item.key,
+              },
             }"
             tag="a"
         >
          <div class="single_instructor row">
           <div class="single_instructor_thumb col-lg-4">
-            <a href="#"
-              ><img :src="$api_url + item.image" class="img-fluid" alt=""
-            /></a>
+            <a href="#">
+              <img :src="$api_url + item.image" class="img-fluid" alt=""/>
+              <img v-if="!teacher.image" src="..//assets/images/user-3.png" class="img-fluid" alt />
+            </a>
           </div>
           <div class="single_instructor_caption col-lg-8">
             <h4>{{ item.name }}</h4>
@@ -54,13 +55,13 @@
         </router-link>
       </div>
 
-                  <div class="pt-3" style="margin: 20px;">
-                    <jw-pagination
-                      :items="Instructors_all"
-                      :pageSize="6"
-                      @changePage="onChangePage"
-                    ></jw-pagination>
-                  </div>
+      <div class="pt-3" style="margin: 20px;">
+        <jw-pagination
+          :items="Instructors_all"
+          :pageSize="6"
+          @changePage="onChangePage"
+        ></jw-pagination>
+      </div>
     </div>
     <div class="clearfix"></div>
     <!--------------------------------end classes---------->

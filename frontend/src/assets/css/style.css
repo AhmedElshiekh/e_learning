@@ -3387,3 +3387,9 @@ footer .animation_left {
   height: 400px;
   width: auto;
 }
+
+.teacherName{
+  display: none !important;
+}
+
+

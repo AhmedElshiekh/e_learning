@@ -133,14 +133,25 @@
                   v-for="teacher in courseDetails.teachers"
                   v-bind:key="teacher.key"
                 >
-                  <img v-if="teacher.image" :src="$api_url + teacher.image" class="img-fluid" alt />
-                  <img v-if="!teacher.image" src="..//assets/images/user-3.png" class="img-fluid" alt />
-                  <h3
-                    class="edu_title"
-                    v-if="courseDetails.teachers.length == 1"
+                  <router-link
+                      :to="{
+                        name: 'Instructorspage',
+                        params: {
+                            key_instructor: teacher.key,
+                        },
+                      }"
+                      tag="a"
                   >
-                    {{ teacher.name }}
-                  </h3>
+                    <img @mouseover="showTeacherName(teacher.key)" @mouseleave="hideTeacherName(teacher.key)" v-if="teacher.image" :src="$api_url + teacher.image" class="img-fluid" alt />
+                    <img @mouseover="showTeacherName(teacher.key)" @mouseleave="hideTeacherName(teacher.key)" v-if="!teacher.image" src="..//assets/images/user-3.png" class="img-fluid" alt />
+                    <h3
+                      :id="'teacherName_'+teacher.key"
+                      class="teacherName"
+                      v-if="courseDetails.teachers.length != 0"
+                    >
+                      {{ teacher.name }}
+                    </h3>
+                  </router-link>
                 </a>
 
                 <div class="wrapper center-block">
@@ -1571,7 +1582,7 @@ export default {
 
     downloadWithVueResource() {
 
-          axios.get(this.$api_url + 'uploads/' + this.lessonShow.material, { responseType: 'blob' })
+      axios.get(this.$api_url + 'uploads/' + this.lessonShow.material, { responseType: 'blob' })
       .then(response => {
         const blob = new Blob([response.data], { type: 'application/png/jpg' })
         const link = document.createElement('a')
@@ -1580,6 +1591,16 @@ export default {
         link.click()
         URL.revokeObjectURL(link.href)
       }).catch(console.error)
+    },
+    hideTeacherName(event){
+      //
+    },
+    showTeacherName(teacherKey){
+      var id = 'teacherName_' + teacherKey
+      var teacherName = Document.getElementById(id)
+
+      console.log(id);
+      console.log(teacherName);
     },
   },
 };
