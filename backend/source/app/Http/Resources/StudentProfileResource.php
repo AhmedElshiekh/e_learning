@@ -28,7 +28,7 @@ class StudentProfileResource extends JsonResource
                 'email'                 => $this->email,
                 'phone'                 => $this->phone,
                 'country'               => $this->country,
-                'placementTest'         => new ScoreResource( $exam->where('exam_id', $globalPlacement->id )->first() ),
+                'placementTest'         => $globalPlacement ? new ScoreResource( $exam->where('exam_id', $globalPlacement->id )->first() ) :null,
             ];
         else :
             $data = null;

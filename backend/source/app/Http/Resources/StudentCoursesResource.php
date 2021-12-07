@@ -28,8 +28,8 @@ class StudentCoursesResource extends JsonResource
                 'level'                 => $this->level->name,
                 'discountPrice'         => $this->discountPrice,
                 'teachers'              => TeacherResource::collection($this->teachers),
-                'placement'             => new ScoreResource( $exam->where('exam_id', $this->exam_id)->first() ),
-                'exam'                  => new ScoreResource( $exam->where('exam_id', $this->placementTest_id)->first() ),
+                'placement'             => $exam ? new ScoreResource( $exam->where('exam_id', $this->exam_id)->first() ) :null,
+                'exam'                  => $exam ? new ScoreResource( $exam->where('exam_id', $this->placementTest_id)->first() ) :null,
             ];
         else :
             $data = null;

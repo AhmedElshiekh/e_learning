@@ -599,7 +599,7 @@
         <p class="p_2">
           {{
             $t(
-              "you want a site to learn the English language better and easier"
+              "Do you want a site to learn better and easier than the English language?"
             )
           }}
         </p>
@@ -663,7 +663,7 @@
         <p class="p_2">
           {{
             $t(
-              "you want a site to learn the English language better and easier"
+              "Do you want a site to learn better and easier than the English language?"
             )
           }}
         </p>
@@ -770,7 +770,7 @@
       <div class="info">
         <i class="fa fa-close close" id="close3" @click="showemail = false"></i>
         <div class="imglogo">
-          <img src="./assets/images/logo.png" class="logo" />
+          <!-- <img src="./assets/images/logo.png" class="logo" /> -->
         </div>
         <p class="p_1">Forget Phone Number?</p>
         <p class="p_2">
@@ -946,6 +946,23 @@
       </svg>
     </div>
     <vueSimpleSpinner id="loading" v-if="isLoading == true"></vueSimpleSpinner>
+
+    <!-- here start icon social -->
+    <SocialChat
+      icon
+      :attendants="attendants"
+    >
+      <p slot="header">Click on one of our attendants below to chat on WhatsApp.</p>
+      <template v-slot:button>
+        <img
+          alt="icon whatsapp"
+          aria-hidden="true"
+          src="https://raw.githubusercontent.com/ktquez/vue-social-chat/master/src/icons/whatsapp.svg"
+        >      
+      </template>
+      <small slot="footer">Opening hours: 8am to 6pm</small>
+    </SocialChat>
+
   </div>
 </template>
 <script>
@@ -980,6 +997,7 @@ export default {
   },
   data: function () {
     return {
+      attendants: null,
       website_name: null,
       loginposts: {
         email: null,
@@ -1087,24 +1105,37 @@ export default {
           this.signinbutton = false;
           this.profile_show = true;
         }
-      });
+      });    
     axios
       .get(this.$api_url + "api/global?lang=" + localStorage.getItem("lang"))
       .then((response) => {
         this.global_info = response.data.data;
-        // console.log("this.global");
-        // console.log(this.global_info.logo);
-        // this.$route.meta.title = this.global_info.website_name;
-        // this.website_name = this.global_info.website_name;
-        // console.log(this.$route.meta.title);
+        const favicon = document.getElementById("favicon");      
+        favicon.href = this.$api_url+"/"+this.global_info.logo;
       });
 
     axios
       .get(this.$api_url + "api/footer?lang=" + localStorage.getItem("lang"))
       .then((response) => {
         this.footer = response.data.data;
-        // console.log(this.footer);
+        console.log(this.$api_url);
         this.show = true;
+
+        var name = this.global_info.website_name
+        var img = this.$api_url+"/"+this.global_info.logo
+        var number = this.footer.whatsapp
+        // number ? alert(number) : alert('jhsdkjfhskjdfhjkh');
+        
+        number ? (this.attendants = [{
+            app: 'whatsapp',
+            label: 'Technical support',
+            name: name,
+            number: number,
+            avatar: {
+              src: img,
+              alt: 'Alan Ktquez avatar'
+            }
+        }]) : null;
       })
       .catch(() => {
         this.show = true;
@@ -1154,6 +1185,8 @@ export default {
     link: [
       {
         rel: "icon",
+        type: "image/png",
+        // href: null
         // href: require("./assets/logo.png"),
         // href: require("https://demo1.aisent.net/logo/logo-white4.png"),
         href: "https://demo1.aisent.net/logo/logo-white4.png",

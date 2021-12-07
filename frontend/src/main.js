@@ -52,6 +52,9 @@ document.documentElement.lang = lang;
 import JwPagination from "jw-vue-pagination";
 Vue.component("jw-pagination", JwPagination);
 
+import VueSocialChat from "vue-social-chat"
+Vue.use(VueSocialChat)
+
 const messages = {
   en,
   ar,

@@ -200,22 +200,22 @@
       <div class="div_counter">
         <div class="container">
           <div class="row counter_divs">
-            <div class="col-md-3">
+            <div class="col-md-3 col-6">
               <p class="count">{{ analysis.courses }}</p>
               <hr />
               <h4>{{ $t("course") }}</h4>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-6">
               <p class="count">{{ analysis.classes }}</p>
               <hr />
               <h4>{{ $t("classe") }}</h4>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-6">
               <p class="count">{{ analysis.strudents }}</p>
               <hr />
               <h4>{{ $t("strudent") }}</h4>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-6">
               <p class="count">{{ analysis.teachers }}</p>
               <hr />
               <h4>{{ $t("teacher") }}</h4>
@@ -326,12 +326,16 @@
     <div class="clearfix"></div>
     <!--------------------------------end section classes---------->
     <!--------------------------------start section testing---------->
-    <section class="testing">
+    <section 
+      class="testing"  
+    >
       <div class="div_counter">
         <div class="container">
-          <div class="row">
+          <div 
+            class="row"  
+          >
             <h2>{{ $t("Test Yor English Skills") }}</h2>
-            <div class="test_english">
+            <div class="test_english"  v-if="examkey" >
               <button class="btn" @click="placementTest(examkey)">
                 {{ $t(" Take a placement test") }}
               </button>
@@ -353,7 +357,7 @@
               class="responsiveSlider"
               v-bind="sliderOptions"
               ref="slick"
-              :slidesToShow="4"
+              :slidesToShow="3"
             >
               <div
                 class="holder center"
@@ -604,12 +608,12 @@
           @click="showModal2teacher = false"
         ></i>
         <div class="imglogo">
-          <img src="..//assets/images/logo.png" class="logo" />
+          <!-- <img src="..//assets/images/logo.png" class="logo" /> -->
         </div>
         <p class="p_2">
           {{
             $t(
-              "you want a site to learn the English language better and easier"
+              "Do you want a site to learn better and easier than the English language?"
             )
           }}
         </p>
@@ -667,7 +671,7 @@
           @click="showModal4 = false"
         ></i>
         <div class="imglogo">
-          <img src="..//assets/images/logo.png" class="logo" />
+          <!-- <img src="..//assets/images/logo.png" class="logo" /> -->
         </div>
         <p class="p_1">{{ $t("code ?") }}</p>
         <p class="p_2">{{ $t("must be 6 number") }}</p>
@@ -783,17 +787,17 @@ export default {
       .get(this.$api_url + "api/global?lang=" + localStorage.getItem("lang"))
       .then((response) => {
         this.global_info = response.data.data;
-        console.log("this.global");
-        console.log(this.global_info.logo);
+        // console.log("this.global");
+        // console.log(this.global_info.logo);
         this.$route.meta.title = this.global_info.website_name;
-        console.log(this.$route.meta.title);
+        // console.log(this.$route.meta.title);
       });
 
     axios
       .get(this.$api_url + "api/slider?lang=" + localStorage.getItem("lang"))
       .then((response) => {
         this.sliders = response.data.data;
-        console.log(this.sliders);
+        // console.log(this.sliders);
       });
     axios
       .get(this.$api_url + "api/features?lang=" + localStorage.getItem("lang"))
@@ -816,9 +820,9 @@ export default {
       )
       .then((response) => {
         this.classes = response.data.data;
-        console.log("this.classes");
+        // console.log("this.classes");
 
-        console.log(this.classes);
+        // console.log(this.classes);
       });
     axios
       .get(
@@ -826,8 +830,8 @@ export default {
       )
       .then((response) => {
         this.categories = response.data.data;
-        console.log("categories");
-        console.log(this.categories);
+        // console.log("categories");
+        // console.log(this.categories);
       });
     axios
       .get(
@@ -840,13 +844,13 @@ export default {
       .get(this.$api_url + "api/teachers?lang=" + localStorage.getItem("lang"))
       .then((response) => {
         this.teachers = response.data.data;
-        console.log(this.teachers);
+        // console.log(this.teachers);
       });
     axios
       .get(this.$api_url + "api/footer?lang=" + localStorage.getItem("lang"))
       .then((response) => {
         this.footer = response.data.data;
-        console.log(this.footer);
+        // console.log(this.footer);
       });
     if (localStorage.getItem("token") != null) {
       axios
@@ -860,8 +864,8 @@ export default {
         .then((response) => {
           this.placementtest = response.data.data;
 
-          console.log("placementtest");
-          console.log(this.placementtest);
+          // console.log("placementtest");
+          // console.log(this.placementtest);
           this.examkey = this.placementtest.exam_key;
         });
     }
@@ -946,7 +950,7 @@ export default {
         .then((response) => {
           this.resultfinishExam = response.data.data;
           this.resultfinishExam.rate = parseInt(this.resultfinishExam.rate);
-          console.log("resultfinishExam rate" + this.resultfinishExam.rate);
+          // console.log("resultfinishExam rate" + this.resultfinishExam.rate);
           this.second_page = false;
           this.frist_page = true;
         });
@@ -973,7 +977,7 @@ export default {
             this.arryexamform[x] = true;
           }
         }
-        console.log("arryexamform", this.arryexamform);
+        // console.log("arryexamform", this.arryexamform);
         this.second_page = false;
         this.second_page = true;
         return 0;
@@ -993,8 +997,8 @@ export default {
         .then((response) => {
           this.goToExam = response.data.data;
 
-          console.log("goToExam");
-          console.log(this.goToExam);
+          // console.log("goToExam");
+          // console.log(this.goToExam);
           this.exam_key = this.goToExam.key;
           this.$fire({
             title: "title : " + this.goToExam.title,
@@ -1011,10 +1015,10 @@ export default {
             this.second_page = true;
             this.timerequest(this.goToExam.time);
           });
-          console.log(
-            "this.goToExam.sections_count",
-            this.goToExam.sections_count
-          );
+          // console.log(
+          //   "this.goToExam.sections_count",
+          //   this.goToExam.sections_count
+          // );
           for (var i = 0; i < this.goToExam.sections_count; i++) {
             this.sections.push({
               section: this.goToExam.sections[i].key,
@@ -1028,7 +1032,7 @@ export default {
             }
           }
 
-          console.log("sections", this.sections);
+          // console.log("sections", this.sections);
           for (var x = 0; x < this.goToExam.sections_count; x++) {
             for (
               var i2 = 0;
@@ -1045,21 +1049,21 @@ export default {
     },
 
     postDataSignup: function (e) {
-      console.log("this.register.type");
-      console.log(this.register.type);
+      // console.log("this.register.type");
+      // console.log(this.register.type);
       axios
         .post(this.$api_url + "api/register", this.register)
-        .then((response) => {
+        .then(() => {
           // localStorage.setItem("token", response.data.data.access_token);
-          console.warn(response);
-          console.log(response);
+          // console.warn(response);
+          // console.log(response);
           this.showModal2 = false;
           this.signinbutton = false;
           axios
             .post(this.$api_url + "api/login", this.register)
             .then((response) => {
               localStorage.setItem("token", response.data.data.access_token);
-              console.warn(response);
+              // console.warn(response);
               this.profile = response;
               this.showModal = false;
               this.signinbutton = false;
@@ -1083,16 +1087,16 @@ export default {
       e.preventDefault();
     },
     verificationfun: function (user_key, code) {
-      console.log("user_key" + user_key);
-      console.log("code_number" + code);
+      // console.log("user_key" + user_key);
+      // console.log("code_number" + code);
       if (user_key != 0) {
         axios
           .post(this.$api_url + "api/verification/" + user_key, {
             code: code,
           })
-          .then((response) => {
-            console.warn(response);
-            console.log(response);
+          .then(() => {
+            // console.warn(response);
+            // console.log(response);
             this.showModal4 = false;
             this.showModal = false;
             this.signinbutton = false;
@@ -1101,12 +1105,12 @@ export default {
       }
     },
     resendVerifyCode: function (user_key) {
-      console.log("user_key" + user_key);
+      // console.log("user_key" + user_key);
       axios
         .post(this.$api_url + "api/resendVerifyCode/" + user_key)
-        .then((response) => {
-          console.warn(response);
-          console.log(response);
+        .then(() => {
+          // console.warn(response);
+          // console.log(response);
           this.showModal4 = false;
           this.profile_show = true;
 
@@ -1115,8 +1119,8 @@ export default {
             type: "success",
           });
         })
-        .catch((error) => {
-          console.warn(error);
+        .catch(() => {
+          // console.warn(error);
         });
     },
     chack_login: function () {

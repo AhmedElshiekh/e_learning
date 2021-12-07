@@ -9,7 +9,7 @@
         <div class="row_top">
           <p>
             {{ $t("We found") }} {{ Instructors_all.length }}
-            {{ $t("courses for you") }}
+            {{ $t("instructors") }}
           </p>
         </div>
       </div>
@@ -20,7 +20,7 @@
         class="col-lg-6"
         style="margin-bottom: 20px"
         v-for="item in pageOfItems"
-        :key="item.id"
+        :key="item.key"
       >
         <router-link
           :to="{
@@ -36,7 +36,7 @@
               <a href="#">
                 <img :src="$api_url + item.image" class="img-fluid" alt="" />
                 <img
-                  v-if="!teacher.image"
+                  v-if="!item.image"
                   src="..//assets/images/user-3.png"
                   class="img-fluid"
                   alt
@@ -80,8 +80,8 @@ export default {
   name: "Instructors",
   data: function () {
     return {
-      Instructors_all: null,
       pageOfItems: [],
+      Instructors_all: [],
       instructorfa: "https://web.whatsapp.com/",
     };
   },
@@ -92,7 +92,7 @@ export default {
       )
       .then((response) => {
         this.Instructors_all = response.data.data;
-        console.log(this.Instructors_all);
+        // console.log(this.Instructors_all);
       });
   },
   methods: {

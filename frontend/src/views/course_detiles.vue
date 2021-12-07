@@ -968,7 +968,7 @@ export default {
 
     // console.log(" localStorage.getItem('lang')");
     // console.log(localStorage.getItem("lang"));
-  
+
     if (!this.key_course) {
       this.$router.back();
     }
@@ -1610,9 +1610,9 @@ export default {
           link.click();
           URL.revokeObjectURL(link.href);
         })
-        .catch(
-          // console.error
-        );
+        .catch
+        // console.error
+        ();
     },
     hideTeacherName(teacherKey) {
       var id = "teacherName_" + teacherKey;
@@ -1624,7 +1624,6 @@ export default {
       var teacherName = document.getElementById(id);
       teacherName.style.display = "inline flow-root";
     },
-    
   },
 };
 </script>

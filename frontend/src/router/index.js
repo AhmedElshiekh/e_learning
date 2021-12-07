@@ -88,6 +88,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     // meta:{title: "Course :slug_course"},
+    meta: { title: "course detiles" },
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/course_detiles.vue"),
   },
@@ -97,7 +98,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    meta: { title: "profile_user" },
+    meta: { title: "profile user" },
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/profile_user.vue"),
   },
@@ -107,7 +108,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    // meta:{title: "Class :slug_classe"},
+    meta: { title: "classes detiles" },
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/classes_detiles.vue"),
   },
