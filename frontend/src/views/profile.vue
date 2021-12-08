@@ -426,7 +426,7 @@
       </div>
     </div>
 
-    <footer>
+    <!-- <footer>
       <div class="background_footer">
         <div class="row items">
           <div class="col-md-6 animation_left">
@@ -488,7 +488,7 @@
           </div>
         </div>
       </div>
-    </footer>
+    </footer> -->
   </div>
 </template>
 <script>
@@ -510,18 +510,6 @@ export default {
       profile: null,
       myCourses: null,
       myClasses: null,
-      footer: {
-        address: null,
-        email: null,
-        facebook: null,
-        instagram: null,
-        linkedin: null,
-        location: null,
-        phone: null,
-        twitter: null,
-        whatsapp: null,
-        youTube: null,
-      },
       edit: {
         name: null,
         email: null,
@@ -534,15 +522,9 @@ export default {
       changepassword: false,
       showPrivetClasses: false,
       myPrivateClasses: [],
-      global_info: null,
     };
   },
   mounted: function () {
-    axios
-      .get(this.$api_url + "api/global?lang=" + localStorage.getItem("lang"))
-      .then((response) => {
-        this.global_info = response.data.data;
-      });
     if (localStorage.getItem("token") != null) {
       axios
         .get(
@@ -605,10 +587,6 @@ export default {
     } else {
       this.$router.back();
     }
-    axios.get(this.$api_url + "api/footer").then((response) => {
-      this.footer = response.data.data;
-      console.log(this.footer);
-    });
   },
   methods: {
     handleFileUpload: function (e) {

@@ -14,6 +14,10 @@
                   :src="$api_url + profile_user.image"
                   v-if="profile_user.image != null"
                 />
+                <img
+                  v-if="!profile_user.image"
+                  src="..//assets/images/user-3.png"
+                />
                 <div
                   class="top"
                   data-bs-toggle="modal"
@@ -23,11 +27,11 @@
                 </div>
               </div>
               <h4>{{ profile_user.name }}</h4>
-              <p style="color: #bf751b">
+              <p style="color: #bf751b" v-if="profile_user.placementTest">
                 the last placementTest rate
                 {{ profile_user.placementTest.rate }}%
               </p>
-              <p style="color: #bf751b">
+              <p style="color: #bf751b" v-if="profile_user.placementTest">
                 the last placementTest score
                 {{ profile_user.placementTest.score }}/{{
                   profile_user.placementTest.total
@@ -40,9 +44,9 @@
                 <a
                   v-on:click="
                     (showedite = true),
-                      (showCourses = false),
-                      (showClasses = false),
-                      (showPrivetClasses = false)
+                    (showCourses = false),
+                    (showClasses = false),
+                    (showPrivetClasses = false)
                   "
                   ><i class="fa fa-heart"></i>{{ $t("My Profile") }}</a
                 >
@@ -230,6 +234,13 @@
                       >
                         <img
                           :src="$api_url + teacher.image"
+                          class="img-fluid img_teacher"
+                          v-if="teacher.image"
+                          alt
+                        />
+                        <img
+                          v-if="!teacher.image"
+                          src="..//assets/images/user-3.png"
                           class="img-fluid img_teacher"
                           alt
                         />

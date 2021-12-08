@@ -8,6 +8,7 @@
         "php": "^7.2.5|^8.0",
         "akaunting/setting": "^1.2.7",
         "bumbummen99/shoppingcart": "^2.9",
+        "doctrine/dbal": "^3.2",
         "fideloper/proxy": "^4.4",
         "firebase/php-jwt": "^5.3",
         "fruitcake/laravel-cors": "^2.0",

@@ -46,19 +46,19 @@
 
                     <div class="cources_price">
                       <span v-if="item.discountPrice != null"
-                        >${{ item.discountPrice }}
+                        >AED {{ item.discountPrice }}
                       </span>
                       <div
                         class="less_offer"
                         style="color: green"
                         v-if="item.discountPrice != null"
                       >
-                        ${{ item.price }}
+                        AED {{ item.price }}
                       </div>
                       <span
                         class="cources_price"
                         v-if="item.discountPrice == null"
-                        >${{ item.price }}</span
+                        >AED {{ item.price }}</span
                       >
                     </div>
 
@@ -77,7 +77,14 @@
                           v-bind:key="teacher.key"
                         >
                           <img
+                            v-if="teacher.image" 
                             :src="$api_url + teacher.image"
+                            class="img-fluid"
+                            alt
+                          />
+                          <img
+                            v-if="!teacher.image"
+                            src="..//assets/images/user-3.png"
                             class="img-fluid"
                             alt
                           />

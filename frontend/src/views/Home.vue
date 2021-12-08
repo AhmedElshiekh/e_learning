@@ -9,9 +9,9 @@
       >
         <div class="carousel-inner">
           <div
-            class="carousel-item d-flex align-items-center"
+            class="carousel-item align-items-center"
             v-for="(slider, index) in sliders"
-            v-bind:key="slider.key"
+            :key="slider.key"
             :class="{ active: index === 0 }"
           >
             <img
@@ -46,7 +46,7 @@
           </div>
         </div>
         <a
-          class="carousel-control-prev"
+          class="carousel-control-prev "
           href="#carouselExampleControls"
           role="button"
           data-slide="prev"
@@ -97,11 +97,38 @@
         <div class="row">
           <div class="col-lg-12">
             <Slick
-              v-bind="sliderOptions"
-              class="carousel slide"
               ref="slick"
-              :slidesToShow="3"
+              v-bind="{
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                responsive: [
+                  {
+                    breakpoint: 768,
+                    settings: {
+                      slidesToShow: 2,
+                      slidesToScroll: 2,
+                      infinite: true,
+                      dots: false,
+                      arrows: true,
+                    },
+                  },
+                  {
+                    breakpoint: 480,
+                    settings: {
+                      slidesToShow: 1,
+                      slidesToScroll: 1,
+                      // infinite: true,
+                      dots: false,
+                      arrows: true,
+                    },
+                  },
+                ],
+              }"
             >
+              <!-- class="carousel slide" -->
               <div
                 class="holder center"
                 v-for="categ in categories"
@@ -171,14 +198,14 @@
                     </ul>
                   </div>
                   <p class="education_ratting" v-if="course.discountPrice != 0">
-                    ${{ course.discountPrice }}
+                    AED {{ course.discountPrice }}
                     <span class="education_ratting2">
-                      ${{ course.price }}
+                      AED {{ course.price }}
                     </span>
                   </p>
 
                   <p class="education_ratting" v-if="course.discountPrice == 0">
-                    ${{ course.price }}
+                    AED {{ course.price }}
                   </p>
                 </router-link>
               </div>
@@ -256,19 +283,19 @@
                 <p>{{ classe.short_description }}</p>
                 <div class="cources_price">
                   <span v-if="classe.discountPrice != null"
-                    >${{ classe.discountPrice }}
+                    >AED {{ classe.discountPrice }}
                   </span>
                   <div
                     class="less_offer"
                     style="color: green"
                     v-if="classe.discountPrice != null"
                   >
-                    ${{ classe.price }}
+                    AED {{ classe.price }}
                   </div>
                   <span
                     class="cources_price"
                     v-if="classe.discountPrice == null"
-                    >${{ classe.price }}</span
+                    >AED {{ classe.price }}</span
                   >
                 </div>
 
@@ -287,6 +314,13 @@
                     >
                       <img
                         :src="$api_url + teacher.image"
+                        class="img-fluid"
+                        v-if="teacher.image"
+                        alt
+                      />
+                      <img
+                        v-if="!teacher.image"
+                        src="..//assets/images/user-3.png"
                         class="img-fluid"
                         alt
                       />
@@ -355,7 +389,35 @@
           <div class="col-md-12">
             <Slick
               class="responsiveSlider"
-              v-bind="sliderOptions"
+              v-bind="{
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                responsive: [
+                  {
+                    breakpoint: 768,
+                    settings: {
+                      slidesToShow: 2,
+                      slidesToScroll: 2,
+                      infinite: true,
+                      dots: false,
+                      arrows: true,
+                    },
+                  },
+                  {
+                    breakpoint: 480,
+                    settings: {
+                      slidesToShow: 1,
+                      slidesToScroll: 1,
+                      // infinite: true,
+                      dots: false,
+                      arrows: true,
+                    },
+                  },
+                ],
+              }"
               ref="slick"
               :slidesToShow="3"
             >
@@ -377,9 +439,16 @@
                     <div class="instructor_thumb">
                       <a tabindex="0"
                         ><img
-                          :src="$api_url + teacher.image"
-                          class="img-fluid"
-                          alt=""
+                        :src="$api_url + teacher.image"
+                        class="img-fluid"
+                        v-if="teacher.image"
+                        alt
+                      />
+                      <img
+                        v-if="!teacher.image"
+                        src="..//assets/images/user-3.png"
+                        class="img-fluid"
+                        alt
                       /></a>
                     </div>
                     <div class="instructor_caption">
@@ -600,97 +669,7 @@
       </div>
     </div>
 
-    <section class="sign_in" id="SignUp" v-if="showModal2teacher">
-      <div class="info">
-        <i
-          class="fa fa-close close"
-          id="close2"
-          @click="showModal2teacher = false"
-        ></i>
-        <div class="imglogo">
-          <!-- <img src="..//assets/images/logo.png" class="logo" /> -->
-        </div>
-        <p class="p_2">
-          {{
-            $t(
-              "Do you want a site to learn better and easier than the English language?"
-            )
-          }}
-        </p>
-        <form @submit="postDataSignup">
-          <input
-            type="text"
-            name=""
-            placeholder="Full Name"
-            v-model="register.name"
-          />
-          <input
-            type="text"
-            name=""
-            placeholder="Email"
-            v-model="register.email"
-          />
-          <input
-            type="password"
-            name=""
-            placeholder="password"
-            v-model="register.password"
-          />
-          <input
-            type="password"
-            name=""
-            placeholder="Confirm Password"
-            v-model="register.password_confirmation"
-          />
-          <input
-            required
-            placeholder="Enter Mobile Number"
-            type="tel"
-            v-model="register.phone"
-          />
-
-          <span v-if="error != null" style="display: block; color: red">
-            {{ error }}
-          </span>
-          <div class="row_div">
-            <input
-              type="submit"
-              name=""
-              value="Register"
-              @click="register.type = 'teacher'"
-            />
-          </div>
-        </form>
-      </div>
-    </section>
-    <section class="sign_in" id="forget_pass" v-if="showModal4 == true">
-      <div class="info">
-        <i
-          class="fa fa-close close"
-          id="close3"
-          @click="showModal4 = false"
-        ></i>
-        <div class="imglogo">
-          <!-- <img src="..//assets/images/logo.png" class="logo" /> -->
-        </div>
-        <p class="p_1">{{ $t("code ?") }}</p>
-        <p class="p_2">{{ $t("must be 6 number") }}</p>
-
-        <form @submit="verificationfun(user_key, code_number)">
-          <input
-            type="text"
-            name=""
-            placeholder="xxx xxx"
-            maxlength="6"
-            minlength="6"
-            required
-            v-model="code_number"
-          />
-          <input type="submit" name="" value="send" />
-        </form>
-        <a href="#" @click="resendVerifyCode(user_key)">{{ $t("resent") }}</a>
-      </div>
-    </section>
+    
   </div>
 </template>
 <script>
@@ -741,7 +720,7 @@ export default {
       classes: [],
       teachers: [],
       sliderOptions: {
-        dots: false,
+        dots: true,
         infinite: true,
         speed: 300,
         slidesToShow: 3,
@@ -757,12 +736,14 @@ export default {
               arrows: true,
             },
           },
-
           {
             breakpoint: 480,
             settings: {
               slidesToShow: 1,
               slidesToScroll: 1,
+              // infinite: true,
+              dots: false,
+              arrows: true,
             },
           },
         ],

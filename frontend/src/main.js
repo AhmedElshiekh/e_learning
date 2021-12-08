@@ -2,10 +2,10 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-import "slick-vuejs";
-import "slick-carousel";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// import "slick-vuejs";
+// import "slick-carousel";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 import "bootstrap/dist/css/bootstrap.css";
 import "..//src/assets/css/bootstrap.min.css";
 import "..//src/assets/css/font-awesome.min.css";

@@ -28,8 +28,8 @@
                   courseDetails.discountPrice != null
                 "
               >
-                <span>${{ courseDetails.discountPrice }}</span>
-                <p>${{ courseDetails.price }}</p>
+                <span>AED {{ courseDetails.discountPrice }}</span>
+                <p>AED {{ courseDetails.price }}</p>
               </li>
               <li
                 v-if="
@@ -39,7 +39,7 @@
                     courseDetails.discountPrice == null)
                 "
               >
-                $ {{ courseDetails.price }}
+                AED {{ courseDetails.price }}
               </li>
               <li>
                 <a class="btn" @click="checkBuy(courseDetails.key)">{{

@@ -599,7 +599,7 @@
         <p class="p_2">
           {{
             $t(
-              "Do you want a site to learn better and easier than the English language?"
+              "Do you want a site to learn better and easier"
             )
           }}
         </p>
@@ -663,7 +663,7 @@
         <p class="p_2">
           {{
             $t(
-              "Do you want a site to learn better and easier than the English language?"
+              "Do you want a site to learn better and easier"
             )
           }}
         </p>
@@ -761,9 +761,9 @@
             required
             v-model="code_number"
           />
-          <input type="submit" name="" value="send" />
+          <input type="submit" name="" value="$t('send')" />
         </form>
-        <a href="#" @click="resendVerifyCode(user_key)">{{ $t("resent") }}</a>
+        <a href="#" @click="resendVerifyCode(user_key)">{{ $t("resend") }}</a>
       </div>
     </section>
     <section class="sign_in" v-if="showemail">
@@ -950,9 +950,10 @@
     <!-- here start icon social -->
     <SocialChat
       icon
+      dir="rtl"
       :attendants="attendants"
     >
-      <p slot="header">Click on one of our attendants below to chat on WhatsApp.</p>
+      <p slot="header">Click to chat on WhatsApp.</p>
       <template v-slot:button>
         <img
           alt="icon whatsapp"
@@ -960,7 +961,9 @@
           src="https://raw.githubusercontent.com/ktquez/vue-social-chat/master/src/icons/whatsapp.svg"
         >      
       </template>
-      <small slot="footer">Opening hours: 8am to 6pm</small>
+      <small slot="footer">
+        <!-- Opening hours: 8am to 6pm -->
+      </small>
     </SocialChat>
 
   </div>
@@ -1670,5 +1673,17 @@ html:lang(ar) * {
   .Instructorspage_div .row {
     direction: rtl;
   }
+
 }
+
+.vsc-popup-button, .vsc-popup-header{
+  background-color: #29a418 !important;
+}
+.vsc-popup-button:focus, .vsc-popup-button:hover {
+    box-shadow: 0 0 0 3px #fff,0 0 0 6px #209938 !important;
+}
+
 </style>
+button:focus, .vsc-popup-button:hover {
+    box-shadow: 0 0 0 3px #fff,0 0 0 6px #209938 !important;
+}

@@ -128,5 +128,4 @@ Route::group(['middleware' => ['api', 'lang']], function ($router) {
         Route::post('/classRequest', [RequestController::class, 'store']);
         Route::get('/courseFromTeacher/{tech}', [TeacherCoursesController::class, 'index']);
     });
-
 });

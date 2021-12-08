@@ -97,12 +97,12 @@
                     </ul>
                   </div>
                   <p class="education_ratting" v-if="item.discountPrice != 0">
-                    ${{ item.discountPrice }}
-                    <span class="education_ratting2"> ${{ item.price }} </span>
+                    AED {{ item.discountPrice }}
+                    <span class="education_ratting2"> AED {{ item.price }} </span>
                   </p>
 
                   <p class="education_ratting" v-if="item.discountPrice == 0">
-                    ${{ item.price }}
+                    AED {{ item.price }}
                   </p>
                 </router-link>
               </div>

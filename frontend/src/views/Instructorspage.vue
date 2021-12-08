@@ -70,9 +70,9 @@
                           class="education_ratting"
                           v-if="item.discountPrice != 0"
                         >
-                          ${{ item.discountPrice }}
+                          AED {{ item.discountPrice }}
                           <span class="education_ratting2">
-                            ${{ item.price }}
+                            AED {{ item.price }}
                           </span>
                         </p>
 
@@ -80,7 +80,7 @@
                           class="education_ratting"
                           v-if="item.discountPrice == 0"
                         >
-                          ${{ item.price }}
+                          AED {{ item.price }}
                         </p>
                       </router-link>
                     </div>
@@ -130,19 +130,19 @@
 
                           <div class="cources_price">
                             <span v-if="item.discountPrice != null"
-                              >${{ item.discountPrice }}
+                              >AED {{ item.discountPrice }}
                             </span>
                             <div
                               class="less_offer"
                               style="color: green"
                               v-if="item.discountPrice != null"
                             >
-                              ${{ item.price }}
+                              AED {{ item.price }}
                             </div>
                             <span
                               class="cources_price"
                               v-if="item.discountPrice == null"
-                              >${{ item.price }}</span
+                              >AED {{ item.price }}</span
                             >
                           </div>
 

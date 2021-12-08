@@ -27,8 +27,8 @@
                   classDetails.discountPrice != null
                 "
               >
-                <span>${{ classDetails.discountPrice }}</span>
-                <p>${{ classDetails.price }}</p>
+                <span>AED {{ classDetails.discountPrice }}</span>
+                <p>AED {{ classDetails.price }}</p>
               </li>
               <li
                 v-if="
@@ -36,7 +36,7 @@
                   classDetails.discountPrice == null
                 "
               >
-                ${{ classDetails.price }}
+                AED {{ classDetails.price }}
               </li>
               <li v-if="classDetails.owner == false">
                 <a class="btn" @click="checkBuy(classDetails.key)">{{
@@ -56,7 +56,18 @@
                 v-for="teacher in classDetails.teachers"
                 v-bind:key="teacher.key"
               >
-                <img :src="$api_url + teacher.image" class="img-fluid" alt />
+                <img 
+                  v-if="teacher.image"
+                  :src="$api_url + teacher.image" 
+                  class="img-fluid" 
+                  alt 
+                />
+                <img
+                  v-if="!teacher.image"
+                  src="..//assets/images/user-3.png"
+                  class="img-fluid"
+                  alt
+                />
                 <h3 class="edu_title" v-if="classDetails.teachers.length == 1">
                   {{ teacher.name }}
                 </h3>

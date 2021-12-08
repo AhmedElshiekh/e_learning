@@ -63,7 +63,8 @@ class OrderCoursesController extends Controller
         $user = Auth::user();
         $course = Course::find($id);
         $discount = $course->discountPrice != 0 ? $course->discountPrice : null;
-        $price = $discount ?? $course->price;
+        $price = $this->convertCurrency($discount ?? $course->price);
+        dd($price);
 
         if (!$price or $course->free) :
             if ($course->type == 'recorded') :
@@ -171,7 +172,7 @@ class OrderCoursesController extends Controller
 
             $trans = $result->transactions;
 
-            
+
             foreach ($trans as $t) :
                 $items = ($t->item_list->items);
                 foreach ($items as $item) :
@@ -257,9 +258,26 @@ class OrderCoursesController extends Controller
         Voucher::Create([
             'type' => 'income',
             'amount' => $price,
-            'paid_for' => 'paid course '. $course->name,
+            'paid_for' => 'paid course ' . $course->name,
             'user_id' => $user->id,
         ]);
+    }
 
+
+    /***
+     * function to convert currency
+     */
+    public function convertCurrency($price)
+    {
+        $url = "https://freecurrencyapi.net/api/v2/latest?apikey=YOUR-APIKEY";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_HEADER, FALSE);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        return $response;
     }
 }

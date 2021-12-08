@@ -76,19 +76,19 @@
 
                     <div class="cources_price">
                       <span v-if="item.discountPrice != null"
-                        >${{ item.discountPrice }}
+                        >AED {{ item.discountPrice }}
                       </span>
                       <div
                         class="less_offer"
                         style="color: green"
                         v-if="item.discountPrice != null"
                       >
-                        ${{ item.price }}
+                        AED {{ item.price }}
                       </div>
                       <span
                         class="cources_price"
                         v-if="item.discountPrice == null"
-                        >${{ item.price }}</span
+                        >AED {{ item.price }}</span
                       >
                     </div>
 

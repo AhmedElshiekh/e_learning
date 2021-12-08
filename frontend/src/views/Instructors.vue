@@ -34,7 +34,7 @@
           <div class="single_instructor row">
             <div class="single_instructor_thumb col-lg-4">
               <a href="#">
-                <img :src="$api_url + item.image" class="img-fluid" alt="" />
+                <img v-if="item.image" :src="$api_url + item.image" class="img-fluid" alt="" />
                 <img
                   v-if="!item.image"
                   src="..//assets/images/user-3.png"
@@ -58,14 +58,14 @@
           </div>
         </router-link>
       </div>
-
-      <div class="pt-3" style="margin: 20px">
-        <jw-pagination
-          :items="Instructors_all"
-          :pageSize="6"
-          @changePage="onChangePage"
-        ></jw-pagination>
-      </div>
+      
+    </div>
+    <div class="pt-3" style="margin: 20px">
+      <jw-pagination
+        :items="Instructors_all"
+        :pageSize="6"
+        @changePage="onChangePage"
+      ></jw-pagination>
     </div>
     <div class="clearfix"></div>
     <!--------------------------------end classes---------->
