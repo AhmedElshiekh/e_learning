@@ -1684,6 +1684,3 @@ html:lang(ar) * {
 }
 
 </style>
-button:focus, .vsc-popup-button:hover {
-    box-shadow: 0 0 0 3px #fff,0 0 0 6px #209938 !important;
-}

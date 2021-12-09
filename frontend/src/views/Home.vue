@@ -389,21 +389,22 @@
           <div class="col-md-12">
             <Slick
               class="responsiveSlider"
+              ref="slick"
               v-bind="{
-                dots: true,
-                infinite: true,
+                //dots: false,
+                infinite: false,
                 speed: 300,
                 slidesToShow: 3,
-                slidesToScroll: 3,
+                //slidesToScroll: 3,
+                arrows: true,
                 responsive: [
                   {
                     breakpoint: 768,
                     settings: {
                       slidesToShow: 2,
                       slidesToScroll: 2,
-                      infinite: true,
-                      dots: false,
-                      arrows: true,
+                      //infinite: true,
+                      //arrows: true,
                     },
                   },
                   {
@@ -411,15 +412,11 @@
                     settings: {
                       slidesToShow: 1,
                       slidesToScroll: 1,
-                      // infinite: true,
-                      dots: false,
                       arrows: true,
                     },
                   },
                 ],
               }"
-              ref="slick"
-              :slidesToShow="3"
             >
               <div
                 class="holder center"
@@ -474,71 +471,7 @@
         <div class=""></div>
       </div>
     </section>
-
-    <!-- <footer>
-      <div class="background_footer">
-        <div class="row items">
-            <div class="col-md-6 animation_left">
-              <div class="animation_left">
-                <img :src="$api_url + global_info.logo" class="logo" />
-              </div>
-              <ul style="text-align: left">
-                <li>
-                  <p style="font-size: 18px">
-                    {{
-                      $t(
-                        "@Copyright2021 Troom: All Rights Reserved Developed by asient.net"
-                      )
-                    }}
-                  </p>
-                </li>
-              </ul>
-            </div>
-            <div class="col-md-6">
-              <ul style="text-align: center; padding-top: 10px">
-                <li>
-                  <a href="#"
-                    ><img src="..//assets/images/imagesicon1.png"
-                  /></a>
-                </li>
-                <li>
-                  <a href="#"
-                    ><img src="..//assets/images/imagesicon2.png"
-                  /></a>
-                </li>
-              </ul>
-              <ul class="icon">
-                <li v-if="footer.facebook != null">
-                  <a :href="footer.facebook">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li v-if="footer.youtube != null">
-                  <a :href="footer.youtube">
-                    <i class="fa fa-youtube"></i>
-                  </a>
-                </li>
-                <li v-if="footer.twitter != null">
-                  <a :href="footer.twitter">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li v-if="footer.whatsapp != null">
-                  <a :href="'https://api.whatsapp.com/send?phone='+footer.whatsapp">
-                    <i class="fa fa-whatsapp"></i>
-                  </a>
-                </li>
-                <li v-if="footer.instagram != null">
-                  <a :href="footer.instagram">
-                    <i class="fa fa-instagram"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-      </div>
-    </footer> -->
-
+    
     <div class="clearfix"></div>
 
     <div
@@ -719,35 +652,6 @@ export default {
       },
       classes: [],
       teachers: [],
-      sliderOptions: {
-        dots: true,
-        infinite: true,
-        speed: 300,
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        responsive: [
-          {
-            breakpoint: 768,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2,
-              infinite: true,
-              dots: false,
-              arrows: true,
-            },
-          },
-          {
-            breakpoint: 480,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1,
-              // infinite: true,
-              dots: false,
-              arrows: true,
-            },
-          },
-        ],
-      },
       placementtest: null,
       isModaleplacement: false,
       second_page: true,
@@ -1117,3 +1021,11 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+html:lang(ar) * {
+  .slick-list{
+    direction: ltr;
+  }
+}
+</style>
