@@ -1027,5 +1027,8 @@ html:lang(ar) * {
   .slick-list{
     direction: ltr;
   }
+  .slick-arrow{
+    direction: initial;
+  }
 }
 </style>
