@@ -2,7 +2,7 @@
   <div class="course_detiles">
     <!-- ============================================================== -->
     <header>
-      <img src="..//assets/images/background1.jpg" class="img" />
+      <img src="..//assets/images/background2.jpeg" class="img" />
       <div class="div_title">
         <h1>{{ courseDetails.name }}</h1>
         <p>{{ courseDetails.short_description }}</p>
