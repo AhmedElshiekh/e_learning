@@ -1,6 +1,7 @@
 <?php
 
 use App\Admin;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/home', function () {

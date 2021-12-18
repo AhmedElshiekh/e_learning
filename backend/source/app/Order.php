@@ -6,24 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    protected $fillable = [
-       'status', 'date', 'time','user_id','product_id','teacher_id'
-    ];
+    protected $guarded = [];
+    // protected $fillable = [
+    //     'status', 'date', 'time', 'user_id', 'course_id','total'
+    // ];
 
-//    public function products()
-//    {
-//        return $this->belongsToMany(Product::class,'order_products','order_id','product_id')->withPivot('price','product_variation_id','quantity');
-//    }
-    public function product()
+
+    public function course()
     {
-        return $this->belongsTo(Product::class,'product_id');
+        return $this->belongsTo(Course::class, 'course_id');
     }
+
     public function user()
     {
-        return $this->belongsTo(User::class,'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
-    public function teacher()
-    {
-        return $this->belongsTo(User::class,'teacher_id');
-    }
+    // public function teacher()
+    // {
+    //     return $this->belongsTo(User::class, 'teacher_id');
+    // }
 }

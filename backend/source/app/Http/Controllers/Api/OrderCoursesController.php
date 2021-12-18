@@ -64,7 +64,7 @@ class OrderCoursesController extends Controller
         $course = Course::find($id);
         $discount = $course->discountPrice != 0 ? $course->discountPrice : null;
         $price = $this->convertCurrency($discount ?? $course->price);
-        dd($price);
+        // dd($price);
 
         if (!$price or $course->free) :
             if ($course->type == 'recorded') :

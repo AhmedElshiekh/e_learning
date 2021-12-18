@@ -20,6 +20,7 @@ use App\Http\Controllers\Api\TeacherLessonsController;
 use App\Http\Controllers\Api\TeacherPageController;
 use App\Http\Controllers\Api\TeacherProfileController;
 use App\Http\Controllers\Api\InstructorsController;
+use App\Http\Controllers\Api\PayCourseController;
 use App\Http\Controllers\Api\ZoomMeetingController;
 use Illuminate\Support\Facades\Route;
 
@@ -61,9 +62,12 @@ Route::group(['middleware' => ['api', 'lang']], function ($router) {
     Route::post('/sendMessage', [ContactUsController::class, 'message']);
 
 
-    Route::get('/payment/{id}', [OrderCoursesController::class, 'payment']);
-    Route::get('/success', [OrderCoursesController::class, 'success'])->name('api.payment.success');
-    Route::get('/cancel', [OrderCoursesController::class, 'cancel'])->name('api.payment.cancel');
+    // Route::get('/payment/{id}', [OrderCoursesController::class, 'payment']);
+    // Route::get('/success', [OrderCoursesController::class, 'success'])->name('api.payment.success');
+    // Route::get('/cancel', [OrderCoursesController::class, 'cancel'])->name('api.payment.cancel');
+    Route::get('/payment/{id}', [PayCourseController::class, 'payment']);
+    Route::get('/transaction/response', [PayCourseController::class, 'response'])->name('response');
+    Route::post('/transaction/processed', [PayCourseController::class, 'processed'])->name('processed');
 
 
     Route::get('/courseDetails/{id}', [CourseController::class, 'show']);

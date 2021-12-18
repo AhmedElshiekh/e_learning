@@ -60,7 +60,7 @@ class Course extends Model
     }
     public function orders()
     {
-        return $this->hasMany(Order::class, 'course_id');
+        return $this->hasMany(Order::class);
     }
     public function questions()
     {
@@ -104,4 +104,5 @@ class Course extends Model
     {
         return $this->belongsToMany(User::class);
     }
+
 }

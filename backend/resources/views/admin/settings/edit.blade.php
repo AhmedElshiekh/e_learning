@@ -114,6 +114,84 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="text-center m-b">
+                                                <h3 class="m-b-0">{{__('Payment Setting')}}</h3>
+                                            </div>
+                                            <div class="form form-horizontal">
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label" for="form-control-1" >{{__('Payment Gareway')}}</label>
+                                                    <select id="form-control-1" name="payment_gateway" class="custom-select form-control" type="text">
+                                                        <option value="" {{ setting('general.payment_gateway') == null ? 'selected' : '' }}>{{__('none')}}</option>
+                                                        <option value="paymob" {{ setting('general.payment_gateway') == 'paymob' ? 'selected' : '' }}>{{__('Paymob')}}</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="form-group mb-0 pb-0">
+                                                    <h4>{{__('Auth Methods')}} <span style="font-size: .8em">{{__('( API Key | User Login )')}}</span></h4>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label" for="form-control-1" >{{__('API Key')}}</label>
+                                                    <input id="form-control-1" class="form-control" type="text" name="payment_api_key" value="{{setting('general.payment_api_key')}}">
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-6">
+                                                        <label class="col-sm-3 control-label" for="form-control-1">{{__('Merchant ID')}}</label>
+                                                        <input id="form-control-1" class="form-control" type="text" name="payment_merchant_id" value="{{setting('general.payment_merchant_id')}}">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label class="col-sm-3 control-label" for="form-control-1" >{{__('Iframe ID')}}</label>
+                                                        <input id="form-control-1" class="form-control" type="text" name="payment_iframe_id" value="{{setting('general.payment_iframe_id')}}">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label class="col-sm-3 control-label" for="form-control-1" >{{__('Integration ID')}}</label>
+                                                        <input id="form-control-1" class="form-control" name="payment_integration_id" type="text" value="{{setting('general.payment_integration_id')}}">
+                                                    </div>
+                                                    <div class="col-6 d-flex flex-row-reverse align-items-center">
+                                                        <i class="fas fa-lg fa-info-circle" id="info_integration_icon"></i>
+                                                    </div>
+                                                </div>
+                                                <div id='info_integration' class="row p-3 m-2" style="display:none; background:gainsboro" >
+                                                    <div>
+                                                        {{__('When you create (Integration) in ')}}
+                                                        <a href="https://accept.paymob.com/portal2/en/PaymentIntegrations" target="_blank">{{__('Paymob site')}}</a>
+                                                        {{__('you should add this')}}
+                                                    </div>
+                                                    <div class="note_div" id="proc" onclick="copyToClipboard('#proc_dev')">
+                                                        <strong>{{__('Transaction processed callback')}}</strong><br>
+                                                        <div >
+                                                            <span id="proc_dev">{{'api.troom.aisent/api/processed'}}</span>
+                                                            <i id="proc_copy" class="fas fa-copy d-flex flex-row-reverse align-items-baseline hidden"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="note_div" id="res" onclick="copyToClipboard('#res_dev')">
+                                                        <strong>{{__('Transaction response callback')}}</strong><br>
+                                                        <div class="" >
+                                                            {{-- <span id="res_dev">{{route('response')}}</span> --}}
+                                                            <span id="res_dev">{{'api.troom.aisent/api/response'}}</span>
+                                                            <i  id="res_copy" class="fas fa-copy d-flex flex-row-reverse align-items-baseline hidden"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group pt-4 mb-0 pb-0">
+                                                    <h5>{{__('It is better not to use this method')}}<span style="font-size: .8em">{{__('( Username | Password )')}}</span></h5>
+                                                </div>
+                                                <div class="row form-group">
+                                                    <div class="col-6">
+                                                        <label class="col-sm-3 control-label" for="form-control-1" >{{__('Username')}}</label>
+                                                        <input id="form-control-1" class="form-control" type="text" name="payment_username" value="{{setting('general.payment_username')}}">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label class="col-sm-3 control-label" for="form-control-1" >{{__('Password')}}</label>
+                                                        <input id="form-control-1" class="form-control" type="password" name="payment_password" value="{{setting('general.payment_password')}}">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="text-center m-b">
                                                 <h3 class="m-b-0">{{__('Social Media Info')}}</h3>
                                             </div>
                                             <div class="form form-horizontal">
@@ -222,6 +300,21 @@
             persist: false,
             createOnBlur: true,
             create: true
+        });
+
+        $('#info_integration_icon').click(function() {
+            $("#info_integration").toggle("slow");
+        });
+
+        $("#proc").hover(function() {
+            $('#proc_copy').removeClass('hidden');
+            }, function() {
+            $('#proc_copy').addClass('hidden');
+        });
+        $("#res").hover(function() {
+            $('#res_copy').removeClass('hidden');
+            }, function() {
+            $('#res_copy').addClass('hidden');
         });
     </script>
 @stop
