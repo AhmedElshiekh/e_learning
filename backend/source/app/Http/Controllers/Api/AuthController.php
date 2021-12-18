@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use App\Http\Traits\ApiResponseTrait;
+use App\Http\Traits\EmailVerifyTrait;
 use App\Http\Traits\TwilioTrait;
 use Twilio\Rest\Client;
 
@@ -19,7 +20,8 @@ class AuthController extends Controller
      * @return void
      */
     use ApiResponseTrait;
-    use TwilioTrait;
+    use EmailVerifyTrait;
+    // use TwilioTrait;
 
     public function __construct()
     {
@@ -58,7 +60,8 @@ class AuthController extends Controller
         $user->save();
 
         if($user):
-            $this->SendVerifyToken($request->phone, $user->id);
+            // $this->SendVerifyToken($request->phone, $user->id);
+            $this->SendVerifyToken($request->email, $user->id);
 
             // $credentials = ['phone' => $request->get('phone'), 'password'=>$request->get('password')];
             // $token = Auth::attempt($credentials);
