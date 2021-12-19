@@ -77,7 +77,7 @@
                       (showClasses = false),
                       (showPrivetClasses = true)
                   "
-                  ><i class="fa fa-users"></i>{{ $t("Privet Classes") }}</a
+                  ><i class="fa fa-users"></i>{{ $t("Private Classes") }}</a
                 >
               </li>
             </ul>
@@ -343,7 +343,7 @@
               <!-- /Row -->
             </div>
             <div class="dashboard_container_body p-4" v-if="showPrivetClasses">
-              <h5 style="font-size: 20px">{{ $t("Privet Classes") }}</h5>
+              <h5 style="font-size: 20px">{{ $t("Private Classes") }}</h5>
               <hr />
               <!-- Row -->
               <div class="row">
