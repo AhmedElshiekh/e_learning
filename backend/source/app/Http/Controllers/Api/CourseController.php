@@ -108,7 +108,8 @@ class CourseController extends Controller
             if ($lesson) :
                 // dd($prevChapterFinish);
                 $data = new LessonResourse($lesson);
-                $lessonStatus =  $user ? $user->lessons()->findOrFail($lesson->id, ['lesson_id'])->pivot->open ==true ??false : false;
+
+                $lessonStatus =  $user && $isOwner ? $user->lessons()->findOrFail($lesson->id, ['lesson_id'])->pivot->open == true ??false : false;
                 // dd($lessonStatus);
 
                 if ($lesson->questions->count() > 0) :

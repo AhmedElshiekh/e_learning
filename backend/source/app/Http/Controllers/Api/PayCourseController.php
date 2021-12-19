@@ -97,9 +97,9 @@ class PayCourseController extends Controller
                 return $this->takeLiveCourse($order->course_id, $order->user_id);
             endif;
 
-            return redirect()->to('http://troom.aisent/course_detiles/'.$order->course->id.'/'.$order->course->slug)->with('success', 'your payment done');
+            return redirect()->to('https://troom.ae/course_detiles/'.$order->course->id.'/'.$order->course->slug)->with('success', 'your payment done');
         else:
-            return redirect()->to('http://troom.aisent/course_detiles/'.$order->course->id.'/'.$order->course->slug)->with('error', 'Sorry, your request was not completed');
+            return redirect()->to('https://troom.ae/course_detiles/'.$order->course->id.'/'.$order->course->slug)->with('error', 'Sorry, your request was not completed');
             // return redirect('/')->with('error', 'Sorry, your request was not completed');
         endif;
 
