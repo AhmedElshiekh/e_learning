@@ -7,12 +7,8 @@
             <div class="d-user-avater">
               <div class="img_profile">
                 <img
-                  src="..//assets/images/user-3.png"
-                  v-if="profile_user.image == null"
-                />
-                <img
                   :src="$api_url + profile_user.image"
-                  v-if="profile_user.image != null"
+                  v-if="profile_user.image"
                 />
                 <img
                   v-if="!profile_user.image"

@@ -1319,12 +1319,29 @@ export default {
             code: code,
           })
           .then((response) => {
+            localStorage.setItem("token", response.data.data.access_token);
             console.warn(response);
             // console.log(response);
             this.showModal4 = false;
             this.showModal = false;
             this.signinbutton = false;
             this.profile_show = true;
+            this.profile = response;
+            this.$fire({
+              title: "Successed Login",
+              type: "success",
+            }).then(() => {
+              location.reload();
+            });
+          })
+          .catch((error) => {
+            if (error.response.data.data != null) {
+              this.showModal = false;
+              this.showModal4 = true;
+              this.user_key = error.response.data.data.user_key;
+            } else {
+              this.error = error.response.data.massage;
+            }
           });
       }
     },
