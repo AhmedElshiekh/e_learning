@@ -867,7 +867,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">PayPal</h5>
+            <!-- <h5 class="modal-title" id="exampleModalLabel">PayPal</h5> -->
             <button
               type="button"
               class="close"
@@ -883,7 +883,7 @@
               <iframe :src="srclink.link" frameborder="0"></iframe>
             </div>
           </div>
-          <div class="modal-footer">
+          <!-- <div class="modal-footer">
             <button
               type="button"
               class="btn btn-secondary"
@@ -891,7 +891,7 @@
             >
               {{ $t("Close") }}
             </button>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

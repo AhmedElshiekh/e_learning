@@ -1521,9 +1521,9 @@ footer .items ul .icon li:hover a {
   }
 }
 /* @media screen and (max-width: 1200px) { */
-  .img_slider {
-    max-height: 800px !important;
-  }
+.img_slider {
+  max-height: 800px !important;
+}
 /* } */
 
 .course_detiles header ul {
@@ -2556,21 +2556,21 @@ footer .items ul .icon li:hover a {
     100% { margin-top: 0px; opacity: 1; }
   } */
 #popup-paypal .modal-dialog {
-  margin-top: 10%;
-  max-width: 500px;
-  height: 100%;
+  margin-top: 12%;
+  /* max-width: 500px; */
+  /* height: 100%; */
 }
 #popup-paypal .modal-dialog .modal-body {
-  position: relative;
-  padding: 41px 15px;
+  /* position: relative; */
+  /* padding: 41px 15px; */
   text-align: center;
-  height: 613px;
+  height: 520px;
 }
 #popup-paypal {
-  position: absolute;
-  top: 0px;
-  margin: auto;
-  width: 100%;
+  /* position: absolute; */
+  /* top: 100px;  */
+  /* margin: auto; */
+  /* width: 100%; */
 }
 #popup-paypal iframe {
   height: 100%;
