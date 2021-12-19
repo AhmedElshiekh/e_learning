@@ -19,13 +19,13 @@ class CoursesResource extends JsonResource
                 'key'                   => $this->id,
                 'name'                  => $this->name,
                 'slug'                  => $this->slug,
-                'image'                 => $this->hasMedia('Course') ? $this->firstMedia('Course')->getUrl() : null,
+                'image'                 => $this->hasMedia('Course') ? $this->lastMedia('Course')->getUrl() : null,
                 'short_description'     => $this->sh_desc,
                 'price'                 => $this->price,
                 'level'                 => $this->level->name,
                 'discountPrice'         => $this->discountPrice,
                 'teachers'              => TeacherResource::collection($this->teachers),
-                // 'teacher_img'           => $this->teacher->hasMedia('userAvatar') ? $this->teacher->firstMedia('userAvatar')->getUrl():null
+                // 'teacher_img'           => $this->teacher->hasMedia('userAvatar') ? $this->teacher->lastMedia('userAvatar')->getUrl():null
             ];
         else :
             $data = null;

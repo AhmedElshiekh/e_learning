@@ -22,7 +22,7 @@ class StudentCoursesResource extends JsonResource
                 'key'                   => $this->id,
                 'name'                  => $this->name,
                 'slug'                  => $this->slug,
-                'image'                 => $this->hasMedia('Course') ? $this->firstMedia('Course')->getUrl() : null,
+                'image'                 => $this->hasMedia('Course') ? $this->lastMedia('Course')->getUrl() : null,
                 'short_description'     => $this->sh_desc,
                 'price'                 => $this->price,
                 'level'                 => $this->level->name,

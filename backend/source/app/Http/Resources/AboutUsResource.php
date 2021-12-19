@@ -18,7 +18,7 @@ class AboutUsResource extends JsonResource
             $data = [
                 'key'           => $this->id,
                 'name'          => $this->name,
-                'image'         => $this->hasMedia('about') ? $this->firstMedia('about')->getUrl():null,
+                'image'         => $this->hasMedia('about') ? $this->lastMedia('about')->getUrl():null,
                 'sh_desc'       => $this->sh_desc,
                 'full_desc'     => $this->description,
             ];

@@ -24,7 +24,7 @@ class CourseAllDataResource extends JsonResource
                 'category'              => $this->sub_cat_id,
                 'subCategory'           => $this->course_cat_id,
                 'slug'                  => $this->slug,
-                'image'                 => $this->hasMedia('Course') ? $this->firstMedia('Course')->getUrl() : null,
+                'image'                 => $this->hasMedia('Course') ? $this->lastMedia('Course')->getUrl() : null,
                 'discountPrice'         => $this->discountPrice,
                 'price'                 => $this->price,
                 'short_description'     => $this->sh_desc,

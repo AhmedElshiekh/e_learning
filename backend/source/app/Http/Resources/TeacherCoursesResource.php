@@ -20,7 +20,7 @@ class TeacherCoursesResource extends JsonResource
                 'name'                  => $this->title,
                 'subscripts'            => $this->students()->count(),
                 'slug'                  => $this->slug,
-                'image'                 => $this->hasMedia('Course') ? $this->firstMedia('Course')->getUrl() : null,
+                'image'                 => $this->hasMedia('Course') ? $this->lastMedia('Course')->getUrl() : null,
                 'short_description'     => $this->sh_desc,
                 'price'                 => $this->price,
                 'level'                 => $this->level->name,

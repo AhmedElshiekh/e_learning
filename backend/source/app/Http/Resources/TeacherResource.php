@@ -22,7 +22,7 @@ class TeacherResource extends JsonResource
                 'qualifications'    =>  $this->qualifications,
                 'whatsApp'          =>  $this->whatsApp,
                 'facebook'          =>  $this->facebook,
-                'image'             =>  $this->hasMedia('userAvatar') ? $this->firstMedia('userAvatar')->getUrl():null
+                'image'             =>  $this->hasMedia('userAvatar') ? $this->lastMedia('userAvatar')->getUrl():null
             ];
         else :
             $data = null;

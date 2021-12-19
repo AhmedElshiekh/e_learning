@@ -22,7 +22,7 @@ class CategoryToFilterResource extends JsonResource
                 'key'           => $this->id,
                 'name'          => $this->name,
                 'level'         => '1',
-                'image'         => $this->hasMedia('catCourse') ? $this->firstMedia('catCourse')->getUrl():null,
+                'image'         => $this->hasMedia('catCourse') ? $this->lastMedia('catCourse')->getUrl():null,
                 'subCategory'   => count($subCategory) > 0 ? CategoryLevelTwoResource::collection($subCategory) : null
             ];
         else :

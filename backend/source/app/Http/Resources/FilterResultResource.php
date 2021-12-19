@@ -20,7 +20,7 @@ class FilterResultResource extends JsonResource
                 'name'                  => $this->name,
                 'slug'                  => $this->slug,
                 'type'                  => $this->type,
-                'image'                 => $this->hasMedia('Course') ? $this->firstMedia('Course')->getUrl() : null,
+                'image'                 => $this->hasMedia('Course') ? $this->lastMedia('Course')->getUrl() : null,
                 'short_description'     => $this->sh_desc,
                 'level'                 => $this->level->name,
                 'price'                 => $this->price,

@@ -21,7 +21,7 @@ class TeachCourseLiveResource extends JsonResource
                 'slug'                  => $this->slug,
                 'price'                 => $this->price,
                 'level'                 => $this->level->name,
-                'discountPrice'         => $this->discountPrice,// 'teacher_img'           => $this->teacher->hasMedia('userAvatar') ? $this->teacher->firstMedia('userAvatar')->getUrl():null,
+                'discountPrice'         => $this->discountPrice,// 'teacher_img'           => $this->teacher->hasMedia('userAvatar') ? $this->teacher->lastMedia('userAvatar')->getUrl():null,
                 'category'              => $this->parentCategory->name.'/'.$this->categoryCourse->name,
             ];
         else :

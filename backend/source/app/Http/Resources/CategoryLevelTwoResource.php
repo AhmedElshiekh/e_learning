@@ -22,7 +22,7 @@ class CategoryLevelTwoResource extends JsonResource
                 'key'           => $this->id,
                 'name'          => $this->name,
                 'level'         => $this->level,
-                'image'         => $this->hasMedia('catCourse') ? $this->firstMedia('catCourse')->getUrl():null,
+                'image'         => $this->hasMedia('catCourse') ? $this->lastMedia('catCourse')->getUrl():null,
                 'endCategory'   => count($subCategory) > 0 ? CategoryLevelEndResource::collection($subCategory) : null
             ];
         else :

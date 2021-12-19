@@ -19,7 +19,7 @@ class CategoryCourseResource extends JsonResource
                 'key'           => $this->id,
                 'name'          => $this->name,
                 'slug'          => $this->slug,
-                'image'         => $this->hasMedia('catCourse') ? $this->firstMedia('catCourse')->getUrl():null,
+                'image'         => $this->hasMedia('catCourse') ? $this->lastMedia('catCourse')->getUrl():null,
                 'description'   => $this->desc,
             ];
         else :

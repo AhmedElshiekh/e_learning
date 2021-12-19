@@ -26,7 +26,7 @@ class CourseDetailsResource extends JsonResource
                 'category'              => CategoryCourse::find($this->sub_cat_id)->name,
                 'subCategory'           => CategoryCourse::find($this->course_cat_id)->name,
                 'slug'                  => $this->slug,
-                'image'                 => $this->hasMedia('Course') ? $this->firstMedia('Course')->getUrl() : null,
+                'image'                 => $this->hasMedia('Course') ? $this->lastMedia('Course')->getUrl() : null,
                 'discountPrice'         => $this->discountPrice,
                 'price'                 => $this->price,
                 'short_description'     => $this->sh_desc,

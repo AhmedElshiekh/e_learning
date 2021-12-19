@@ -24,7 +24,7 @@ class InstructorDetailsResource extends JsonResource
                 'qualifications'    =>  $this->qualifications,
                 'whatsApp'          =>  $this->whatsApp,
                 'facebook'          =>  $this->facebook,
-                'image'             =>  $this->hasMedia('userAvatar') ? $this->firstMedia('userAvatar')->getUrl():null,
+                'image'             =>  $this->hasMedia('userAvatar') ? $this->lastMedia('userAvatar')->getUrl():null,
                 'courses'           =>  CoursesResource::collection($this->coursesTeacher->where('type', 'recorded')),
                 'liveCourses'       =>  LiveCoursesResource::collection($this->coursesTeacher->where('type', 'live')),
             ];
