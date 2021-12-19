@@ -12,18 +12,18 @@ trait EmailVerifyTrait
 
     public function SendRequestClass($email)
     {
-        $client = new Client($this->sid, $this->token);
+        // $client = new Client($this->sid, $this->token);
 
 
-        $msg = $client->messages->create(
-            $email,
-            array(
-                "messagingServiceSid" =>  $this->messaging,
-                'body' => 'لقد تلقينا طلبك وسيتم التواصل معكم في اقرب وقت'
-            )
-        );
+        // $msg = $client->messages->create(
+        //     $email,
+        //     array(
+        //         "messagingServiceSid" =>  $this->messaging,
+        //         'body' => 'لقد تلقينا طلبك وسيتم التواصل معكم في اقرب وقت'
+        //     )
+        // );
 
-        return $msg;
+        // return $msg;
     }
 
 
@@ -36,7 +36,7 @@ trait EmailVerifyTrait
 
         $saveData = UserVerified::create([
             'user_id'       => $uid,
-            'phone'         => $email,
+            'email'         => $email,
             'code'          => $code,
         ]);
 

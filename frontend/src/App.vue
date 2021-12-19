@@ -761,7 +761,7 @@
             required
             v-model="code_number"
           />
-          <input type="submit" name="" value="$t('send')" />
+          <input type="submit" name="" :value="$t('log in')" />
         </form>
         <a href="#" @click="resendVerifyCode(user_key)">{{ $t("resend") }}</a>
       </div>
@@ -1336,11 +1336,15 @@ export default {
           console.warn(response);
           // console.log(response);
           this.showModal4 = false;
-          this.profile_show = true;
           this.$fire({
-            title: "has been sent",
-            type: "success",
-          });
+            position: 'top-end',
+            type: 'success',
+            title: 'code send',
+            showConfirmButton: false,
+            timer: 1500
+          },
+            this.showModal4 = true
+          )
         })
         .catch((error) => {
           console.warn(error);

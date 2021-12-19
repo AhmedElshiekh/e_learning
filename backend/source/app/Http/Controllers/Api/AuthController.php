@@ -140,7 +140,7 @@ class AuthController extends Controller
         endif;
 
         $user = User::find($uid);
-        $check = $this->CheckVerifyToken($user->phone, $request->code);
+        $check = $this->CheckVerifyToken($user->email, $request->code);
 
         if($check):
             $user->verified = true;
