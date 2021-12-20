@@ -82,7 +82,7 @@ class PayCourseController extends Controller
 
 
     public function response(Request $request){
-        
+
         list($paymentStatus , $orderId) = $this->processedCallback($request);
 
         $order = Order::find($orderId - 1000);
@@ -92,9 +92,9 @@ class PayCourseController extends Controller
             $this->createVoucher($order->course_id, $order->user_id, $order->total);
 
             if (Course::find($order->course_id)->type == 'recorded') :
-                return $this->takeCourse($order->course_id, $order->user_id);
+                $this->takeCourse($order->course_id, $order->user_id);
             elseif (Course::find($order->course_id)->type == 'live') :
-                return $this->takeLiveCourse($order->course_id, $order->user_id);
+                $this->takeLiveCourse($order->course_id, $order->user_id);
             endif;
 
             return redirect()->to(env('APP_URL').'/course_detiles/'.$order->course->id.'/'.$order->course->slug)->with('success', 'your payment done');
@@ -116,9 +116,9 @@ class PayCourseController extends Controller
             $this->createVoucher($order->course_id, $order->user_id, $order->total);
 
             if (Course::find($order->course_id)->type == 'recorded') :
-                return $this->takeCourse($order->course_id, $order->user_id);
+                $this->takeCourse($order->course_id, $order->user_id);
             elseif (Course::find($order->course_id)->type == 'live') :
-                return $this->takeLiveCourse($order->course_id, $order->user_id);
+                $this->takeLiveCourse($order->course_id, $order->user_id);
             endif;
 
             return redirect()->to(env('APP_URL').'/course_detiles/'.$order->course->id.'/'.$order->course->slug)->with('success', 'your payment done');
@@ -147,10 +147,10 @@ class PayCourseController extends Controller
         // $fChapter = $user->chapters()->where('course_id', $course_id)->first();
         // $user->chapters()->updateExistingPivot($fChapter, array('open' => true), false);
 
-        if ($user) :
-            // return $this->apiResponse(null, 200, 'payment success');
-            return redirect('/');
-        endif;
+        // if ($user) :
+        //     // return $this->apiResponse(null, 200, 'payment success');
+        //     return redirect('/');
+        // endif;
     }
 
 
@@ -172,10 +172,10 @@ class PayCourseController extends Controller
         // $fClass = $classes->first();
         // $user->classes()->updateExistingPivot($fClass, array('open' => true), false);
 
-        if ($user) :
-            // return $this->apiResponse(null, 200, 'payment success');
-            return redirect('/');
-        endif;
+        // if ($user) :
+        //     // return $this->apiResponse(null, 200, 'payment success');
+        //     return redirect('/');
+        // endif;
     }
 
 
