@@ -82,7 +82,7 @@ class PayCourseController extends Controller
 
 
     public function response(Request $request){
-
+        
         list($paymentStatus , $orderId) = $this->processedCallback($request);
 
         $order = Order::find($orderId - 1000);
@@ -97,9 +97,9 @@ class PayCourseController extends Controller
                 return $this->takeLiveCourse($order->course_id, $order->user_id);
             endif;
 
-            return redirect()->to('https://troom.ae/course_detiles/'.$order->course->id.'/'.$order->course->slug)->with('success', 'your payment done');
+            return redirect()->to(env('APP_URL').'/course_detiles/'.$order->course->id.'/'.$order->course->slug)->with('success', 'your payment done');
         else:
-            return redirect()->to('https://troom.ae/course_detiles/'.$order->course->id.'/'.$order->course->slug)->with('error', 'Sorry, your request was not completed');
+            return redirect()->to(env('APP_URL').'/course_detiles/'.$order->course->id.'/'.$order->course->slug)->with('error', 'Sorry, your request was not completed');
             // return redirect('/')->with('error', 'Sorry, your request was not completed');
         endif;
 
@@ -109,10 +109,9 @@ class PayCourseController extends Controller
     public function processed(Request $request){
 
        list($paymentStatus , $orderId) = $this->processedCallback($request);
+       $order = Order::find($orderId - 1000);
 
-
-        if ($paymentStatus == 'succeeded') :
-            $order = Order::find($orderId - 1000);
+       if ($paymentStatus == 'succeeded') :
 
             $this->createVoucher($order->course_id, $order->user_id, $order->total);
 
@@ -121,9 +120,11 @@ class PayCourseController extends Controller
             elseif (Course::find($order->course_id)->type == 'live') :
                 return $this->takeLiveCourse($order->course_id, $order->user_id);
             endif;
-        //     return redirect('/')->with('success', 'Order Created successfully');
-        // else:
-        //     return redirect('/')->with('error', 'Sorry, your request was not completed');
+
+            return redirect()->to(env('APP_URL').'/course_detiles/'.$order->course->id.'/'.$order->course->slug)->with('success', 'your payment done');
+        else:
+            return redirect()->to(env('APP_URL').'/course_detiles/'.$order->course->id.'/'.$order->course->slug)->with('error', 'Sorry, your request was not completed');
+            // return redirect('/')->with('error', 'Sorry, your request was not completed');
         endif;
 
     }
