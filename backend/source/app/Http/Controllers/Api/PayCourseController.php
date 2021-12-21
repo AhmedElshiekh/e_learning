@@ -32,7 +32,7 @@ class PayCourseController extends Controller
         $user = Auth::user();
         $course = Course::find($id);
         $discount = $course->discountPrice != 0 ? $course->discountPrice : null;
-        $price = $this->convertCurrency($discount ?? $course->price);
+        $price = $this->exchangeCurrency($discount ?? $course->price);
 
         $order = new Order;
         $order->course_id = $id;
@@ -80,6 +80,28 @@ class PayCourseController extends Controller
         return $endPrice;
     }
 
+    public function exchangeCurrency($price)
+    {
+        $apikey = 'd1ded944220ca6b0c442';
+
+        $from_Currency = 'AED';
+        $to_Currency = 'EGP';
+        $query =  "{$from_Currency}_{$to_Currency}";
+
+        // change to the free URL if you're using the free version
+        $json = file_get_contents("http://free.currencyconverterapi.com/api/v5/convert?q={$query}&compact=y&apiKey={$apikey}");
+
+        $obj = json_decode($json, true);
+
+        $val = $obj["$query"];
+
+        $total = $val['val'] * $price;
+
+        $endPrice = (float)number_format($total, 2, '.', '');
+
+        return $endPrice;
+    }
+
 
     public function response(Request $request){
 
@@ -97,9 +119,9 @@ class PayCourseController extends Controller
                 $this->takeLiveCourse($order->course_id, $order->user_id);
             endif;
 
-            return redirect()->to(env('APP_URL').'/course_detiles/'.$order->course->id.'/'.$order->course->slug)->with('success', 'your payment done');
+            return redirect()->away(env('APP_URL').'/course_detiles/'.$order->course->id.'/'.$order->course->slug)->with('success', 'your payment done');
         else:
-            return redirect()->to(env('APP_URL').'/course_detiles/'.$order->course->id.'/'.$order->course->slug)->with('error', 'Sorry, your request was not completed');
+            return redirect()->away(env('APP_URL').'/course_detiles/'.$order->course->id.'/'.$order->course->slug)->with('error', 'Sorry, your request was not completed');
             // return redirect('/')->with('error', 'Sorry, your request was not completed');
         endif;
 
@@ -121,9 +143,9 @@ class PayCourseController extends Controller
                 $this->takeLiveCourse($order->course_id, $order->user_id);
             endif;
 
-            return redirect()->to(env('APP_URL').'/course_detiles/'.$order->course->id.'/'.$order->course->slug)->with('success', 'your payment done');
+            return redirect()->away(env('APP_URL').'/course_detiles/'.$order->course->id.'/'.$order->course->slug)->with('success', 'your payment done');
         else:
-            return redirect()->to(env('APP_URL').'/course_detiles/'.$order->course->id.'/'.$order->course->slug)->with('error', 'Sorry, your request was not completed');
+            return redirect()->away(env('APP_URL').'/course_detiles/'.$order->course->id.'/'.$order->course->slug)->with('error', 'Sorry, your request was not completed');
             // return redirect('/')->with('error', 'Sorry, your request was not completed');
         endif;
 
