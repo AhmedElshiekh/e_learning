@@ -83,11 +83,11 @@
                 <div class="card-head-row card-tools-still-right">
                     <h4 class="card-title">{{__('Lessons')}}</h4>
                 </div>
-                @if ($chapter->course->students->count() == 0)
+                {{-- @if ($chapter->course->students->count() == 0) --}}
                 <a type="button" class="btn btn-primary float-right" href="{{route('admin.course.lesson.create',$chapter->id)}}">
                     Add Lesson
                 </a>
-                @endif
+                {{-- @endif --}}
             </div>
             <div class="card-body">
                 <div class="row">

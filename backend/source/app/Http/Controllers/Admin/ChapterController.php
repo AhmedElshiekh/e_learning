@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Course;
 use App\Models\Chapter;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Question;
+use PHPUnit\Framework\Constraint\Count;
 
 class ChapterController extends Controller
 {
@@ -58,6 +60,14 @@ class ChapterController extends Controller
 
         $chapter->save();
         //        dd($lesson);
+
+        $course = Course::find($request->course_id);
+
+        if ($course->students->count() > 0):
+            foreach ($course->students as $user):
+                $user->chapters()->attach($chapter);
+            endforeach;
+        endif;
 
         return redirect()->route('admin.courses.show', $request->course_id)->with('success', 'Chapter Added Successfully');
     }

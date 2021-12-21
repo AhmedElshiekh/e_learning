@@ -75,6 +75,14 @@ class LessonsController extends Controller
         $lesson->save();
         //        dd($lesson);
 
+        $course = Course::find($request->course_id);
+
+        if ($course->students->count() > 0):
+            foreach ($course->students as $user):
+                $user->lessons()->attach($lesson);
+            endforeach;
+        endif;
+
         return redirect()->route('admin.chapter.show', $request->chapter_id)->with('success', 'Lesson Added Successfully');
     }
 

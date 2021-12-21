@@ -31,9 +31,9 @@
                 <div class="card-head-row card-tools-still-right">
                     <h4 class="card-title">{{__('Chapters/Unit')}}</h4>
                 </div>
-                @if ($course->students->count() == 0)
+                {{-- @if ($course->students->count() == 0) --}}
                     <a type="" style="color: #fff" class="btn btn-primary float-right" data-toggle="modal" data-target="#productCategory">{{__('Add Chapter')}}</a>
-                @endif
+                {{-- @endif --}}
             </div>
             <div class="card-body">
                 <div class="row">
