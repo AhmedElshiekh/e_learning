@@ -97,12 +97,12 @@
                     </ul>
                   </div>
                   <p class="education_ratting" v-if="item.discountPrice != 0">
-                    AED {{ item.discountPrice }}
-                    <span class="education_ratting2"> AED {{ item.price }} </span>
+                    {{currency}} {{ item.discountPrice }}
+                    <span class="education_ratting2"> {{currency}} {{ item.price }} </span>
                   </p>
 
                   <p class="education_ratting" v-if="item.discountPrice == 0">
-                    AED {{ item.price }}
+                    {{currency}} {{ item.price }}
                   </p>
                 </router-link>
               </div>
@@ -223,6 +223,7 @@ export default {
   },
   data: function () {
     return {
+      currency: this.$currency,
       pageOfItems: [],
       courses: [],
 

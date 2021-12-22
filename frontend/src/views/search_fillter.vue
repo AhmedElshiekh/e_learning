@@ -46,19 +46,19 @@
 
                     <div class="cources_price">
                       <span v-if="item.discountPrice != null"
-                        >AED {{ item.discountPrice }}
+                        >{{currency}} {{ item.discountPrice }}
                       </span>
                       <div
                         class="less_offer"
                         style="color: green"
                         v-if="item.discountPrice != null"
                       >
-                        AED {{ item.price }}
+                        {{currency}} {{ item.price }}
                       </div>
                       <span
                         class="cources_price"
                         v-if="item.discountPrice == null"
-                        >AED {{ item.price }}</span
+                        >{{currency}} {{ item.price }}</span
                       >
                     </div>
 
@@ -195,6 +195,7 @@ export default {
   },
   data: function () {
     return {
+      currency: this.$currency,
       pageOfItems: [],
       classes: [],
     };

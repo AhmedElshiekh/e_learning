@@ -28,8 +28,8 @@
                   courseDetails.discountPrice != null
                 "
               >
-                <span>AED {{ courseDetails.discountPrice }}</span>
-                <p>AED {{ courseDetails.price }}</p>
+                <span>{{currency}} {{ courseDetails.discountPrice }}</span>
+                <p>{{currency}} {{ courseDetails.price }}</p>
               </li>
               <li
                 v-if="
@@ -39,7 +39,7 @@
                     courseDetails.discountPrice == null)
                 "
               >
-                AED {{ courseDetails.price }}
+                {{currency}} {{ courseDetails.price }}
               </li>
               <li>
                 <a class="btn" @click="checkBuy(courseDetails.key)">{{
@@ -906,6 +906,7 @@ export default {
   components: { VueCountdown },
   data: function () {
     return {
+      currency: this.$currency,
       key: "1",
       courseDetails: null,
       lessonShow: {

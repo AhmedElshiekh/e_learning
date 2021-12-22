@@ -27,8 +27,8 @@
                   classDetails.discountPrice != null
                 "
               >
-                <span>AED {{ classDetails.discountPrice }}</span>
-                <p>AED {{ classDetails.price }}</p>
+                <span>{{currency}} {{ classDetails.discountPrice }}</span>
+                <p>{{currency}} {{ classDetails.price }}</p>
               </li>
               <li
                 v-if="
@@ -36,7 +36,7 @@
                   classDetails.discountPrice == null
                 "
               >
-                AED {{ classDetails.price }}
+                {{currency}} {{ classDetails.price }}
               </li>
               <li v-if="classDetails.owner == false">
                 <a class="btn" @click="checkBuy(classDetails.key)">{{
@@ -258,6 +258,7 @@ export default {
   // components: { PaypalPage },
   data: function () {
     return {
+      currency: this.$currency,
       key: "1",
       classDetails: null,
       owner_find: true,

@@ -198,14 +198,14 @@
                     </ul>
                   </div>
                   <p class="education_ratting" v-if="course.discountPrice != 0">
-                    AED {{ course.discountPrice }}
+                    {{currency}} {{ course.discountPrice }}
                     <span class="education_ratting2">
-                      AED {{ course.price }}
+                      {{currency}} {{ course.price }}
                     </span>
                   </p>
 
                   <p class="education_ratting" v-if="course.discountPrice == 0">
-                    AED {{ course.price }}
+                    {{currency}} {{ course.price }}
                   </p>
                 </router-link>
               </div>
@@ -283,19 +283,19 @@
                 <p>{{ classe.short_description }}</p>
                 <div class="cources_price">
                   <span v-if="classe.discountPrice != null"
-                    >AED {{ classe.discountPrice }}
+                    >{{currency}} {{ classe.discountPrice }}
                   </span>
                   <div
                     class="less_offer"
                     style="color: green"
                     v-if="classe.discountPrice != null"
                   >
-                    AED {{ classe.price }}
+                    {{currency}} {{ classe.price }}
                   </div>
                   <span
                     class="cources_price"
                     v-if="classe.discountPrice == null"
-                    >AED {{ classe.price }}</span
+                    >{{currency}} {{ classe.price }}</span
                   >
                 </div>
 
@@ -624,6 +624,7 @@ export default {
   components: { Slick, VueCountdown },
   data: function () {
     return {
+      currency: this.$currency,
       register: {
         name: null,
         email: null,
