@@ -32,7 +32,9 @@ class PayCourseController extends Controller
         $user = Auth::user();
         $course = Course::find($id);
         $discount = $course->discountPrice != 0 ? $course->discountPrice : null;
-        $price = $this->exchangeCurrency($discount ?? $course->price);
+
+        // $price = $this->exchangeCurrency($discount ?? $course->price); //if used converter remove comment
+        $price = $discount ?? $course->price; //remove this line when used converter
 
         $order = new Order;
         $order->course_id = $id;
@@ -40,14 +42,14 @@ class PayCourseController extends Controller
         $order->total     = $price;
         $order->save();
 
-        if ( $order->payment_id != null && $order->payment_key != null) {
+        if ($order->payment_id != null && $order->payment_key != null) {
             $payment_key = $order->payment_key;
             $payment_id = $order->payment_id;
-        }else{
-            list($payment_key , $payment_id) = $this->checkingOut($order->id + 1000);
+        } else {
+            list($payment_key, $payment_id) = $this->checkingOut($order->id + 1000);
         }
 
-        $paymentLink = 'https://accept.paymobsolutions.com/api/acceptance/iframes/'. setting("general.payment_iframe_id").'?payment_token='.$payment_key;
+        $paymentLink = 'https://accept.paymobsolutions.com/api/acceptance/iframes/' . setting("general.payment_iframe_id") . '?payment_token=' . $payment_key;
 
         if ($paymentLink) :
             $data = ['link' => $paymentLink];
@@ -103,9 +105,10 @@ class PayCourseController extends Controller
     }
 
 
-    public function response(Request $request){
+    public function response(Request $request)
+    {
 
-        list($paymentStatus , $orderId) = $this->processedCallback($request);
+        list($paymentStatus, $orderId) = $this->processedCallback($request);
 
         $order = Order::find($orderId - 1000);
         // dd($request);
@@ -119,21 +122,21 @@ class PayCourseController extends Controller
                 $this->takeLiveCourse($order->course_id, $order->user_id);
             endif;
 
-            return redirect()->away(env('APP_URL').'/course_detiles/'.$order->course->id.'/'.$order->course->slug)->with('success', 'your payment done');
-        else:
-            return redirect()->away(env('APP_URL').'/course_detiles/'.$order->course->id.'/'.$order->course->slug)->with('error', 'Sorry, your request was not completed');
-            // return redirect('/')->with('error', 'Sorry, your request was not completed');
+            return redirect()->away(env('APP_URL') . '/course_detiles/' . $order->course->id . '/' . $order->course->slug)->with('success', 'your payment done');
+        else :
+            return redirect()->away(env('APP_URL') . '/course_detiles/' . $order->course->id . '/' . $order->course->slug)->with('error', 'Sorry, your request was not completed');
+        // return redirect('/')->with('error', 'Sorry, your request was not completed');
         endif;
-
     }
 
 
-    public function processed(Request $request){
+    public function processed(Request $request)
+    {
 
-       list($paymentStatus , $orderId) = $this->processedCallback($request);
-       $order = Order::find($orderId - 1000);
+        list($paymentStatus, $orderId) = $this->processedCallback($request);
+        $order = Order::find($orderId - 1000);
 
-       if ($paymentStatus == 'succeeded') :
+        if ($paymentStatus == 'succeeded') :
 
             $this->createVoucher($order->course_id, $order->user_id, $order->total);
 
@@ -143,12 +146,11 @@ class PayCourseController extends Controller
                 $this->takeLiveCourse($order->course_id, $order->user_id);
             endif;
 
-            return redirect()->away(env('APP_URL').'/course_detiles/'.$order->course->id.'/'.$order->course->slug)->with('success', 'your payment done');
-        else:
-            return redirect()->away(env('APP_URL').'/course_detiles/'.$order->course->id.'/'.$order->course->slug)->with('error', 'Sorry, your request was not completed');
-            // return redirect('/')->with('error', 'Sorry, your request was not completed');
+            return redirect()->away(env('APP_URL') . '/course_detiles/' . $order->course->id . '/' . $order->course->slug)->with('success', 'your payment done');
+        else :
+            return redirect()->away(env('APP_URL') . '/course_detiles/' . $order->course->id . '/' . $order->course->slug)->with('error', 'Sorry, your request was not completed');
+        // return redirect('/')->with('error', 'Sorry, your request was not completed');
         endif;
-
     }
 
 
@@ -213,7 +215,4 @@ class PayCourseController extends Controller
             'user_id' => $user->id,
         ]);
     }
-
-
-
 }
