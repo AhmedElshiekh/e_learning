@@ -33,8 +33,8 @@ class PayCourseController extends Controller
         $course = Course::find($id);
         $discount = $course->discountPrice != 0 ? $course->discountPrice : null;
 
-        // $price = $this->exchangeCurrency($discount ?? $course->price); //if used converter remove comment
-        $price = $discount ?? $course->price; //remove this line when used converter
+        $price = $this->exchangeCurrency($discount ?? $course->price); //if used converter remove comment
+        // $price = $discount ?? $course->price; //remove this line when used converter
 
         $order = new Order;
         $order->course_id = $id;

@@ -43,7 +43,7 @@ Vue.use(
 
 // Vue.prototype.$api_url = "http://api.troom.aisent/";
 Vue.prototype.$api_url = "https://api.troom.ae/";
-Vue.prototype.$currency = "EGP";
+Vue.prototype.$currency = "AED";
 
 require("bootstrap");
 const lang = localStorage.getItem("lang") || "ar";
