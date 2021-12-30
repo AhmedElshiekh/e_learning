@@ -113,7 +113,7 @@ class CourseController extends Controller
                 // dd($lessonStatus);
 
                 if ($lesson->questions->count() > 0) :
-                    // $user ? $user->lessons()->updateExistingPivot($lesson, array('open' => true), false) : null;
+                    $user ? $user->lessons()->updateExistingPivot($lesson, array('open' => true), false) : null;
                     $isQuestion = true;
                 else :
                     $user ? $user->lessons()->updateExistingPivot($lesson, array('open' => true), false) : null;
