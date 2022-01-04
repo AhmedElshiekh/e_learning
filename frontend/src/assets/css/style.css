@@ -1918,6 +1918,7 @@ footer .items ul .icon li:hover a {
   cursor: pointer;
 }
 .lessons .lectures_lists .material {
+  color: #f8951d;
 }
 .lessons .lectures_lists .material button {
   margin-right: 5px;
