@@ -1601,12 +1601,12 @@ export default {
         .get(
           this.$api_url + 
           "api/downloadMaterial/" +
-          this.lessonShow.key
+          this.lessonShow.key,
+          {responseType: 'arraybuffer'}
         )
         .then((response) => {
-          console.log(response);
-          const blob = new Blob([response.data])
-          const link = document.createElement('a')
+          var blob = new Blob([response.data])
+          var link = document.createElement('a')
           link.href = window.URL.createObjectURL(blob)
           link.download = this.lessonShow.material.replace('lessons/', '')
           link.click()
