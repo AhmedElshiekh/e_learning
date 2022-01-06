@@ -1598,22 +1598,20 @@ export default {
 
     downloadWithVueResource() {
       axios
-        .get(this.$api_url + "uploads/" + this.lessonShow.material, {
-          responseType: "blob",
-        })
+        .get(
+          this.$api_url + 
+          "api/downloadMaterial/" +
+          this.lessonShow.key
+        )
         .then((response) => {
-          const blob = new Blob([response.data], {
-            type: "application/png/jpg",
-          });
-          const link = document.createElement("a");
-          link.href = URL.createObjectURL(blob);
-          link.download = this.$api_url + "uploads/" + this.lessonShow.material;
-          link.click();
-          URL.revokeObjectURL(link.href);
+          console.log(response);
+          const blob = new Blob([response.data])
+          const link = document.createElement('a')
+          link.href = window.URL.createObjectURL(blob)
+          link.download = this.lessonShow.material.replace('lessons/', '')
+          link.click()
         })
-        .catch
-        // console.error
-        ();
+        .catch();
     },
     hideTeacherName(teacherKey) {
       var id = "teacherName_" + teacherKey;

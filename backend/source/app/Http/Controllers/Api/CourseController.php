@@ -154,4 +154,22 @@ class CourseController extends Controller
         // if all failed return error 404
         return $this->apiResponse($lesson, 400, 'Error, Get Data');
     }
+
+
+    public function downloadMaterial($id)
+    {
+        $lesson = Lesson::find($id);
+        // dd($lesson);
+
+        $file = public_path('uploads') . '/'. $lesson->material ;
+        $name = str_replace('lessons/','',$lesson->material) ;
+
+        $finfo = new \finfo(FILEINFO_MIME_TYPE);
+
+        $headers = [
+            'Content-Type' => $finfo->file($file),
+        ];
+
+        return response()->download($file, $name, $headers);
+    }
 }

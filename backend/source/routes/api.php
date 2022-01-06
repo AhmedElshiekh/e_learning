@@ -72,6 +72,7 @@ Route::group(['middleware' => ['api', 'lang']], function ($router) {
 
     Route::get('/courseDetails/{id}', [CourseController::class, 'show']);
     Route::get('/lessonShow/{id}', [CourseController::class, 'lessonShow']);
+    Route::get('/downloadMaterial/{id}', [CourseController::class, 'downloadMaterial']);
 
     Route::get('/liveCourseDetails/{id}', [LiveCourseController::class, 'show']);
 
@@ -133,3 +134,4 @@ Route::group(['middleware' => ['api', 'lang']], function ($router) {
         Route::get('/courseFromTeacher/{tech}', [TeacherCoursesController::class, 'index']);
     });
 });
+
